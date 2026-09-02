@@ -1,11 +1,13 @@
 import { useState, useEffect } from "react";
 import { Link, useNavigate, useLocation } from "react-router";
-import { Search, Menu, X, Heart, Shield } from "lucide-react";
+import { Search, Menu, X, Heart, Shield, Bookmark, User } from "lucide-react";
+import { useAuth } from "@/hooks/use-auth";
 
 const NAV_ITEMS = [
   { label: "Home", href: "/" },
   { label: "Campaigns", href: "/campaigns" },
   { label: "Health Topics", href: "/topics" },
+  { label: "Symptoms", href: "/symptoms" },
   { label: "Prevention", href: "/prevention" },
   { label: "Lifestyle", href: "/lifestyle" },
   { label: "Calendar", href: "/calendar" },
@@ -20,6 +22,7 @@ export default function Header() {
   const [searchQuery, setSearchQuery] = useState("");
   const navigate = useNavigate();
   const location = useLocation();
+  const { isAuthenticated } = useAuth();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10);
@@ -97,19 +100,39 @@ export default function Header() {
               <Search className="h-5 w-5" />
             </button>
 
-            <Link
-              to="/auth"
-              className="hidden sm:inline-flex items-center px-3.5 py-1.5 rounded-md text-sm font-medium text-[oklch(0.32_0.08_255)] hover:bg-[oklch(0.32_0.08_255_/_0.06)] transition-colors"
-            >
-              Log in
-            </Link>
-
-            <Link
-              to="/auth?mode=register"
-              className="hidden sm:inline-flex items-center px-3.5 py-1.5 rounded-lg bg-[oklch(0.32_0.08_255)] text-white text-sm font-medium hover:bg-[oklch(0.28_0.08_255)] transition-colors"
-            >
-              Register
-            </Link>
+            {isAuthenticated ? (
+              <>
+                <Link
+                  to="/bookmarks"
+                  className="hidden sm:inline-flex items-center gap-1 px-2.5 py-1.5 rounded-md text-sm font-medium text-[oklch(0.4_0.02_250)] hover:bg-[oklch(0.32_0.08_255_/_0.06)] hover:text-[oklch(0.32_0.08_255)] transition-colors"
+                  title="Bookmarks"
+                >
+                  <Bookmark className="h-4 w-4" />
+                </Link>
+                <Link
+                  to="/dashboard"
+                  className="hidden sm:inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-[oklch(0.32_0.08_255)] text-white text-sm font-medium hover:bg-[oklch(0.28_0.08_255)] transition-colors"
+                >
+                  <User className="h-4 w-4" />
+                  Profile
+                </Link>
+              </>
+            ) : (
+              <>
+                <Link
+                  to="/auth"
+                  className="hidden sm:inline-flex items-center px-3.5 py-1.5 rounded-md text-sm font-medium text-[oklch(0.32_0.08_255)] hover:bg-[oklch(0.32_0.08_255_/_0.06)] transition-colors"
+                >
+                  Log in
+                </Link>
+                <Link
+                  to="/auth?mode=register"
+                  className="hidden sm:inline-flex items-center px-3.5 py-1.5 rounded-lg bg-[oklch(0.32_0.08_255)] text-white text-sm font-medium hover:bg-[oklch(0.28_0.08_255)] transition-colors"
+                >
+                  Register
+                </Link>
+              </>
+            )}
 
             {/* Mobile menu toggle */}
             <button
@@ -160,18 +183,37 @@ export default function Header() {
               </Link>
             ))}
             <div className="flex gap-2 pt-2 border-t border-[oklch(0.92_0.01_240)] mt-2">
-              <Link
-                to="/auth"
-                className="flex-1 text-center py-2.5 rounded-lg border border-[oklch(0.32_0.08_255_/_0.2)] text-[oklch(0.32_0.08_255)] text-sm font-medium"
-              >
-                Log in
-              </Link>
-              <Link
-                to="/auth?mode=register"
-                className="flex-1 text-center py-2.5 rounded-lg bg-[oklch(0.32_0.08_255)] text-white text-sm font-medium"
-              >
-                Register
-              </Link>
+              {isAuthenticated ? (
+                <>
+                  <Link
+                    to="/bookmarks"
+                    className="flex-1 text-center py-2.5 rounded-lg border border-[oklch(0.32_0.08_255_/_0.2)] text-[oklch(0.32_0.08_255)] text-sm font-medium"
+                  >
+                    Bookmarks
+                  </Link>
+                  <Link
+                    to="/dashboard"
+                    className="flex-1 text-center py-2.5 rounded-lg bg-[oklch(0.32_0.08_255)] text-white text-sm font-medium"
+                  >
+                    Profile
+                  </Link>
+                </>
+              ) : (
+                <>
+                  <Link
+                    to="/auth"
+                    className="flex-1 text-center py-2.5 rounded-lg border border-[oklch(0.32_0.08_255_/_0.2)] text-[oklch(0.32_0.08_255)] text-sm font-medium"
+                  >
+                    Log in
+                  </Link>
+                  <Link
+                    to="/auth?mode=register"
+                    className="flex-1 text-center py-2.5 rounded-lg bg-[oklch(0.32_0.08_255)] text-white text-sm font-medium"
+                  >
+                    Register
+                  </Link>
+                </>
+              )}
             </div>
           </nav>
         </div>

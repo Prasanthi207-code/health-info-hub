@@ -25,7 +25,7 @@ const QUICK_ACCESS = [
   { title: "Health Topics", desc: "Learn about common health conditions and health concerns.", icon: Stethoscope, href: "/topics", color: "oklch(0.55 0.15 255)" },
   { title: "Prevention", desc: "Discover practical ways to reduce health risks.", icon: ShieldCheck, href: "/prevention", color: "oklch(0.5 0.12 180)" },
   { title: "Healthy Lifestyle", desc: "Learn about nutrition, exercise, sleep and wellbeing.", icon: Apple, href: "/lifestyle", color: "oklch(0.5 0.12 150)" },
-  { title: "Symptoms Guide", desc: "Understand common symptoms and warning signs.", icon: AlertTriangle, href: "/topics", color: "oklch(0.55 0.12 45)" },
+  { title: "Symptoms Guide", desc: "Understand common symptoms and warning signs.", icon: AlertTriangle, href: "/symptoms", color: "oklch(0.55 0.12 45)" },
   { title: "Health Campaigns", desc: "Explore awareness campaigns and public-health initiatives.", icon: Megaphone, href: "/campaigns", color: "oklch(0.5 0.1 210)" },
   { title: "Emergency Awareness", desc: "Learn when urgent professional medical attention may be needed.", icon: Shield, href: "/emergency", color: "oklch(0.55 0.15 25)" },
 ];

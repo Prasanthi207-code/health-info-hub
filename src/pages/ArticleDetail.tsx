@@ -1,6 +1,7 @@
 import { useParams, Link } from "react-router";
 import { motion } from "framer-motion";
-import { ArrowLeft, Clock, User, Calendar, CheckCircle2, BookOpen } from "lucide-react";
+import { ArrowLeft, Clock, User, Calendar, CheckCircle2, BookOpen, Bookmark, BookmarkCheck } from "lucide-react";
+import { useBookmarks } from "@/hooks/use-bookmarks";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { ARTICLES, DISCLAIMER } from "@/data";
@@ -8,6 +9,7 @@ import { ARTICLES, DISCLAIMER } from "@/data";
 export default function ArticleDetail() {
   const { id } = useParams();
   const article = ARTICLES.find((a) => a.id === id);
+  const { isBookmarked, toggleBookmark } = useBookmarks();
 
   if (!article) {
     return (
@@ -47,9 +49,22 @@ export default function ArticleDetail() {
         </div>
 
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
-          <Link to="/articles" className="inline-flex items-center gap-1 text-sm text-[oklch(0.32_0.08_255)] mb-6 hover:underline">
-            <ArrowLeft className="h-4 w-4" /> Back to Articles
-          </Link>
+          <div className="flex items-center justify-between mb-6">
+            <Link to="/articles" className="inline-flex items-center gap-1 text-sm text-[oklch(0.32_0.08_255)] hover:underline">
+              <ArrowLeft className="h-4 w-4" /> Back to Articles
+            </Link>
+            <button
+              onClick={() => toggleBookmark("article", article.id)}
+              className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium transition-colors ${
+                isBookmarked("article", article.id)
+                  ? "bg-[oklch(0.32_0.08_255_/_0.1)] text-[oklch(0.32_0.08_255)]"
+                  : "border border-[oklch(0.88_0.01_240)] text-[oklch(0.5_0.02_250)] hover:border-[oklch(0.32_0.08_255_/_0.3)] hover:text-[oklch(0.32_0.08_255)]"
+              }`}
+            >
+              {isBookmarked("article", article.id) ? <BookmarkCheck className="h-4 w-4" /> : <Bookmark className="h-4 w-4" />}
+              {isBookmarked("article", article.id) ? "Bookmarked" : "Bookmark"}
+            </button>
+          </div>
 
           {/* Meta */}
           <div className="flex flex-wrap items-center gap-4 text-sm text-[oklch(0.5_0.02_250)] mb-8">

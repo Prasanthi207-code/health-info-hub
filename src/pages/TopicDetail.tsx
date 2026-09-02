@@ -1,6 +1,7 @@
 import { useParams, Link } from "react-router";
 import { motion } from "framer-motion";
-import { ArrowLeft, AlertTriangle, ShieldCheck, Activity, Clock, BookOpen, ExternalLink, Calendar } from "lucide-react";
+import { ArrowLeft, AlertTriangle, ShieldCheck, Activity, Clock, BookOpen, ExternalLink, Calendar, Bookmark, BookmarkCheck } from "lucide-react";
+import { useBookmarks } from "@/hooks/use-bookmarks";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { HEALTH_TOPICS, TOPIC_CATEGORIES, DISCLAIMER } from "@/data";
@@ -8,6 +9,7 @@ import { HEALTH_TOPICS, TOPIC_CATEGORIES, DISCLAIMER } from "@/data";
 export default function TopicDetail() {
   const { id } = useParams();
   const topic = HEALTH_TOPICS.find((t) => t.id === id);
+  const { isBookmarked, toggleBookmark } = useBookmarks();
 
   if (!topic) {
     return (
@@ -47,9 +49,22 @@ export default function TopicDetail() {
         </div>
 
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
-          <Link to="/topics" className="inline-flex items-center gap-1 text-sm text-[oklch(0.32_0.08_255)] mb-6 hover:underline">
-            <ArrowLeft className="h-4 w-4" /> Back to Topics
-          </Link>
+          <div className="flex items-center justify-between mb-6">
+            <Link to="/topics" className="inline-flex items-center gap-1 text-sm text-[oklch(0.32_0.08_255)] hover:underline">
+              <ArrowLeft className="h-4 w-4" /> Back to Topics
+            </Link>
+            <button
+              onClick={() => toggleBookmark("topic", topic.id)}
+              className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium transition-colors ${
+                isBookmarked("topic", topic.id)
+                  ? "bg-[oklch(0.32_0.08_255_/_0.1)] text-[oklch(0.32_0.08_255)]"
+                  : "border border-[oklch(0.88_0.01_240)] text-[oklch(0.5_0.02_250)] hover:border-[oklch(0.32_0.08_255_/_0.3)] hover:text-[oklch(0.32_0.08_255)]"
+              }`}
+            >
+              {isBookmarked("topic", topic.id) ? <BookmarkCheck className="h-4 w-4" /> : <Bookmark className="h-4 w-4" />}
+              {isBookmarked("topic", topic.id) ? "Bookmarked" : "Bookmark"}
+            </button>
+          </div>
 
           {/* Overview */}
           <motion.section initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mb-10">

@@ -1,6 +1,7 @@
 import { useParams, Link } from "react-router";
 import { motion } from "framer-motion";
-import { ArrowLeft, ArrowRight, Share2, Calendar, ShieldCheck, Target, AlertTriangle, TrendingUp, BookOpen } from "lucide-react";
+import { ArrowLeft, ArrowRight, Share2, Calendar, ShieldCheck, Target, AlertTriangle, TrendingUp, BookOpen, Bookmark, BookmarkCheck } from "lucide-react";
+import { useBookmarks } from "@/hooks/use-bookmarks";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { CAMPAIGNS, ARTICLES, DISCLAIMER } from "@/data";
@@ -18,6 +19,7 @@ const BADGE: Record<string, string> = {
 export default function CampaignDetail() {
   const { id } = useParams();
   const campaign = CAMPAIGNS.find((c) => c.id === id);
+  const { isBookmarked, toggleBookmark } = useBookmarks();
 
   if (!campaign) {
     return (
@@ -88,13 +90,19 @@ export default function CampaignDetail() {
             className="rounded-xl bg-gradient-to-r from-[oklch(0.32_0.08_255)] to-[oklch(0.38_0.1_210)] p-6 sm:p-8 text-white mb-10"
           >
             <p className="text-lg font-semibold">Learn. Share. Take Action.</p>
-            <p className="text-white/70 text-sm mt-1 mb-4">Spread awareness and make a difference in your community.</p>
-            <div className="flex gap-3">
+            <p className="text-white/70 text-sm mt-1 mb-4">Spread awareness and make a difference in your community.</p>              <div className="flex gap-3">
               <button
                 onClick={() => { if (navigator.share) navigator.share({ title: campaign.title, text: shareText }); else navigator.clipboard.writeText(shareText); }}
                 className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white text-[oklch(0.32_0.08_255)] text-sm font-medium hover:bg-white/90 transition-colors"
               >
                 <Share2 className="h-4 w-4" /> Share Campaign
+              </button>
+              <button
+                onClick={() => toggleBookmark("campaign", campaign.id)}
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white/15 backdrop-blur-sm text-white text-sm font-medium border border-white/20 hover:bg-white/25 transition-colors"
+              >
+                {isBookmarked("campaign", campaign.id) ? <BookmarkCheck className="h-4 w-4" /> : <Bookmark className="h-4 w-4" />}
+                {isBookmarked("campaign", campaign.id) ? "Bookmarked" : "Bookmark"}
               </button>
             </div>
           </motion.div>
