@@ -1,21 +1,26 @@
 import { useState, useEffect } from "react";
 import { Link, useNavigate, useLocation } from "react-router";
-import { Search, Menu, X, Shield, Bookmark, LogOut, User } from "lucide-react";
+import { Search, Menu, X, Shield, Bookmark, LogOut, User, Globe } from "lucide-react";
 import { useUser } from "@/hooks/use-user";
+import { useTranslation } from "@/i18n/LanguageContext";
 
-const NAV_ITEMS = [
-  { label: "Home", href: "/" },
-  { label: "Campaigns", href: "/campaigns" },
-  { label: "Health Topics", href: "/topics" },
-  { label: "Symptoms", href: "/symptoms" },
-  { label: "Prevention", href: "/prevention" },
-  { label: "Lifestyle", href: "/lifestyle" },
-  { label: "Calendar", href: "/calendar" },
-  { label: "Articles", href: "/articles" },
-  { label: "Emergency", href: "/emergency" },
-];
+function useNavItems() {
+  const { t } = useTranslation();
+  return [
+    { label: t("home"), href: "/" },
+    { label: t("campaigns"), href: "/campaigns" },
+    { label: t("healthTopics"), href: "/topics" },
+    { label: t("symptoms"), href: "/symptoms" },
+    { label: t("prevention"), href: "/prevention" },
+    { label: t("lifestyle"), href: "/lifestyle" },
+    { label: t("calendar"), href: "/calendar" },
+    { label: t("articles"), href: "/articles" },
+    { label: t("emergency"), href: "/emergency" },
+  ];
+}
 
 export default function Header() {
+  const NAV_ITEMS = useNavItems();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
@@ -24,6 +29,8 @@ export default function Header() {
   const navigate = useNavigate();
   const location = useLocation();
   const { user, isAuthenticated, logout } = useUser();
+  const { t, language, setLanguage, languages } = useTranslation();
+  const [langOpen, setLangOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10);
@@ -92,7 +99,36 @@ export default function Header() {
           </nav>
 
           {/* Right side */}
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1">
+            {/* Language switcher */}
+            <div className="relative">
+              <button
+                onClick={() => setLangOpen(!langOpen)}
+                className="p-2 rounded-md text-[oklch(0.45_0.03_250)] hover:bg-[oklch(0.32_0.08_255_/_0.06)] hover:text-[oklch(0.32_0.08_255)] transition-colors text-xs font-medium"
+                title="Language"
+              >
+                <Globe className="h-5 w-5" />
+              </button>
+              {langOpen && (
+                <div className="absolute right-0 top-full mt-2 w-44 rounded-xl border border-[oklch(0.9_0.01_240)] bg-white shadow-lg py-1 z-50">
+                  {languages.map((lang) => (
+                    <button
+                      key={lang.code}
+                      onClick={() => { setLanguage(lang.code); setLangOpen(false); }}
+                      className={`w-full flex items-center gap-2 px-3 py-2 text-sm transition-colors ${
+                        language === lang.code
+                          ? "bg-[oklch(0.32_0.08_255_/_0.06)] text-[oklch(0.32_0.08_255)] font-medium"
+                          : "text-[oklch(0.4_0.02_250)] hover:bg-[oklch(0.97_0.003_250)]"
+                      }`}
+                    >
+                      <span>{lang.flag}</span>
+                      <span>{lang.nativeName}</span>
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+
             {/* Search toggle */}
             <button
               onClick={() => setSearchOpen(!searchOpen)}
@@ -158,13 +194,13 @@ export default function Header() {
                   to="/login"
                   className="hidden sm:inline-flex items-center px-3.5 py-1.5 rounded-md text-sm font-medium text-[oklch(0.32_0.08_255)] hover:bg-[oklch(0.32_0.08_255_/_0.06)] transition-colors"
                 >
-                  Sign in
+                  {t("signIn")}
                 </Link>
                 <Link
                   to="/register"
                   className="hidden sm:inline-flex items-center px-3.5 py-1.5 rounded-lg bg-[oklch(0.32_0.08_255)] text-white text-sm font-medium hover:bg-[oklch(0.28_0.08_255)] transition-colors"
                 >
-                  Register
+                  {t("register")}
                 </Link>
               </>
             )}
@@ -228,13 +264,12 @@ export default function Header() {
                     </div>
                   </div>
                   <Link to="/dashboard" className="block px-3 py-2.5 rounded-md text-sm font-medium text-[oklch(0.4_0.02_250)] hover:bg-[oklch(0.32_0.08_255_/_0.04)]">My Profile</Link>
-                  <Link to="/bookmarks" className="block px-3 py-2.5 rounded-md text-sm font-medium text-[oklch(0.4_0.02_250)] hover:bg-[oklch(0.32_0.08_255_/_0.04)]">Bookmarks</Link>
-                  <button onClick={() => { logout(); navigate("/"); }} className="block w-full text-left px-3 py-2.5 rounded-md text-sm font-medium text-red-600 hover:bg-red-50">Sign out</button>
+                  <Link to="/bookmarks" className="block px-3 py-2.5 rounded-md text-sm font-medium text-[oklch(0.4_0.02_250)] hover:bg-[oklch(0.32_0.08_255_/_0.04)]">Bookmarks</Link>                        <button onClick={() => { logout(); navigate("/"); }} className="block w-full text-left px-3 py-2.5 rounded-md text-sm font-medium text-red-600 hover:bg-red-50">{t("signOut")}</button>
                 </div>
               ) : (
                 <div className="flex gap-2">
-                  <Link to="/login" className="flex-1 text-center py-2.5 rounded-lg border border-[oklch(0.32_0.08_255_/_0.2)] text-[oklch(0.32_0.08_255)] text-sm font-medium">Sign in</Link>
-                  <Link to="/register" className="flex-1 text-center py-2.5 rounded-lg bg-[oklch(0.32_0.08_255)] text-white text-sm font-medium">Register</Link>
+                  <Link to="/login" className="flex-1 text-center py-2.5 rounded-lg border border-[oklch(0.32_0.08_255_/_0.2)] text-[oklch(0.32_0.08_255)] text-sm font-medium">{t("signIn")}</Link>
+                  <Link to="/register" className="flex-1 text-center py-2.5 rounded-lg bg-[oklch(0.32_0.08_255)] text-white text-sm font-medium">{t("register")}</Link>
                 </div>
               )}
             </div>

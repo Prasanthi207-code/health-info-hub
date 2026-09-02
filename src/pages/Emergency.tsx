@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router";
-import { AlertTriangle, Phone, Heart, Droplet, Wind, Thermometer, Brain, Bone, Eye, ArrowRight } from "lucide-react";
+import { AlertTriangle, Phone, Heart, Droplet, Wind, Thermometer, Brain, Bone, Eye, ArrowRight, MapPin, Navigation, Clock } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { DISCLAIMER } from "@/data";
@@ -283,6 +283,71 @@ export default function Emergency() {
                       </li>
                     ))}
                   </ol>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Find Nearest Doctors */}
+        <section className="py-12 lg:py-16">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <motion.div
+              className="text-center mb-10"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              <h2 className="text-2xl sm:text-3xl font-bold text-[oklch(0.18_0.03_255)]">
+                Find Nearest Doctors
+              </h2>
+              <p className="mt-2 text-[oklch(0.5_0.02_250)] max-w-lg mx-auto">
+                Locate healthcare facilities near you for your health concern.
+              </p>
+            </motion.div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {[
+                { name: "City General Hospital", type: "Hospital", distance: "1.2", phone: "+1 (555) 100-2000", hours: "24/7 Emergency", services: ["Emergency Care", "Cardiology", "Neurology"] },
+                { name: "HealthFirst Medical Center", type: "Medical Center", distance: "2.5", phone: "+1 (555) 200-3000", hours: "Mon-Sun 6AM-10PM", services: ["General Medicine", "Pediatrics", "Dermatology"] },
+                { name: "QuickCare Urgent Clinic", type: "Urgent Care", distance: "0.8", phone: "+1 (555) 300-4000", hours: "Mon-Sat 8AM-8PM", services: ["Urgent Care", "X-Ray", "Lab Tests"] },
+                { name: "HeartCare Specialists", type: "Specialist Clinic", distance: "3.1", phone: "+1 (555) 400-5000", hours: "Mon-Fri 9AM-5PM", services: ["Cardiology", "ECG", "Stress Test"] },
+                { name: "MindWell Mental Health", type: "Mental Health Clinic", distance: "1.8", phone: "+1 (555) 500-6000", hours: "Mon-Sun 8AM-9PM", services: ["Psychiatry", "Counseling", "Therapy"] },
+                { name: "Community Health Center", type: "Community Clinic", distance: "0.5", phone: "+1 (555) 600-7000", hours: "Mon-Sat 7AM-7PM", services: ["Primary Care", "Vaccinations", "Health Screenings"] },
+              ].map((facility, i) => (
+                <motion.div
+                  key={facility.name}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.06 }}
+                  className="rounded-xl border border-[oklch(0.9_0.01_240)] bg-white p-5 hover:shadow-md transition-shadow"
+                >
+                  <div className="flex items-start justify-between mb-3">
+                    <div>
+                      <h3 className="text-sm font-semibold text-[oklch(0.2_0.03_255)]">{facility.name}</h3>
+                      <span className="text-[10px] font-medium text-[oklch(0.32_0.08_255)] uppercase tracking-wider">{facility.type}</span>
+                    </div>
+                    <div className="flex items-center gap-1 px-2 py-1 rounded-full bg-blue-50">
+                      <Navigation className="h-3 w-3 text-blue-600" />
+                      <span className="text-[10px] font-bold text-blue-700">{facility.distance} km</span>
+                    </div>
+                  </div>
+                  <div className="space-y-2 mb-3">
+                    <div className="flex items-center gap-2 text-xs text-[oklch(0.5_0.02_250)]">
+                      <Phone className="h-3 w-3 shrink-0" /> {facility.phone}
+                    </div>
+                    <div className="flex items-center gap-2 text-xs text-[oklch(0.5_0.02_250)]">
+                      <Clock className="h-3 w-3 shrink-0" /> {facility.hours}
+                    </div>
+                  </div>
+                  <div className="flex flex-wrap gap-1">
+                    {facility.services.map((s) => (
+                      <span key={s} className="px-2 py-0.5 rounded text-[10px] font-medium bg-[oklch(0.97_0.003_250)] text-[oklch(0.4_0.02_250)] border border-[oklch(0.92_0.01_240)]">
+                        {s}
+                      </span>
+                    ))}
+                  </div>
                 </motion.div>
               ))}
             </div>

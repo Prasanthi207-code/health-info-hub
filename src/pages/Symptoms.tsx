@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Search, ArrowRight, AlertTriangle, Heart, Droplet, Brain, Wind, Activity, Thermometer, Eye, Bone, Smile, Baby, ShieldCheck } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import HealthCamera from "@/components/HealthCamera";
 import { HEALTH_TOPICS, DISCLAIMER } from "@/data";
 
 const BODY_SYSTEMS = [
@@ -79,6 +80,16 @@ export default function Symptoms() {
                 Learn to recognize common symptoms and understand when they may require medical attention. Early awareness can lead to early intervention.
               </p>
             </motion.div>
+          </div>
+        </section>
+
+        {/* Camera Health Check */}
+        <section className="border-b border-[oklch(0.92_0.01_240)] bg-white">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-3">
+            <div className="flex items-center gap-3">
+              <HealthCamera />
+              <p className="text-xs text-[oklch(0.5_0.02_250)]">Take a photo of a skin condition or visible health issue and get AI-powered guidance</p>
+            </div>
           </div>
         </section>
 

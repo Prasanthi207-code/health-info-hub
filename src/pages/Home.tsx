@@ -9,7 +9,9 @@ import {
 } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import HealthCamera from "@/components/HealthCamera";
 import { CAMPAIGNS, HEALTH_TOPICS, ARTICLES, HEALTH_TIPS, AWARENESS_EVENTS, DISCLAIMER } from "@/data";
+import { useTranslation } from "@/i18n/LanguageContext";
 
 const fadeUp = {
   initial: { opacity: 0, y: 24 },
@@ -57,6 +59,7 @@ export default function Landing() {
   const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState("");
   const dailyTip = HEALTH_TIPS[new Date().getDate() % HEALTH_TIPS.length];
+  const { t } = useTranslation();
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
@@ -78,69 +81,110 @@ export default function Landing() {
           }} />
 
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-28 relative">
-            <div className="max-w-3xl">
-              <motion.div {...fadeUp}>
-                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 backdrop-blur-sm text-xs font-medium text-white/80 mb-6">
-                  <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=40&h=40&fit=crop&crop=face" alt="Doctor" className="h-5 w-5 rounded-full object-cover" />
-                  Trusted Health Information Platform
-                </div>
-              </motion.div>
+            <div className="grid lg:grid-cols-2 gap-10 items-center">
+              {/* Text Content */}
+              <div className="max-w-xl">
+                <motion.div {...fadeUp}>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 backdrop-blur-sm text-xs font-medium text-white/80 mb-6">
+                    <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=40&h=40&fit=crop&crop=face" alt="Doctor" className="h-5 w-5 rounded-full object-cover" />
+                    Trusted Health Information Platform
+                  </div>
+                </motion.div>
 
-              <motion.h1
-                className="text-3xl sm:text-4xl lg:text-5xl xl:text-[3.4rem] font-bold tracking-tight leading-[1.12] mb-5"
-                {...fadeUp}
-                transition={{ duration: 0.5, delay: 0.1 }}
-              >
-                Better Health Starts With Better Information.
-              </motion.h1>
+                <motion.h1
+                  className="text-3xl sm:text-4xl lg:text-5xl xl:text-[3.2rem] font-bold tracking-tight leading-[1.12] mb-5"
+                  {...fadeUp}
+                  transition={{ duration: 0.5, delay: 0.1 }}
+                >
+                  {t("heroTitle")}
+                </motion.h1>
 
-              <motion.p
-                className="text-base sm:text-lg text-white/70 max-w-xl leading-relaxed mb-8"
-                {...fadeUp}
-                transition={{ duration: 0.5, delay: 0.2 }}
-              >
-                Discover health awareness campaigns, trusted health information, prevention guidance and healthy lifestyle resources — all in one place.
-              </motion.p>
+                <motion.p
+                  className="text-base sm:text-lg text-white/70 leading-relaxed mb-8"
+                  {...fadeUp}
+                  transition={{ duration: 0.5, delay: 0.2 }}
+                >
+                  {t("heroSubtitle")}
+                </motion.p>
 
-              {/* Search bar */}
-              <motion.form
-                onSubmit={handleSearch}
-                className="max-w-xl mb-8"
-                {...fadeUp}
-                transition={{ duration: 0.5, delay: 0.3 }}
+                {/* Search bar */}
+                <motion.form
+                  onSubmit={handleSearch}
+                  className="max-w-xl mb-8"
+                  {...fadeUp}
+                  transition={{ duration: 0.5, delay: 0.3 }}
+                >
+                  <div className="relative">
+                    <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-[oklch(0.45_0.03_250)]" />
+                    <input
+                      type="text"
+                      value={searchQuery}
+                      onChange={(e) => setSearchQuery(e.target.value)}
+                      placeholder={t("heroSearch")}
+                      className="w-full rounded-xl border-0 bg-white py-3.5 pl-12 pr-4 text-sm text-[oklch(0.2_0.02_250)] placeholder:text-[oklch(0.55_0.02_250)] shadow-lg focus:ring-2 focus:ring-white/30 outline-none transition-all"
+                    />
+                  </div>
+                </motion.form>
+
+                {/* CTA Buttons */}
+                <motion.div
+                  className="flex flex-wrap gap-3"
+                  {...fadeUp}
+                  transition={{ duration: 0.5, delay: 0.4 }}
+                >
+                  <Link
+                    to="/topics"
+                    className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white text-[oklch(0.32_0.08_255)] text-sm font-semibold hover:bg-white/90 transition-colors shadow-lg"
+                  >
+                    {t("exploreTopics")}
+                    <ArrowRight className="h-4 w-4" />
+                  </Link>
+                  <Link
+                    to="/campaigns"
+                    className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white/10 backdrop-blur-sm text-white text-sm font-semibold border border-white/20 hover:bg-white/20 transition-colors"
+                  >
+                    {t("exploreCampaigns")}
+                    <ArrowRight className="h-4 w-4" />
+                  </Link>
+                </motion.div>
+              </div>
+
+              {/* Doctor Image */}
+              <motion.div
+                className="hidden lg:block"
+                initial={{ opacity: 0, x: 40, scale: 0.95 }}
+                animate={{ opacity: 1, x: 0, scale: 1 }}
+                transition={{ duration: 0.7, delay: 0.2 }}
               >
                 <div className="relative">
-                  <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-[oklch(0.45_0.03_250)]" />
-                  <input
-                    type="text"
-                    value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
-                    placeholder="Search health information..."
-                    className="w-full rounded-xl border-0 bg-white py-3.5 pl-12 pr-4 text-sm text-[oklch(0.2_0.02_250)] placeholder:text-[oklch(0.55_0.02_250)] shadow-lg focus:ring-2 focus:ring-white/30 outline-none transition-all"
+                  <div className="absolute inset-0 bg-white/5 rounded-3xl -m-3" />
+                  <img
+                    src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=600&h=500&fit=crop&crop=face"
+                    alt="Healthcare professional"
+                    className="relative rounded-2xl w-full h-[380px] object-cover shadow-2xl border-2 border-white/10"
                   />
+                  {/* Floating stat cards */}
+                  <motion.div
+                    className="absolute -left-4 bottom-12 bg-white rounded-xl px-4 py-3 shadow-xl"
+                    animate={{ y: [0, -8, 0] }}
+                    transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                  >
+                    <div className="flex items-center gap-2">
+                      <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-green-50"><Heart className="h-4 w-4 text-green-600" /></div>
+                      <div><p className="text-xs font-bold text-[oklch(0.2_0.03_255)]">12+ Topics</p><p className="text-[10px] text-[oklch(0.5_0.02_250)]">Trusted Info</p></div>
+                    </div>
+                  </motion.div>
+                  <motion.div
+                    className="absolute -right-2 top-8 bg-white rounded-xl px-4 py-3 shadow-xl"
+                    animate={{ y: [0, -6, 0] }}
+                    transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+                  >
+                    <div className="flex items-center gap-2">
+                      <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-50"><Shield className="h-4 w-4 text-blue-600" /></div>
+                      <div><p className="text-xs font-bold text-[oklch(0.2_0.03_255)]">AI Assistant</p><p className="text-[10px] text-[oklch(0.5_0.02_250)]">24/7 Help</p></div>
+                    </div>
+                  </motion.div>
                 </div>
-              </motion.form>
-
-              {/* CTA Buttons */}
-              <motion.div
-                className="flex flex-wrap gap-3"
-                {...fadeUp}
-                transition={{ duration: 0.5, delay: 0.4 }}
-              >
-                <Link
-                  to="/topics"
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white text-[oklch(0.32_0.08_255)] text-sm font-semibold hover:bg-white/90 transition-colors shadow-lg"
-                >
-                  Explore Health Topics
-                  <ArrowRight className="h-4 w-4" />
-                </Link>
-                <Link
-                  to="/campaigns"
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white/10 backdrop-blur-sm text-white text-sm font-semibold border border-white/20 hover:bg-white/20 transition-colors"
-                >
-                  Explore Campaigns
-                  <ArrowRight className="h-4 w-4" />
-                </Link>
               </motion.div>
             </div>
           </div>
