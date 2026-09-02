@@ -127,6 +127,17 @@ function RouteSyncer() {
   return null;
 }
 
+/** Scroll to top whenever the route changes */
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+  }, [pathname]);
+  return null;
+}
+
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -138,6 +149,7 @@ createRoot(document.getElementById("root")!).render(
           <LanguageSelector />
           <HealthAIChat />
           <BrowserRouter>
+          <ScrollToTop />
           <RouteSyncer />
           <Suspense fallback={<RouteLoading />}>
             <Routes>
