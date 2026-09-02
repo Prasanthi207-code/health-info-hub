@@ -1,4 +1,4 @@
-import { useState, useRef, useCallback } from "react";
+import { useState, useRef, useCallback, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Camera, X, Zap, RotateCcw, Shield, AlertTriangle } from "lucide-react";
 import { useTranslation } from "@/i18n/LanguageContext";
@@ -35,6 +35,15 @@ export default function HealthCamera() {
   const streamRef = useRef<MediaStream | null>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const { t } = useTranslation();
+
+  useEffect(() => {
+    if (open) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => { document.body.style.overflow = ""; };
+  }, [open]);
 
   const startCamera = useCallback(async () => {
     try {
