@@ -12,64 +12,67 @@ interface Message {
 
 const AI_RESPONSES: Record<string, string[]> = {
   heart: [
-    "Heart health tips:\n\n- Walk 30 min daily\n- Eat fruits, veggies & nuts\n- Check BP regularly\n- No smoking\n- Manage stress\n\nWarning: Chest pain or arm pain? Call emergency right away!",
+    "Great question! Here is what you need to know about heart health:\n\nThe most important things you can do are stay active, eat well, and manage stress. A simple 30-minute walk every day can make a huge difference for your heart.\n\nTry to include more fruits, vegetables, whole grains, and nuts in your diet. These foods help keep your arteries clean and blood flowing well.\n\nAlso, check your blood pressure regularly. High blood pressure has no symptoms but can cause serious damage over time. And if you smoke, quitting is the single best thing you can do for your heart.\n\nIf you ever feel chest pain, shortness of breath, or pain going to your arm or jaw, please seek emergency help right away.",
   ],
   diabetes: [
-    "To prevent diabetes:\n\n- Maintain healthy weight\n- Exercise 30 min/day\n- Cut sugary drinks\n- Get blood sugar checked yearly\n\nWatch for: Too much thirst, frequent urination, blurred vision.",
+    "Good question! Diabetes is very common, but the good news is it can often be prevented or managed well.\n\nThe key is maintaining a healthy weight and staying active. Even losing a small amount of weight can make a big difference. Try to move your body for at least 30 minutes most days.\n\nWatch your sugar intake, especially sugary drinks and processed foods. These cause blood sugar spikes that can lead to problems over time.\n\nSome signs to watch for are feeling unusually thirsty, going to the bathroom often, unexplained weight loss, or blurred vision. If you notice these, it is a good idea to get your blood sugar checked.\n\nRegular screenings are important because catching it early gives you the best chance of managing it well.",
   ],
   cancer: [
-    "50% of cancers are preventable:\n\n- No tobacco\n- Use sunscreen\n- Eat more fruits & veggies\n- Limit alcohol\n- Get screenings done\n\nEarly detection = best protection.",
+    "This is an important topic. The empowering thing is that up to 50% of cancers are preventable through lifestyle choices.\n\nThe biggest thing you can do is avoid tobacco in all its forms. It is the single largest preventable cause of cancer. Also, protect your skin from too much sun by using sunscreen and wearing protective clothing.\n\nEating plenty of fruits and vegetables, maintaining a healthy weight, limiting alcohol, and staying physically active all help reduce your risk.\n\nGetting your recommended screenings done on time is crucial. Cancers caught early are much easier to treat successfully.\n\nKnow the warning signs like unexplained lumps, unusual bleeding, or persistent changes, and do not hesitate to see a doctor about them.",
   ],
   mental: [
-    "Take care of your mind:\n\n- Meditate 5 min daily\n- Talk to someone you trust\n- Exercise regularly\n- Sleep well\n- It is okay to ask for help\n\nYou are not alone.",
+    "I am glad you asked about this. Mental health is just as important as physical health.\n\nTaking care of your mind is not selfish, it is necessary. Simple things like meditating for even 5 minutes a day, talking to someone you trust, or spending time in nature can make a real difference.\n\nExercise is one of the best natural remedies for mental health. Even a short walk can boost your mood significantly.\n\nSleep is also crucial. When we do not sleep well, everything feels harder and our emotions become harder to manage.\n\nIf you are feeling overwhelmed, anxious, or depressed, please know that reaching out for help is a sign of strength. There are people who care and professionals who can help you feel better.",
   ],
   diet: [
-    "Healthy eating made simple:\n\n- Half plate = fruits & veggies\n- Choose whole grains\n- Drink 8 glasses of water\n- Cut sugar below 25g/day\n- Cook at home more\n\nTip: Eat the rainbow - colorful plates are healthiest!",
+    "Nutrition does not have to be complicated. Here is the simple truth about eating well.\n\nFill half your plate with fruits and vegetables. Choose whole grains like brown rice and whole wheat over refined ones. Go for lean proteins like fish, chicken, beans, and lentils.\n\nInclude healthy fats from olive oil, nuts, and avocado. These are actually good for you and help your body absorb vitamins.\n\nTry to drink about 8 glasses of water a day and cut back on added sugar. The recommended limit is less than 25 grams per day, which is about 6 teaspoons.\n\nCook at home when you can because you control what goes into your food. And remember, the best diet is one you can stick with long term.",
   ],
   sleep: [
-    "Sleep better tonight:\n\n- Fixed bedtime daily\n- No screens 30 min before bed\n- No caffeine after 2 PM\n- Cool dark room\n- Try 4-7-8 breathing\n\nNeed 7-9 hours every night.",
+    "Sleep is one of the most important things for your health. Adults need 7 to 9 hours every night.\n\nThe best tips are to stick to a consistent bedtime, even on weekends. Your body loves routine. Put your screens away about 30 minutes before bed because the blue light from phones and computers tricks your brain into thinking it is still daytime.\n\nAvoid caffeine after 2 PM and keep your bedroom cool, dark, and quiet.\n\nA great trick is the 4-7-8 breathing technique. Breathe in for 4 seconds, hold for 7, then exhale for 8. It genuinely helps you fall asleep faster.\n\nIf you have been struggling with sleep for a while, it is worth talking to your doctor about it.",
   ],
   exercise: [
-    "Stay active, stay healthy:\n\n- 150 min/week moderate activity\n- 2 strength sessions/week\n- Best options: walking, swimming, yoga\n- Even 10 min counts!\n\nBenefits: Better mood, stronger bones, good sleep.",
+    "Love this question! Movement really is medicine.\n\nThe recommended amount is 150 minutes of moderate activity per week, which is just about 20 minutes a day. Add 2 strength training sessions per week and you are set.\n\nBut do not feel like you need to go to a gym. Walking is fantastic and seriously underrated. Swimming, cycling, yoga, and even dancing all count.\n\nThe key is finding something you actually enjoy because then you will stick with it. Start small if you need to. Even 10 minutes of walking is better than nothing.\n\nThe benefits go beyond just fitness. Regular exercise improves your mood, helps you sleep better, strengthens your bones, and reduces your risk of many diseases.",
   ],
   stress: [
-    "Beat stress easily:\n\n- Deep breathing (4-7-8)\n- 5 min meditation\n- Go for a walk\n- Write a journal\n- Say no when needed\n\nAsking for help is strength, not weakness.",
+    "Stress is something everyone deals with. Some stress is actually helpful, but when it becomes constant, it starts affecting your health.\n\nThe most effective techniques are deep breathing, meditation, and physical activity. For breathing, try the 4-7-8 method: inhale for 4 seconds, hold for 7, exhale for 8.\n\nSpending time in nature is genuinely calming. Even a short walk in a park can lower your stress levels. Journaling also helps because writing things down puts them in perspective.\n\nSetting boundaries is important too. It is okay to say no, take breaks, and limit things that drain your energy.\n\nIf stress feels overwhelming, talking to a professional is not weakness, it is wisdom.",
   ],
   headache: [
-    "Quick headache relief:\n\n- Drink water first\n- Rest in dark room\n- Cold compress on forehead\n- Massage your temples\n\nSee doctor if: Sudden severe pain, fever + stiff neck.",
+    "Headaches are really common and usually not dangerous, but they are definitely annoying.\n\nThe most overlooked cause is dehydration. Before anything else, try drinking a large glass of water. You might be surprised how much that helps.\n\nOther quick fixes include resting in a dark, quiet room, putting a cold compress on your forehead or neck, and gently massaging your temples.\n\nCommon triggers are dehydration, stress, lack of sleep, eye strain from screens, and skipping meals. If you can identify your triggers, you can prevent them.\n\nSee a doctor if you have a sudden severe headache, a headache with fever and stiff neck, or if headaches are happening frequently and not going away.",
   ],
   fever: [
-    "Fever means your body is fighting:\n\n- Rest well\n- Drink lots of fluids\n- Wear light clothes\n- Take paracetamol if needed\n- Check temperature often\n\nSee doctor if: Above 103F, lasts 3+ days, or with severe headache.",
+    "Fever is actually your body's way of fighting an infection. It means your immune system is working hard.\n\nThe best things to do at home are rest, drink plenty of fluids like water and clear broths, wear light comfortable clothing, and take paracetamol or ibuprofen if you need relief. Check your temperature regularly to keep track.\n\nMost fevers resolve on their own within a few days as your body fights the infection.\n\nYou should seek medical help if the fever goes above 103 degrees Fahrenheit, lasts more than 3 days, comes with a severe headache or stiff neck, or if it is in a small child.\n\nTrust your instincts. If something feels wrong, it is always better to get checked.",
   ],
   cold: [
-    "Cold care basics:\n\n- Rest + warm fluids\n- Saline nasal drops\n- Honey + warm water for cough\n- Wash hands often\n\nSee doctor if: Worsens after 10 days, high fever, or breathing trouble.",
+    "The common cold is annoying but usually goes away on its own in about 7 to 10 days.\n\nThe best care is rest, staying hydrated with warm teas and soups, and using saline nasal drops for congestion. Honey in warm water can help soothe a cough if you are an adult.\n\nTo prevent spreading it, cover your coughs and sneezes, wash your hands frequently, and do not share drinks or utensils with others.\n\nSee a doctor if your symptoms get worse after 10 days, you develop a high fever, have trouble breathing, or experience severe sinus pain.\n\nA simple favorite remedy is hot ginger tea with honey and a cozy blanket.",
   ],
   allergy: [
-    "Manage your allergies:\n\n- Find triggers (pollen? dust? pets?)\n- Antihistamines help a lot\n- Keep home clean\n- Wash bedding weekly\n\nEmergency: Difficulty breathing? Call 108 immediately!",
+    "Allergies happen when your immune system reacts to something harmless like pollen, dust, or pet dander.\n\nThe first step is figuring out what triggers your allergies. Once you know, you can avoid or reduce exposure to it.\n\nOver the counter antihistamines can help a lot with symptoms. Keeping your home clean and dust free also makes a big difference.\n\nWashing your bedding in hot water once a week helps remove dust mites and allergens.\n\nIf you ever have a severe reaction like difficulty breathing, swelling of your face or throat, or severe dizziness, that is a medical emergency and you should call for help immediately.",
   ],
   blood: [
-    "Blood pressure basics:\n\nNormal: Below 120/80\nHigh: 130/80 or above\n\nControl it:\n- Less salt (under 2300mg/day)\n- Exercise regularly\n- No smoking\n- Manage weight\n\nSilent killer - get checked regularly!",
+    "Blood pressure is important to understand because high blood pressure is often called the silent killer, meaning it has no obvious symptoms.\n\nNormal blood pressure is below 120 over 80. If it is 130 over 80 or higher, that is considered high and needs attention.\n\nYou can manage it by eating less salt, aiming for under 2300 milligrams per day, exercising regularly, maintaining a healthy weight, limiting alcohol, and not smoking.\n\nThe most important thing is to get it checked regularly because you will not feel it happening. If your doctor prescribes medication, take it as directed.\n\nSimple lifestyle changes can make a real difference over time.",
   ],
   bmi: [
-    "BMI (Body Mass Index):\n\n- Below 18.5 = Underweight\n- 18.5 to 24.9 = Normal\n- 25 to 29.9 = Overweight\n- 30+ = Obese\n\nBMI = weight(kg) / height(m) squared\n\nIt is a general guide, not perfect for everyone.",
+    "BMI stands for Body Mass Index. It is a simple number that helps you understand if your weight is in a healthy range.\n\nHere is how it works:\n- Below 18.5 is underweight\n- 18.5 to 24.9 is normal weight\n- 25 to 29.9 is overweight\n- 30 and above is considered obese\n\nYou can calculate it by dividing your weight in kilograms by your height in meters squared.\n\nKeep in mind that BMI is a general guide. It does not tell the whole story because it does not consider muscle mass, bone density, or body composition. Athletes, for example, might have a high BMI but be perfectly healthy.\n\nIt is a useful starting point but always combine it with other health measures.",
   ],
   weight: [
-    "Healthy weight tips:\n\n- Eat more protein & fiber\n- Cut sugar & processed food\n- Walk 30 min daily\n- Drink water before meals\n- Sleep 7-9 hours\n\nSlow and steady wins the race!",
+    "Healthy weight management is about sustainable habits, not quick fixes.\n\nThe basics are eat more protein and fiber because they keep you full longer, cut back on sugar and processed foods, drink water before meals, and move your body regularly.\n\nWalking 30 minutes a day is one of the most effective things you can do. It burns calories, boosts your metabolism, and improves your mood.\n\nGetting enough sleep is important too because poor sleep increases hunger hormones and cravings.\n\nBe patient with yourself. Slow and steady weight loss of 1 to 2 pounds per week is the healthiest and most sustainable approach.",
   ],
   covid: [
-    "COVID care tips:\n\n- Isolate for 5 days\n- Rest + drink fluids\n- Monitor oxygen levels\n- Take paracetamol for fever\n\nEmergency: Oxygen below 94%, breathing trouble, chest pain? Go to hospital immediately.",
+    "If you have COVID, the main things to do are rest, stay hydrated, and monitor your symptoms.\n\nTake paracetamol for fever and body aches. Isolate for at least 5 days to prevent spreading it to others.\n\nKeep track of your oxygen levels if you have a pulse oximeter. Normal is 95% or above.\n\nSeek immediate medical help if your oxygen drops below 94%, if you have trouble breathing, chest pain, or confusion.\n\nMost people recover at home within a week or two. Make sure to rest even after you start feeling better.",
   ],
   pregnancy: [
-    "Pregnancy health basics:\n\n- Take folic acid daily\n- Regular prenatal checkups\n- Eat balanced diet\n- Stay active (walking is great)\n- Avoid alcohol & smoking\n- Get enough rest\n\nAlways follow your doctor's advice.",
+    "During pregnancy, taking care of yourself is taking care of your baby.\n\nThe most important things are taking folic acid daily, going to all your prenatal checkups, eating a balanced diet with plenty of fruits, vegetables, and protein, and staying active with gentle exercise like walking.\n\nGet enough rest and sleep. Your body is doing incredible work.\n\nAvoid alcohol, smoking, and excessive caffeine. These can harm the developing baby.\n\nAlways follow your doctor's advice and never hesitate to ask questions. Every pregnancy is different and your healthcare provider is your best guide.",
   ],
   skin: [
-    "Skin care tips:\n\n- Drink plenty of water\n- Use sunscreen daily\n- Moisturize regularly\n- Wash face twice daily\n- Avoid touching face\n\nFor rashes, acne, or unusual changes, see a dermatologist.",
+    "Good skin health starts from within. Drink plenty of water, eat foods rich in vitamins, and get enough sleep.\n\nFor daily care, wash your face twice a day, use sunscreen every day even when it is cloudy, and moisturize regularly.\n\nIf you have acne, avoid touching your face and use gentle, non-comedogenic products.\n\nFor any unusual rashes, persistent acne, or changes in your skin, it is best to see a dermatologist. They can provide proper treatment rather than you trying things on your own.",
   ],
   eye: [
-    "Eye care tips:\n\n- Follow 20-20-20 rule: every 20 min, look 20 feet away for 20 seconds\n- Wear sunglasses outdoors\n- Get regular eye checkups\n- Eat leafy greens & fish\n- Limit screen time\n\nFor sudden vision changes, see a doctor immediately.",
+    "Taking care of your eyes is important, especially in our screen-heavy world.\n\nThe 20-20-20 rule is very helpful: every 20 minutes, look at something 20 feet away for at least 20 seconds. This reduces eye strain significantly.\n\nWear sunglasses outdoors to protect from UV rays, get regular eye checkups, and eat foods rich in omega-3 fatty acids like fish and leafy greens.\n\nIf you notice sudden vision changes, floaters, or eye pain, see a doctor immediately. Do not wait on eye problems.",
+  ],
+  tooth: [
+    "Dental health is connected to your overall health more than you might think.\n\nBrush your teeth at least twice a day for 2 minutes, floss daily, and use a fluoride toothpaste.\n\nLimit sugary snacks and drinks because sugar feeds the bacteria that cause cavities.\n\nVisit your dentist for checkups and cleanings every 6 months.\n\nIf you have tooth pain, swelling, or bleeding gums, do not ignore it. Early treatment prevents bigger problems later.",
   ],
   default: [
-    "Thanks for your question! Here is what I know:\n\nFor any health concern, the best steps are:\n- Note your symptoms\n- Rest and stay hydrated\n- Do not self-medicate\n- See a doctor if symptoms persist or worsen\n\nI can help with specific topics like heart health, diabetes, sleep, exercise, nutrition, fever, cold, allergies, mental health, and more. Just ask!",
+    "Thanks for your question. Here is some helpful general advice:\n\nWhenever you have a health concern, start by noting your symptoms and when they started. Stay hydrated, get plenty of rest, and avoid self-medicating.\n\nIf symptoms persist for more than a few days, get worse, or feel serious, please see a healthcare professional. They can give you proper diagnosis and treatment.\n\nI can help with specific topics like heart health, diabetes, nutrition, sleep, exercise, mental health, fever, cold, allergies, blood pressure, and more. Just type your question and I will do my best to help.",
   ],
 };
 
@@ -96,6 +99,7 @@ function findBestResponse(input: string): string {
   else if (lower.includes("pregnant") || lower.includes("pregnancy") || lower.includes("baby") || lower.includes("folic")) result = AI_RESPONSES.pregnancy;
   else if (lower.includes("skin") || lower.includes("acne") || lower.includes("pimple") || lower.includes("derma")) result = AI_RESPONSES.skin;
   else if (lower.includes("eye") || lower.includes("vision") || lower.includes("glasses") || lower.includes("sight")) result = AI_RESPONSES.eye;
+  else if (lower.includes("tooth") || lower.includes("teeth") || lower.includes("dental") || lower.includes("cavity")) result = AI_RESPONSES.tooth;
   else result = AI_RESPONSES.default;
   return result[Math.floor(Math.random() * result.length)];
 }
@@ -105,8 +109,6 @@ function formatAIResponse(text: string): string {
     .replace(/&/g, "&amp;")
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;");
-
-  safe = safe.replace(/^- (.+)$/gm, '<div class="flex gap-1.5 my-0.5"><span class="text-blue-500 shrink-0">&#10003;</span><span>$1</span></div>');
   safe = safe.replace(/\n\n/g, '<div class="h-2" />');
   safe = safe.replace(/\n/g, "<br />");
   return safe;
@@ -160,18 +162,15 @@ export default function HealthAIChat() {
       {/* Floating button */}
       <motion.button
         onClick={() => setOpen(!open)}
-        className="fixed bottom-6 right-6 z-50 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-blue-600 via-blue-500 to-cyan-400 text-white shadow-[0_8px_32px_-4px_rgba(37,99,235,0.5)] hover:shadow-[0_12px_44px_-4px_rgba(37,99,235,0.6)] transition-shadow cursor-pointer"
-        whileHover={{ scale: 1.08 }}
-        whileTap={{ scale: 0.92 }}
+        className="fixed bottom-5 right-5 z-[60] flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-blue-600 to-cyan-500 text-white shadow-lg cursor-pointer"
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
         animate={open ? {} : { y: [0, -4, 0] }}
         transition={open ? {} : { repeat: Infinity, duration: 2.5, ease: "easeInOut" }}
       >
-        {open ? <X className="h-6 w-6" /> : <MessageCircle className="h-7 w-7" />}
+        {open ? <X className="h-6 w-6" /> : <MessageCircle className="h-6 w-6" />}
         {!open && (
-          <span className="absolute -top-1 -right-1 flex h-5 w-5">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
-            <span className="relative inline-flex rounded-full h-5 w-5 bg-green-500 border-2 border-white" />
-          </span>
+          <span className="absolute -top-1 -right-1 h-4 w-4 rounded-full bg-green-500 border-2 border-white animate-pulse" />
         )}
       </motion.button>
 
@@ -179,57 +178,57 @@ export default function HealthAIChat() {
       <AnimatePresence>
         {open && (
           <motion.div
-            className="fixed bottom-28 right-6 z-50 w-[400px] max-w-[calc(100vw-2rem)] rounded-3xl shadow-[0_20px_60px_-12px_rgba(0,0,0,0.25)] overflow-hidden border border-white/20 bg-white"
-            initial={{ opacity: 0, y: 30, scale: 0.9 }}
+            className="fixed z-[55] bg-white rounded-2xl shadow-2xl border border-gray-200 overflow-hidden flex flex-col"
+            style={{
+              bottom: "80px",
+              right: "20px",
+              width: "380px",
+              maxWidth: "calc(100vw - 40px)",
+              height: "520px",
+              maxHeight: "calc(100vh - 120px)",
+            }}
+            initial={{ opacity: 0, y: 20, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 30, scale: 0.9 }}
+            exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ type: "spring", damping: 25, stiffness: 300 }}
           >
-            {/* Header */}
-            <div className="bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-400 p-5 text-white relative overflow-hidden">
-              <div className="absolute inset-0 opacity-10">
-                <div className="absolute top-2 right-8 w-24 h-24 rounded-full border-2 border-white/40" />
-                <div className="absolute -bottom-6 -left-4 w-20 h-20 rounded-full border-2 border-white/30" />
+            {/* Header - always visible */}
+            <div className="bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-400 px-4 py-3 flex items-center gap-3 shrink-0">
+              <div className="h-10 w-10 rounded-xl bg-white/20 flex items-center justify-center">
+                <Sparkles className="h-5 w-5 text-white" />
               </div>
-              <div className="flex items-center gap-3 relative z-10">
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/20 backdrop-blur-sm shadow-inner">
-                  <Sparkles className="h-6 w-6" />
+              <div className="flex-1 min-w-0">
+                <h3 className="font-bold text-sm text-white">{t("aiChatTitle")}</h3>
+                <div className="flex items-center gap-1">
+                  <span className="h-1.5 w-1.5 rounded-full bg-green-400" />
+                  <p className="text-[11px] text-white/80 truncate">{t("aiChatDesc")}</p>
                 </div>
-                <div className="flex-1">
-                  <h3 className="font-bold text-base tracking-tight">{t("aiChatTitle")}</h3>
-                  <div className="flex items-center gap-1.5 mt-0.5">
-                    <span className="h-2 w-2 rounded-full bg-green-400 animate-pulse" />
-                    <p className="text-xs text-white/80">{t("aiChatDesc")}</p>
-                  </div>
-                </div>
-                <button onClick={() => setOpen(false)} className="h-8 w-8 flex items-center justify-center rounded-xl bg-white/10 hover:bg-white/20 transition-colors cursor-pointer">
-                  <X className="h-4 w-4" />
-                </button>
               </div>
+              <button onClick={() => setOpen(false)} className="h-8 w-8 rounded-lg bg-white/15 flex items-center justify-center hover:bg-white/25 transition-colors cursor-pointer">
+                <X className="h-4 w-4 text-white" />
+              </button>
             </div>
 
-            {/* Messages */}
-            <div className="h-[420px] overflow-y-auto px-4 pt-4 pb-2 space-y-4 bg-gradient-to-b from-slate-50 to-white">
+            {/* Messages area - scrollable */}
+            <div className="flex-1 overflow-y-auto px-4 py-4 space-y-3 bg-gray-50 min-h-0">
               {messages.length === 0 && (
-                <div className="text-center py-6">
-                  <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-500 to-cyan-400 shadow-lg shadow-blue-500/20">
-                    <Bot className="h-8 w-8 text-white" />
+                <div className="text-center py-4">
+                  <div className="mx-auto mb-3 h-14 w-14 rounded-2xl bg-gradient-to-br from-blue-500 to-cyan-400 flex items-center justify-center shadow-lg">
+                    <Bot className="h-7 w-7 text-white" />
                   </div>
-                  <p className="text-base font-bold text-slate-800">{t("aiWelcome")}</p>
-                  <p className="text-sm text-slate-500 mt-1.5 max-w-xs mx-auto leading-relaxed">{t("aiWelcomeDesc")}</p>
-                  <div className="mt-5 grid grid-cols-2 gap-2">
+                  <p className="text-sm font-bold text-gray-800">{t("aiWelcome")}</p>
+                  <p className="text-xs text-gray-500 mt-1 max-w-[260px] mx-auto">{t("aiWelcomeDesc")}</p>
+                  <div className="mt-4 grid grid-cols-2 gap-2">
                     {QUICK_TOPICS.map((topic) => {
                       const Icon = topic.icon;
                       return (
                         <button
                           key={topic.label}
                           onClick={() => sendMessage(topic.label)}
-                          className={`flex items-center gap-2.5 px-3 py-2.5 rounded-xl border ${topic.border} ${topic.bg} hover:shadow-md transition-all text-left cursor-pointer group`}
+                          className={`flex items-center gap-2 px-3 py-2 rounded-xl border ${topic.border} ${topic.bg} hover:shadow-sm transition-all text-left cursor-pointer`}
                         >
-                          <div className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-lg ${topic.bg} ${topic.color} group-hover:scale-110 transition-transform`}>
-                            <Icon className="h-4 w-4" />
-                          </div>
-                          <span className="text-xs font-semibold text-slate-700">{topic.label}</span>
+                          <Icon className={`h-4 w-4 ${topic.color} shrink-0`} />
+                          <span className="text-xs font-medium text-gray-700">{topic.label}</span>
                         </button>
                       );
                     })}
@@ -240,45 +239,45 @@ export default function HealthAIChat() {
               {messages.map((msg) => (
                 <motion.div
                   key={msg.id}
-                  initial={{ opacity: 0, y: 10 }}
+                  initial={{ opacity: 0, y: 8 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.3 }}
-                  className={`flex gap-2.5 ${msg.role === "user" ? "justify-end" : "justify-start"}`}
+                  transition={{ duration: 0.25 }}
+                  className={`flex gap-2 ${msg.role === "user" ? "justify-end" : "justify-start"}`}
                 >
                   {msg.role === "ai" && (
-                    <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-blue-500 to-cyan-400 shadow-sm mt-1">
-                      <Bot className="h-4 w-4 text-white" />
+                    <div className="h-7 w-7 rounded-lg bg-gradient-to-br from-blue-500 to-cyan-400 flex items-center justify-center shrink-0 mt-0.5">
+                      <Bot className="h-3.5 w-3.5 text-white" />
                     </div>
                   )}
-                  <div className={`max-w-[82%] px-4 py-3 text-sm leading-relaxed ${
+                  <div className={`max-w-[80%] px-3.5 py-2.5 text-[13px] leading-[1.6] rounded-2xl ${
                     msg.role === "user"
-                      ? "bg-gradient-to-br from-blue-600 to-blue-500 text-white rounded-2xl rounded-br-lg shadow-md shadow-blue-500/15"
-                      : "bg-white text-slate-700 border border-slate-200/80 rounded-2xl rounded-bl-lg shadow-sm"
+                      ? "bg-blue-600 text-white rounded-br-md"
+                      : "bg-white text-gray-700 border border-gray-200 rounded-bl-md shadow-sm"
                   }`}>
                     {msg.role === "ai" ? (
-                      <div className="[&_strong]:font-bold [&_strong]:text-blue-600" dangerouslySetInnerHTML={{ __html: formatAIResponse(msg.text) }} />
+                      <div dangerouslySetInnerHTML={{ __html: formatAIResponse(msg.text) }} />
                     ) : (
-                      <span>{msg.text}</span>
+                      msg.text
                     )}
                   </div>
                   {msg.role === "user" && (
-                    <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-slate-200 mt-1">
-                      <User className="h-4 w-4 text-slate-500" />
+                    <div className="h-7 w-7 rounded-lg bg-gray-200 flex items-center justify-center shrink-0 mt-0.5">
+                      <User className="h-3.5 w-3.5 text-gray-500" />
                     </div>
                   )}
                 </motion.div>
               ))}
 
               {isTyping && (
-                <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="flex gap-2.5">
-                  <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-blue-500 to-cyan-400 shadow-sm mt-1">
-                    <Bot className="h-4 w-4 text-white" />
+                <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex gap-2">
+                  <div className="h-7 w-7 rounded-lg bg-gradient-to-br from-blue-500 to-cyan-400 flex items-center justify-center shrink-0">
+                    <Bot className="h-3.5 w-3.5 text-white" />
                   </div>
-                  <div className="px-4 py-3 rounded-2xl rounded-bl-lg bg-white border border-slate-200/80 shadow-sm">
-                    <div className="flex gap-1.5 items-center h-5">
-                      <span className="h-2 w-2 rounded-full bg-blue-400 animate-bounce" style={{ animationDelay: "0ms" }} />
-                      <span className="h-2 w-2 rounded-full bg-blue-500 animate-bounce" style={{ animationDelay: "150ms" }} />
-                      <span className="h-2 w-2 rounded-full bg-cyan-400 animate-bounce" style={{ animationDelay: "300ms" }} />
+                  <div className="px-3.5 py-2.5 rounded-2xl rounded-bl-md bg-white border border-gray-200 shadow-sm">
+                    <div className="flex gap-1">
+                      <span className="h-1.5 w-1.5 rounded-full bg-blue-400 animate-bounce" style={{ animationDelay: "0ms" }} />
+                      <span className="h-1.5 w-1.5 rounded-full bg-blue-500 animate-bounce" style={{ animationDelay: "150ms" }} />
+                      <span className="h-1.5 w-1.5 rounded-full bg-cyan-400 animate-bounce" style={{ animationDelay: "300ms" }} />
                     </div>
                   </div>
                 </motion.div>
@@ -286,31 +285,27 @@ export default function HealthAIChat() {
               <div ref={messagesEndRef} />
             </div>
 
-            {/* Input */}
-            <div className="border-t border-slate-100 bg-white p-3">
+            {/* Input area - always visible at bottom */}
+            <div className="border-t border-gray-100 bg-white px-3 py-3 shrink-0">
               <form onSubmit={(e) => { e.preventDefault(); sendMessage(); }} className="flex items-center gap-2">
-                <div className="flex-1">
-                  <input
-                    ref={inputRef}
-                    type="text"
-                    value={input}
-                    onChange={(e) => setInput(e.target.value)}
-                    placeholder={t("aiPlaceholder")}
-                    className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-700 placeholder:text-slate-400 outline-none focus:border-blue-400 focus:bg-white focus:ring-2 focus:ring-blue-500/10 transition-all"
-                  />
-                </div>
-                <motion.button
+                <input
+                  ref={inputRef}
+                  type="text"
+                  value={input}
+                  onChange={(e) => setInput(e.target.value)}
+                  placeholder={t("aiPlaceholder")}
+                  className="flex-1 rounded-xl border border-gray-200 bg-gray-50 px-3.5 py-2.5 text-sm text-gray-700 placeholder:text-gray-400 outline-none focus:border-blue-400 focus:bg-white transition-all"
+                />
+                <button
                   type="submit"
                   disabled={!input.trim() || isTyping}
-                  className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-600 to-blue-500 text-white hover:from-blue-700 hover:to-blue-600 transition-all disabled:opacity-40 disabled:cursor-not-allowed shadow-md shadow-blue-500/20 cursor-pointer"
-                  whileHover={input.trim() ? { scale: 1.05 } : {}}
-                  whileTap={input.trim() ? { scale: 0.95 } : {}}
+                  className="h-10 w-10 rounded-xl bg-blue-600 text-white flex items-center justify-center shrink-0 hover:bg-blue-700 transition-colors disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer"
                 >
                   <Send className="h-4 w-4" />
-                </motion.button>
+                </button>
               </form>
-              <p className="text-[10px] text-slate-400 text-center mt-2">
-                Educational information only. Not medical advice.
+              <p className="text-[10px] text-gray-400 text-center mt-1.5">
+                Educational info only. Not medical advice.
               </p>
             </div>
           </motion.div>
