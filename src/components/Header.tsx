@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useNavigate, useLocation } from "react-router";
-import { Search, Menu, X, Heart, Shield } from "lucide-react";
+import { Search, Menu, X, Shield, Bookmark, LogOut, User } from "lucide-react";
+import { useUser } from "@/hooks/use-user";
 
 const NAV_ITEMS = [
   { label: "Home", href: "/" },
@@ -19,8 +20,10 @@ export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+  const [userMenuOpen, setUserMenuOpen] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
+  const { user, isAuthenticated, logout } = useUser();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10);
@@ -31,6 +34,7 @@ export default function Header() {
   useEffect(() => {
     setMobileOpen(false);
     setSearchOpen(false);
+    setUserMenuOpen(false);
   }, [location.pathname]);
 
   const handleSearch = (e: React.FormEvent) => {
@@ -98,18 +102,72 @@ export default function Header() {
               <Search className="h-5 w-5" />
             </button>
 
-            <Link
-              to="/auth"
-              className="hidden sm:inline-flex items-center px-3.5 py-1.5 rounded-md text-sm font-medium text-[oklch(0.32_0.08_255)] hover:bg-[oklch(0.32_0.08_255_/_0.06)] transition-colors"
-            >
-              Log in
-            </Link>
-            <Link
-              to="/auth?mode=register"
-              className="hidden sm:inline-flex items-center px-3.5 py-1.5 rounded-lg bg-[oklch(0.32_0.08_255)] text-white text-sm font-medium hover:bg-[oklch(0.28_0.08_255)] transition-colors"
-            >
-              Register
-            </Link>
+            {isAuthenticated && user ? (
+              <>
+                <Link
+                  to="/bookmarks"
+                  className="hidden sm:inline-flex p-2 rounded-md text-[oklch(0.4_0.02_250)] hover:bg-[oklch(0.32_0.08_255_/_0.06)] hover:text-[oklch(0.32_0.08_255)] transition-colors"
+                  title="Bookmarks"
+                >
+                  <Bookmark className="h-5 w-5" />
+                </Link>
+
+                {/* User Menu */}
+                <div className="relative">
+                  <button
+                    onClick={() => setUserMenuOpen(!userMenuOpen)}
+                    className="flex items-center gap-2 px-2 py-1.5 rounded-lg hover:bg-[oklch(0.32_0.08_255_/_0.06)] transition-colors"
+                  >
+                    <img
+                      src={user.avatar}
+                      alt={user.name}
+                      className="h-8 w-8 rounded-full border-2 border-[oklch(0.32_0.08_255_/_0.2)]"
+                    />
+                    <span className="hidden md:block text-sm font-medium text-[oklch(0.2_0.03_255)] max-w-[100px] truncate">
+                      {user.name}
+                    </span>
+                  </button>
+
+                  {userMenuOpen && (
+                    <div className="absolute right-0 top-full mt-2 w-56 rounded-xl border border-[oklch(0.9_0.01_240)] bg-white shadow-lg py-2 z-50">
+                      <div className="px-4 py-3 border-b border-[oklch(0.92_0.01_240)]">
+                        <p className="text-sm font-semibold text-[oklch(0.2_0.03_255)]">{user.name}</p>
+                        <p className="text-xs text-[oklch(0.5_0.02_250)] truncate">{user.email || user.phone}</p>
+                      </div>
+                      <Link to="/dashboard" className="flex items-center gap-2 px-4 py-2 text-sm text-[oklch(0.35_0.02_250)] hover:bg-[oklch(0.97_0.003_250)] transition-colors">
+                        <User className="h-4 w-4" /> My Profile
+                      </Link>
+                      <Link to="/bookmarks" className="flex items-center gap-2 px-4 py-2 text-sm text-[oklch(0.35_0.02_250)] hover:bg-[oklch(0.97_0.003_250)] transition-colors">
+                        <Bookmark className="h-4 w-4" /> Bookmarks
+                      </Link>
+                      <div className="border-t border-[oklch(0.92_0.01_240)] mt-1 pt-1">
+                        <button
+                          onClick={() => { logout(); setUserMenuOpen(false); navigate("/"); }}
+                          className="flex items-center gap-2 w-full px-4 py-2 text-sm text-red-600 hover:bg-red-50 transition-colors"
+                        >
+                          <LogOut className="h-4 w-4" /> Sign out
+                        </button>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </>
+            ) : (
+              <>
+                <Link
+                  to="/login"
+                  className="hidden sm:inline-flex items-center px-3.5 py-1.5 rounded-md text-sm font-medium text-[oklch(0.32_0.08_255)] hover:bg-[oklch(0.32_0.08_255_/_0.06)] transition-colors"
+                >
+                  Sign in
+                </Link>
+                <Link
+                  to="/register"
+                  className="hidden sm:inline-flex items-center px-3.5 py-1.5 rounded-lg bg-[oklch(0.32_0.08_255)] text-white text-sm font-medium hover:bg-[oklch(0.28_0.08_255)] transition-colors"
+                >
+                  Register
+                </Link>
+              </>
+            )}
 
             {/* Mobile menu toggle */}
             <button
@@ -159,19 +217,26 @@ export default function Header() {
                 {item.label}
               </Link>
             ))}
-            <div className="flex gap-2 pt-2 border-t border-[oklch(0.92_0.01_240)] mt-2">
-              <Link
-                to="/auth"
-                className="flex-1 text-center py-2.5 rounded-lg border border-[oklch(0.32_0.08_255_/_0.2)] text-[oklch(0.32_0.08_255)] text-sm font-medium"
-              >
-                Log in
-              </Link>
-              <Link
-                to="/auth?mode=register"
-                className="flex-1 text-center py-2.5 rounded-lg bg-[oklch(0.32_0.08_255)] text-white text-sm font-medium"
-              >
-                Register
-              </Link>
+            <div className="border-t border-[oklch(0.92_0.01_240)] mt-2 pt-2">
+              {isAuthenticated && user ? (
+                <div className="space-y-1">
+                  <div className="flex items-center gap-3 px-3 py-2">
+                    <img src={user.avatar} alt={user.name} className="h-8 w-8 rounded-full" />
+                    <div>
+                      <p className="text-sm font-medium text-[oklch(0.2_0.03_255)]">{user.name}</p>
+                      <p className="text-xs text-[oklch(0.5_0.02_250)]">{user.email || user.phone}</p>
+                    </div>
+                  </div>
+                  <Link to="/dashboard" className="block px-3 py-2.5 rounded-md text-sm font-medium text-[oklch(0.4_0.02_250)] hover:bg-[oklch(0.32_0.08_255_/_0.04)]">My Profile</Link>
+                  <Link to="/bookmarks" className="block px-3 py-2.5 rounded-md text-sm font-medium text-[oklch(0.4_0.02_250)] hover:bg-[oklch(0.32_0.08_255_/_0.04)]">Bookmarks</Link>
+                  <button onClick={() => { logout(); navigate("/"); }} className="block w-full text-left px-3 py-2.5 rounded-md text-sm font-medium text-red-600 hover:bg-red-50">Sign out</button>
+                </div>
+              ) : (
+                <div className="flex gap-2">
+                  <Link to="/login" className="flex-1 text-center py-2.5 rounded-lg border border-[oklch(0.32_0.08_255_/_0.2)] text-[oklch(0.32_0.08_255)] text-sm font-medium">Sign in</Link>
+                  <Link to="/register" className="flex-1 text-center py-2.5 rounded-lg bg-[oklch(0.32_0.08_255)] text-white text-sm font-medium">Register</Link>
+                </div>
+              )}
             </div>
           </nav>
         </div>

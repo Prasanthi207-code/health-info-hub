@@ -29,6 +29,8 @@ const About = lazy(() => import("./pages/About.tsx"));
 const Contact = lazy(() => import("./pages/Contact.tsx"));
 const BookmarksPage = lazy(() => import("./pages/Bookmarks.tsx"));
 const SymptomsPage = lazy(() => import("./pages/Symptoms.tsx"));
+const RegisterPage = lazy(() => import("./pages/Register.tsx"));
+const LoginPage = lazy(() => import("./pages/Login.tsx"));
 
 // Simple loading fallback for route transitions
 function RouteLoading() {
@@ -150,6 +152,8 @@ createRoot(document.getElementById("root")!).render(
               <Route path="/contact" element={<Contact />} />
               <Route path="/bookmarks" element={<BookmarksPage />} />
               <Route path="/symptoms" element={<SymptomsPage />} />
+              <Route path="/register" element={<RegisterPage />} />
+              <Route path="/login" element={<LoginPage />} />
               <Route
                 path="/auth"
                 element={<AuthPage redirectAfterAuth="/dashboard" />}

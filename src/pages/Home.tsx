@@ -81,7 +81,7 @@ export default function Landing() {
             <div className="max-w-3xl">
               <motion.div {...fadeUp}>
                 <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 backdrop-blur-sm text-xs font-medium text-white/80 mb-6">
-                  <span className="h-1.5 w-1.5 rounded-full bg-green-400 animate-pulse" />
+                  <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=40&h=40&fit=crop&crop=face" alt="Doctor" className="h-5 w-5 rounded-full object-cover" />
                   Trusted Health Information Platform
                 </div>
               </motion.div>

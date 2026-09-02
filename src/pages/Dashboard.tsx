@@ -1,27 +1,21 @@
-import { useState, useEffect } from "react";
-import { Link } from "react-router";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { useAuth } from "@/hooks/use-auth";
-import { Bookmark, LogOut, User, Stethoscope, Megaphone, BookOpen, ArrowRight, Heart, Shield } from "lucide-react";
+import { Link, useNavigate } from "react-router";
+import { Card, CardContent } from "@/components/ui/card";
+import { useUser } from "@/hooks/use-user";
+import { Bookmark, LogOut, User, Stethoscope, Megaphone, BookOpen, ArrowRight, Heart, Shield, AlertTriangle } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-
-function getBookmarkCount(type: string): number {
-  try {
-    const raw = localStorage.getItem("dhap-bookmarks");
-    const bookmarks = raw ? JSON.parse(raw) : [];
-    return bookmarks.filter((b: { contentType: string }) => b.contentType === type).length;
-  } catch {
-    return 0;
-  }
-}
+import { useEffect, useState } from "react";
 
 export default function Dashboard() {
-  const { user, signOut, isAuthenticated } = useAuth();
+  const { user, isAuthenticated, logout } = useUser();
+  const navigate = useNavigate();
   const [totalBookmarks, setTotalBookmarks] = useState(0);
 
   useEffect(() => {
+    if (!isAuthenticated) {
+      navigate("/register");
+      return;
+    }
     try {
       const raw = localStorage.getItem("dhap-bookmarks");
       const bookmarks = raw ? JSON.parse(raw) : [];
@@ -29,7 +23,9 @@ export default function Dashboard() {
     } catch {
       setTotalBookmarks(0);
     }
-  }, []);
+  }, [isAuthenticated, navigate]);
+
+  if (!user) return null;
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
@@ -38,27 +34,27 @@ export default function Dashboard() {
         {/* Profile Header */}
         <section className="bg-gradient-to-br from-[oklch(0.22_0.06_255)] via-[oklch(0.28_0.08_230)] to-[oklch(0.35_0.07_200)] text-white py-12 lg:py-16">
           <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-              <div className="flex items-center gap-4">
-                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-white/15">
-                  <User className="h-7 w-7 text-white" />
-                </div>
-                <div>
-                  <h1 className="text-2xl font-bold">Welcome{user?.name ? `, ${user.name}` : ""}</h1>
-                  <p className="text-white/70 text-sm mt-0.5">
-                    {user?.email || "Your health dashboard"}
-                  </p>
-                </div>
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
+              <img
+                src={user.avatar}
+                alt={user.name}
+                className="h-20 w-20 rounded-2xl border-3 border-white/20"
+              />
+              <div className="flex-1">
+                <h1 className="text-2xl font-bold">Welcome, {user.name}</h1>
+                <p className="text-white/70 text-sm mt-0.5">{user.email || user.phone}</p>
+                <p className="text-white/50 text-xs mt-1">
+                  Member since {new Date(user.joinedAt).toLocaleDateString("en-US", { month: "long", year: "numeric" })}
+                </p>
               </div>
-              <Button
+              <button
                 type="button"
-                variant="outline"
-                className="cursor-pointer gap-2 bg-white/10 border-white/20 text-white hover:bg-white/20"
-                onClick={async () => { await signOut(); window.location.href = "/"; }}
+                onClick={() => { logout(); navigate("/"); }}
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white/10 border border-white/20 text-white text-sm font-medium hover:bg-white/20 transition-colors"
               >
-                <LogOut className="size-4" />
+                <LogOut className="h-4 w-4" />
                 Sign out
-              </Button>
+              </button>
             </div>
           </div>
         </section>
@@ -69,7 +65,7 @@ export default function Dashboard() {
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
               {[
                 { icon: Bookmark, label: "Bookmarks", value: totalBookmarks },
-                { icon: Stethoscope, label: "Topics", value: "12+" },
+                { icon: Stethoscope, label: "Health Topics", value: "12+" },
                 { icon: Megaphone, label: "Campaigns", value: "8" },
                 { icon: BookOpen, label: "Articles", value: "10+" },
               ].map((stat) => (
@@ -87,10 +83,8 @@ export default function Dashboard() {
 
             {/* Quick Actions */}
             <Card className="border-[oklch(0.9_0.01_240)] mb-6">
-              <CardHeader>
-                <CardTitle className="text-lg">Quick Actions</CardTitle>
-              </CardHeader>
-              <CardContent>
+              <CardContent className="p-5">
+                <h2 className="text-lg font-bold text-[oklch(0.18_0.03_255)] mb-4">Quick Actions</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
                   {[
                     { icon: Bookmark, label: "View Bookmarks", desc: "Access your saved items", href: "/bookmarks" },
@@ -98,7 +92,7 @@ export default function Dashboard() {
                     { icon: Megaphone, label: "Browse Campaigns", desc: "Discover health campaigns", href: "/campaigns" },
                     { icon: BookOpen, label: "Read Articles", desc: "Latest health insights", href: "/articles" },
                     { icon: Heart, label: "Healthy Lifestyle", desc: "Tips for better living", href: "/lifestyle" },
-                    { icon: Shield, label: "Prevention Guide", desc: "Stay protected", href: "/prevention" },
+                    { icon: AlertTriangle, label: "Symptoms Guide", desc: "Check warning signs", href: "/symptoms" },
                   ].map((action) => (
                     <Link
                       key={action.href}
@@ -119,7 +113,7 @@ export default function Dashboard() {
               </CardContent>
             </Card>
 
-            {/* Daily Tip */}
+            {/* Health Tip Banner */}
             <Card className="border-[oklch(0.9_0.01_240)] bg-gradient-to-r from-[oklch(0.32_0.08_255)] to-[oklch(0.42_0.1_210)] text-white">
               <CardContent className="p-6">
                 <div className="flex items-start gap-4">

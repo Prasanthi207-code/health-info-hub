@@ -18,8 +18,8 @@ const FOOTER_LINKS = {
   portal: [
     { label: "About", href: "/about" },
     { label: "Contact", href: "/contact" },
-    { label: "Privacy Policy", href: "/about" },
-    { label: "Terms of Use", href: "/about" },
+    { label: "Register", href: "/register" },
+    { label: "Sign In", href: "/login" },
   ],
 };
 
