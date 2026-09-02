@@ -249,6 +249,205 @@ type TranslationKeys = {
   chooseLanguage: string;
   chooseLanguageDesc: string;
   getStarted: string;
+
+  // Home page body content
+  trustedHealthPlatform: string;
+  topicsCount: string;
+  topicsCountDesc: string;
+  aiAssistantLabel: string;
+  aiAssistantDesc: string;
+  homeLearnAbout: string;
+  homeDiscoverWays: string;
+  homeLearnTips: string;
+  homeUnderstandSymptoms: string;
+  homeExploreAwareness: string;
+  homeEmergencyInfo: string;
+  homeCardTopicsDesc: string;
+  homeCardPreventionDesc: string;
+  homeCardLifestyleDesc: string;
+  homeCardSymptomsDesc: string;
+  homeCardCampaignsDesc: string;
+  homeCardEmergencyDesc: string;
+  homeTipDesc: string;
+  homeStartYourJourney: string;
+  homeStartDesc: string;
+  homeJoinNow: string;
+  homeReadArticles: string;
+  homeReadArticlesDesc: string;
+  homeViewAllEvents: string;
+  homeViewAllEventsDesc: string;
+  
+  // About page
+  aboutSubtitle: string;
+  missionTitle: string;
+  missionDesc: string;
+  valuesTitle: string;
+  valueEvidence: string;
+  valueEvidenceDesc: string;
+  valueAccessible: string;
+  valueAccessibleDesc: string;
+  valueCommunity: string;
+  valueCommunityDesc: string;
+  educationalDisclaimer: string;
+  
+  // Contact page
+  contactSubtitle: string;
+  contactInfo: string;
+  contactName: string;
+  contactEmail: string;
+  contactSubject: string;
+  contactMessage: string;
+  contactSend: string;
+  contactSent: string;
+  contactSentDesc: string;
+  contactPhoneLabel: string;
+  contactEmailLabel: string;
+  contactHoursLabel: string;
+  contactResponseTime: string;
+  contactResponseDesc: string;
+  
+  // Bookmarks page
+  noBookmarks: string;
+  allItems: string;
+  remove: string;
+  
+  // Search page
+  searchResults: string;
+  noResultsDesc: string;
+  searchingFor: string;
+  
+  // Dashboard body
+  dashWelcome: string;
+  dashWelcomeDesc: string;
+  dashStats: string;
+  dashSaved: string;
+  dashTopicsExplored: string;
+  dashArticlesRead: string;
+  dashQuickActions: string;
+  dashBrowseTopics: string;
+  dashBrowseTopicsDesc: string;
+  dashViewBookmarks: string;
+  dashViewBookmarksDesc: string;
+  dashBrowseArticles: string;
+  dashBrowseArticlesDesc: string;
+  dashDailyTip: string;
+  dashLearnPrevention: string;
+  dashLearnPreventionDesc: string;
+  dashLifestyle: string;
+  dashLifestyleDesc: string;
+  dashCheckSymptoms: string;
+  dashCheckSymptomsDesc: string;
+  
+  // Prevention page body
+  preventionEatWell: string;
+  preventionEatWellDesc: string;
+  preventionExercise: string;
+  preventionExerciseDesc: string;
+  preventionSleep: string;
+  preventionSleepDesc: string;
+  preventionHygiene: string;
+  preventionHygieneDesc: string;
+  preventionVaccines: string;
+  preventionVaccinesDesc: string;
+  preventionMentalHealth: string;
+  preventionMentalHealthDesc: string;
+  preventionScreenings: string;
+  preventionScreeningsDesc: string;
+  preventionHydration: string;
+  preventionHydrationDesc: string;
+  preventionSunProtection: string;
+  preventionSunProtectionDesc: string;
+  preventionAvoidTobacco: string;
+  preventionAvoidTobaccoDesc: string;
+  
+  // Lifestyle page body
+  lifestyleEatBetter: string;
+  lifestyleEatBetterDesc: string;
+  lifestyleMoveMore: string;
+  lifestyleMoveMoreDesc: string;
+  lifestyleSleepWell: string;
+  lifestyleSleepWellDesc: string;
+  lifestyleStayHydrated: string;
+  lifestyleStayHydratedDesc: string;
+  lifestyleManageStress: string;
+  lifestyleManageStressDesc: string;
+  lifestyleMaintainHygiene: string;
+  lifestyleMaintainHygieneDesc: string;
+  
+  // Calendar page body
+  calendarEventDetails: string;
+  calendarIn: string;
+  calendarDays: string;
+  calendarPast: string;
+  calendarNoEvents: string;
+  
+  // Emergency page body
+  emergencyCallEmergency: string;
+  emergencyCallEmergencyDesc: string;
+  emergencyWhenToCall: string;
+  emergencyWhenToCallDesc: string;
+  emergencyCPRTitle: string;
+  emergencyCPRDesc: string;
+  emergencyChokingTitle: string;
+  emergencyChokingDesc: string;
+  emergencyBleedingTitle: string;
+  emergencyBleedingDesc: string;
+  emergencyStrokeTitle: string;
+  emergencyStrokeDesc: string;
+  emergencyBurnTitle: string;
+  emergencyBurnDesc: string;
+  
+  // Symptoms page body
+  symptomsChestPain: string;
+  symptomsShortBreath: string;
+  symptomsSevereHeadache: string;
+  symptomsHighFever: string;
+  symptomsAbdominalPain: string;
+  symptomsVisionChanges: string;
+  symptomsFatigue: string;
+  symptomsJointPain: string;
+  symptomsRash: string;
+  symptomsNausea: string;
+  symptomsDizziness: string;
+  symptomsBackPain: string;
+  symptomsSwelling: string;
+  symptomsCough: string;
+  symptomsInsomnia: string;
+  symptomsWeightChange: string;
+  symptomsAnxiety: string;
+  symptomsAllergies: string;
+  
+  // Footer body
+  footerAbout: string;
+  footerAboutDesc: string;
+  footerResources: string;
+  footerSupport: string;
+  footerContactUs: string;
+  footerPrivacy: string;
+  footerTerms: string;
+  footerSitemap: string;
+  footerRights: string;
+  
+  // Registration login extra
+  regStep1Title: string;
+  regStep1Desc: string;
+  regProvideEmailOrPhone: string;
+  regAccountInfo: string;
+  regCreateSecure: string;
+  regSecureNote: string;
+  regJoinDescription: string;
+  loginEmailOrPhone: string;
+  loginPasswordLabel: string;
+  loginNewUser: string;
+  loginCreateOne: string;
+  loginDemoNote: string;
+  
+  // AI Chat body
+  aiDisclaimer: string;
+  
+  // Language selector body
+  langTitle: string;
+  langDesc: string;
 };
 
 const en: TranslationKeys = {
@@ -465,6 +664,206 @@ const en: TranslationKeys = {
   chooseLanguage: "Choose Your Language",
   chooseLanguageDesc: "Select your preferred language for the best experience",
   getStarted: "Get Started",
+
+  // Home page body content
+  trustedHealthPlatform: "Trusted Health Information Platform",
+  topicsCount: "12+ Topics",
+  topicsCountDesc: "Trusted Info",
+  aiAssistantLabel: "AI Assistant",
+  aiAssistantDesc: "24/7 Help",
+  homeLearnAbout: "Learn about common health conditions and health concerns.",
+  homeDiscoverWays: "Discover practical ways to reduce health risks.",
+  homeLearnTips: "Learn about nutrition, exercise, sleep and wellbeing.",
+  homeUnderstandSymptoms: "Understand common symptoms and warning signs.",
+  homeExploreAwareness: "Explore awareness campaigns and public-health initiatives.",
+  homeEmergencyInfo: "Learn when urgent professional medical attention may be needed.",
+  homeCardTopicsDesc: "Learn about common health conditions and health concerns.",
+  homeCardPreventionDesc: "Discover practical ways to reduce health risks.",
+  homeCardLifestyleDesc: "Learn about nutrition, exercise, sleep and wellbeing.",
+  homeCardSymptomsDesc: "Understand common symptoms and warning signs.",
+  homeCardCampaignsDesc: "Explore awareness campaigns and public-health initiatives.",
+  homeCardEmergencyDesc: "Learn when urgent professional medical attention may be needed.",
+  homeTipDesc: "A quick wellness tip to brighten your day.",
+  homeStartYourJourney: "Start Your Health Journey Today",
+  homeStartDesc: "Join thousands of people who are making better health choices every day. Create your free account to get personalized tips, save your favorite articles, and track your wellness progress.",
+  homeJoinNow: "Join Now — It's Free",
+  homeReadArticles: "Read the latest health articles and research-backed insights.",
+  homeReadArticlesDesc: "Stay informed with the latest health news and expert advice.",
+  homeViewAllEvents: "View all upcoming health awareness events and campaigns.",
+  homeViewAllEventsDesc: "Never miss an important health awareness day.",
+  
+  // About page
+  aboutSubtitle: "Our mission is to make reliable health information accessible to everyone, everywhere.",
+  missionTitle: "Our Mission",
+  missionDesc: "We believe that everyone deserves access to trustworthy health information. Our portal is designed to bridge the gap between complex medical knowledge and everyday understanding, empowering individuals to make informed decisions about their health and wellbeing.",
+  valuesTitle: "Our Values",
+  valueEvidence: "Evidence-Based",
+  valueEvidenceDesc: "All our content is reviewed by healthcare professionals and based on the latest medical research and guidelines.",
+  valueAccessible: "Accessible to All",
+  valueAccessibleDesc: "We present health information in simple, easy-to-understand language that anyone can follow, regardless of their background.",
+  valueCommunity: "Community Focused",
+  valueCommunityDesc: "We are committed to building a healthier community by spreading awareness and promoting preventive health practices.",
+  educationalDisclaimer: "This platform is for educational and awareness purposes only. It does not provide medical diagnosis, treatment, or professional medical advice. Always consult a qualified healthcare provider for any health concerns.",
+  
+  // Contact page
+  contactSubtitle: "Have questions or feedback? We would love to hear from you. Our team is here to help.",
+  contactInfo: "Contact Information",
+  contactName: "Your Name",
+  contactEmail: "Your Email",
+  contactSubject: "Subject",
+  contactMessage: "Your Message",
+  contactSend: "Send Message",
+  contactSent: "Message Sent!",
+  contactSentDesc: "Thank you for reaching out. We will get back to you within 24 hours.",
+  contactPhoneLabel: "Phone",
+  contactEmailLabel: "Email",
+  contactHoursLabel: "Hours",
+  contactResponseTime: "Response Time",
+  contactResponseDesc: "We typically respond within 24 hours on business days.",
+  
+  // Bookmarks page
+  noBookmarks: "No bookmarks yet",
+  allItems: "All Items",
+  remove: "Remove",
+  
+  // Search page
+  searchResults: "Search Results",
+  noResultsDesc: "Try different keywords or browse our categories to find what you are looking for.",
+  searchingFor: "Searching for",
+  
+  // Dashboard body
+  dashWelcome: "Welcome back",
+  dashWelcomeDesc: "Here is your health dashboard. Track your progress and explore new content.",
+  dashStats: "Your Stats",
+  dashSaved: "Saved Items",
+  dashTopicsExplored: "Topics",
+  dashArticlesRead: "Articles",
+  dashQuickActions: "Quick Actions",
+  dashBrowseTopics: "Browse Topics",
+  dashBrowseTopicsDesc: "Explore 12+ health topics",
+  dashViewBookmarks: "View Bookmarks",
+  dashViewBookmarksDesc: "Access your saved content",
+  dashBrowseArticles: "Read Articles",
+  dashBrowseArticlesDesc: "Latest health insights",
+  dashDailyTip: "Today's Wellness Tip",
+  dashLearnPrevention: "Prevention Guide",
+  dashLearnPreventionDesc: "Practical health tips",
+  dashLifestyle: "Healthy Lifestyle",
+  dashLifestyleDesc: "Daily wellness habits",
+  dashCheckSymptoms: "Check Symptoms",
+  dashCheckSymptomsDesc: "Understand warning signs",
+  
+  // Prevention page body
+  preventionEatWell: "Eat Well",
+  preventionEatWellDesc: "A balanced diet rich in fruits, vegetables, whole grains, and lean proteins is one of the most powerful tools for disease prevention. Limit processed foods, sugar, and excessive sodium.",
+  preventionExercise: "Exercise Regularly",
+  preventionExerciseDesc: "Aim for at least 150 minutes of moderate physical activity per week. Walking, cycling, swimming, or any activity you enjoy can significantly reduce your risk of chronic diseases.",
+  preventionSleep: "Prioritize Sleep",
+  preventionSleepDesc: "Adults need 7-9 hours of quality sleep each night. Good sleep strengthens your immune system, improves memory, and reduces the risk of heart disease and diabetes.",
+  preventionHygiene: "Practice Good Hygiene",
+  preventionHygieneDesc: "Wash your hands frequently with soap and water, especially before eating and after using the bathroom. Cover your mouth when coughing or sneezing to prevent the spread of germs.",
+  preventionVaccines: "Stay Up to Date on Vaccines",
+  preventionVaccinesDesc: "Vaccines are one of the safest and most effective ways to prevent serious diseases. Follow your local health authority's recommended immunization schedule.",
+  preventionMentalHealth: "Protect Your Mental Health",
+  preventionMentalHealthDesc: "Manage stress through meditation, deep breathing, or talking to someone you trust. Mental health is just as important as physical health for overall wellbeing.",
+  preventionScreenings: "Get Regular Screenings",
+  preventionScreeningsDesc: "Regular health screenings can detect conditions early when they are most treatable. Talk to your doctor about which screenings are appropriate for your age and risk factors.",
+  preventionHydration: "Stay Hydrated",
+  preventionHydrationDesc: "Drink at least 8 glasses of water daily. Proper hydration supports kidney function, helps maintain healthy skin, and keeps your body's systems running smoothly.",
+  preventionSunProtection: "Protect Your Skin from Sun",
+  preventionSunProtectionDesc: "Use sunscreen with SPF 30 or higher, wear protective clothing, and avoid peak sun hours (10 AM to 4 PM) to reduce your risk of skin cancer and premature aging.",
+  preventionAvoidTobacco: "Avoid Tobacco and Limit Alcohol",
+  preventionAvoidTobaccoDesc: "Smoking is the leading cause of preventable death. If you smoke, seek help to quit. Also, limit alcohol consumption to reduce your risk of liver disease, cancer, and other conditions.",
+  
+  // Lifestyle page body
+  lifestyleEatBetter: "Eat Better",
+  lifestyleEatBetterDesc: "Fuel your body with nutritious foods. Fill half your plate with fruits and vegetables, choose whole grains, and include lean proteins. Cooking at home gives you control over ingredients and portions.",
+  lifestyleMoveMore: "Move More",
+  lifestyleMoveMoreDesc: "Find activities you enjoy and make them part of your routine. Even 20 minutes of walking, dancing, or stretching can boost your mood, strengthen your heart, and improve your energy levels throughout the day.",
+  lifestyleSleepWell: "Sleep Well",
+  lifestyleSleepWellDesc: "Create a relaxing bedtime routine. Keep your room cool and dark, avoid screens before bed, and try to go to bed and wake up at the same time every day. Quality sleep is the foundation of good health.",
+  lifestyleStayHydrated: "Stay Hydrated",
+  lifestyleStayHydratedDesc: "Water is essential for every function in your body. Carry a water bottle, drink a glass of water first thing in the morning, and eat water-rich foods like cucumbers, watermelon, and oranges.",
+  lifestyleManageStress: "Manage Stress",
+  lifestyleManageStressDesc: "Chronic stress can harm your body and mind. Practice deep breathing, spend time in nature, journal your thoughts, or talk to a friend. Taking breaks throughout the day helps reset your focus.",
+  lifestyleMaintainHygiene: "Maintain Good Hygiene",
+  lifestyleMaintainHygieneDesc: "Simple daily habits like washing your hands, brushing your teeth twice a day, and keeping your living space clean can prevent infections and keep you feeling your best.",
+  
+  // Calendar page body
+  calendarEventDetails: "Event Details",
+  calendarIn: "In",
+  calendarDays: "days",
+  calendarPast: "Past",
+  calendarNoEvents: "No events for this month",
+  
+  // Emergency page body
+  emergencyCallEmergency: "Call Emergency Services",
+  emergencyCallEmergencyDesc: "If you or someone nearby is experiencing a medical emergency, call your local emergency number (911 in the US, 112 in Europe, 108 in India) immediately.",
+  emergencyWhenToCall: "When to Call Emergency Services",
+  emergencyWhenToCallDesc: "Call immediately for: chest pain, difficulty breathing, severe bleeding, loss of consciousness, suspected stroke, severe allergic reaction, choking, or any life-threatening situation.",
+  emergencyCPRTitle: "CPR Basics",
+  emergencyCPRDesc: "If someone collapses and is not breathing normally: Call emergency services, place your hands in the center of their chest, push hard and fast at least 2 inches deep, at a rate of 100-120 compressions per minute.",
+  emergencyChokingTitle: "Choking First Aid",
+  emergencyChokingDesc: "For a conscious choking adult: Stand behind them, place your fist just above their navel, and give quick upward thrusts. For infants, use back blows and chest thrusts.",
+  emergencyBleedingTitle: "Control Severe Bleeding",
+  emergencyBleedingDesc: "Apply firm, direct pressure with a clean cloth or gauze. Do not remove the cloth if it soaks through — add more on top. Elevate the injured area above the heart if possible.",
+  emergencyStrokeTitle: "FAST Stroke Recognition",
+  emergencyStrokeDesc: "F — Face: Is one side drooping? A — Arms: Can they raise both arms? S — Speech: Is their speech slurred? T — Time: If any of these, call emergency services immediately.",
+  emergencyBurnTitle: "Burn First Aid",
+  emergencyBurnDesc: "Cool the burn under running cold water for at least 20 minutes. Do not apply ice, butter, or toothpaste. Cover loosely with a clean, non-fluffy dressing. Seek medical help for burns larger than your palm.",
+  
+  // Symptoms page body
+  symptomsChestPain: "Chest pain or discomfort",
+  symptomsShortBreath: "Shortness of breath",
+  symptomsSevereHeadache: "Severe or sudden headache",
+  symptomsHighFever: "High fever (above 103F/39.4C)",
+  symptomsAbdominalPain: "Persistent abdominal pain",
+  symptomsVisionChanges: "Sudden vision changes",
+  symptomsFatigue: "Unexplained fatigue or weakness",
+  symptomsJointPain: "Joint pain or swelling",
+  symptomsRash: "Unexplained rash or skin changes",
+  symptomsNausea: "Persistent nausea or vomiting",
+  symptomsDizziness: "Dizziness or fainting",
+  symptomsBackPain: "Severe back pain",
+  symptomsSwelling: "Unexplained swelling",
+  symptomsCough: "Persistent cough",
+  symptomsInsomnia: "Difficulty sleeping",
+  symptomsWeightChange: "Unexplained weight change",
+  symptomsAnxiety: "Anxiety or panic attacks",
+  symptomsAllergies: "Allergic reactions",
+  
+  // Footer body
+  footerAbout: "About",
+  footerAboutDesc: "Digital Health Awareness Portal provides reliable, evidence-based health information to help you make informed decisions about your wellbeing.",
+  footerResources: "Resources",
+  footerSupport: "Support",
+  footerContactUs: "Contact Us",
+  footerPrivacy: "Privacy Policy",
+  footerTerms: "Terms of Service",
+  footerSitemap: "Sitemap",
+  footerRights: "All rights reserved. For educational and awareness purposes only.",
+  
+  // Registration login extra
+  regStep1Title: "Personal Information",
+  regStep1Desc: "Tell us a bit about yourself",
+  regProvideEmailOrPhone: "Please provide email or phone number",
+  regAccountInfo: "Account Information",
+  regCreateSecure: "Create a secure password for your account",
+  regSecureNote: "Your account is stored locally on this device. No email verification needed.",
+  regJoinDescription: "Create your free account and get personalized access to health topics, campaigns, bookmarks, and daily wellness tips.",
+  loginEmailOrPhone: "Email or Phone",
+  loginPasswordLabel: "Password",
+  loginNewUser: "New to the portal? Create an account with just your name, email/phone, and password. No OTP verification required.",
+  loginCreateOne: "Create one free",
+  
+  // AI Chat body
+  aiDisclaimer: "Educational info only. Not medical advice.",
+  
+  // Language selector body
+  langTitle: "Choose Your Language",
+  langDesc: "Select your preferred language to continue. You can change it anytime.",
+
+  loginDemoNote: "No OTP verification required. Sign in with just your credentials.",
 };
 
 const hi: TranslationKeys = {
@@ -680,7 +1079,206 @@ const hi: TranslationKeys = {
   language: "भाषा",
   chooseLanguage: "अपनी भाषा चुनें",
   chooseLanguageDesc: "बेहतर अनुभव के लिए अपनी पसंदीदा भाषा चुनें",
-  getStarted: "शुरू करें",
+  getStarted: "शुरू करें",// Home page body content
+  trustedHealthPlatform: "Trusted Health Information Platform",
+  topicsCount: "12+ Topics",
+  topicsCountDesc: "Trusted Info",
+  aiAssistantLabel: "AI Assistant",
+  aiAssistantDesc: "24/7 Help",
+  homeLearnAbout: "Learn about common health conditions and health concerns.",
+  homeDiscoverWays: "Discover practical ways to reduce health risks.",
+  homeLearnTips: "Learn about nutrition, exercise, sleep and wellbeing.",
+  homeUnderstandSymptoms: "Understand common symptoms and warning signs.",
+  homeExploreAwareness: "Explore awareness campaigns and public-health initiatives.",
+  homeEmergencyInfo: "Learn when urgent professional medical attention may be needed.",
+  homeCardTopicsDesc: "Learn about common health conditions and health concerns.",
+  homeCardPreventionDesc: "Discover practical ways to reduce health risks.",
+  homeCardLifestyleDesc: "Learn about nutrition, exercise, sleep and wellbeing.",
+  homeCardSymptomsDesc: "Understand common symptoms and warning signs.",
+  homeCardCampaignsDesc: "Explore awareness campaigns and public-health initiatives.",
+  homeCardEmergencyDesc: "Learn when urgent professional medical attention may be needed.",
+  homeTipDesc: "A quick wellness tip to brighten your day.",
+  homeStartYourJourney: "Start Your Health Journey Today",
+  homeStartDesc: "Join thousands of people who are making better health choices every day. Create your free account to get personalized tips, save your favorite articles, and track your wellness progress.",
+  homeJoinNow: "Join Now — It's Free",
+  homeReadArticles: "Read the latest health articles and research-backed insights.",
+  homeReadArticlesDesc: "Stay informed with the latest health news and expert advice.",
+  homeViewAllEvents: "View all upcoming health awareness events and campaigns.",
+  homeViewAllEventsDesc: "Never miss an important health awareness day.",
+  
+  // About page
+  aboutSubtitle: "Our mission is to make reliable health information accessible to everyone, everywhere.",
+  missionTitle: "Our Mission",
+  missionDesc: "We believe that everyone deserves access to trustworthy health information. Our portal is designed to bridge the gap between complex medical knowledge and everyday understanding, empowering individuals to make informed decisions about their health and wellbeing.",
+  valuesTitle: "Our Values",
+  valueEvidence: "Evidence-Based",
+  valueEvidenceDesc: "All our content is reviewed by healthcare professionals and based on the latest medical research and guidelines.",
+  valueAccessible: "Accessible to All",
+  valueAccessibleDesc: "We present health information in simple, easy-to-understand language that anyone can follow, regardless of their background.",
+  valueCommunity: "Community Focused",
+  valueCommunityDesc: "We are committed to building a healthier community by spreading awareness and promoting preventive health practices.",
+  educationalDisclaimer: "This platform is for educational and awareness purposes only. It does not provide medical diagnosis, treatment, or professional medical advice. Always consult a qualified healthcare provider for any health concerns.",
+  
+  // Contact page
+  contactSubtitle: "Have questions or feedback? We would love to hear from you. Our team is here to help.",
+  contactInfo: "Contact Information",
+  contactName: "Your Name",
+  contactEmail: "Your Email",
+  contactSubject: "Subject",
+  contactMessage: "Your Message",
+  contactSend: "Send Message",
+  contactSent: "Message Sent!",
+  contactSentDesc: "Thank you for reaching out. We will get back to you within 24 hours.",
+  contactPhoneLabel: "Phone",
+  contactEmailLabel: "Email",
+  contactHoursLabel: "Hours",
+  contactResponseTime: "Response Time",
+  contactResponseDesc: "We typically respond within 24 hours on business days.",
+  
+  // Bookmarks page
+  noBookmarks: "No bookmarks yet",
+  allItems: "All Items",
+  remove: "Remove",
+  
+  // Search page
+  searchResults: "Search Results",
+  noResultsDesc: "Try different keywords or browse our categories to find what you are looking for.",
+  searchingFor: "Searching for",
+  
+  // Dashboard body
+  dashWelcome: "Welcome back",
+  dashWelcomeDesc: "Here is your health dashboard. Track your progress and explore new content.",
+  dashStats: "Your Stats",
+  dashSaved: "Saved Items",
+  dashTopicsExplored: "Topics",
+  dashArticlesRead: "Articles",
+  dashQuickActions: "Quick Actions",
+  dashBrowseTopics: "Browse Topics",
+  dashBrowseTopicsDesc: "Explore 12+ health topics",
+  dashViewBookmarks: "View Bookmarks",
+  dashViewBookmarksDesc: "Access your saved content",
+  dashBrowseArticles: "Read Articles",
+  dashBrowseArticlesDesc: "Latest health insights",
+  dashDailyTip: "Today's Wellness Tip",
+  dashLearnPrevention: "Prevention Guide",
+  dashLearnPreventionDesc: "Practical health tips",
+  dashLifestyle: "Healthy Lifestyle",
+  dashLifestyleDesc: "Daily wellness habits",
+  dashCheckSymptoms: "Check Symptoms",
+  dashCheckSymptomsDesc: "Understand warning signs",
+  
+  // Prevention page body
+  preventionEatWell: "Eat Well",
+  preventionEatWellDesc: "A balanced diet rich in fruits, vegetables, whole grains, and lean proteins is one of the most powerful tools for disease prevention. Limit processed foods, sugar, and excessive sodium.",
+  preventionExercise: "Exercise Regularly",
+  preventionExerciseDesc: "Aim for at least 150 minutes of moderate physical activity per week. Walking, cycling, swimming, or any activity you enjoy can significantly reduce your risk of chronic diseases.",
+  preventionSleep: "Prioritize Sleep",
+  preventionSleepDesc: "Adults need 7-9 hours of quality sleep each night. Good sleep strengthens your immune system, improves memory, and reduces the risk of heart disease and diabetes.",
+  preventionHygiene: "Practice Good Hygiene",
+  preventionHygieneDesc: "Wash your hands frequently with soap and water, especially before eating and after using the bathroom. Cover your mouth when coughing or sneezing to prevent the spread of germs.",
+  preventionVaccines: "Stay Up to Date on Vaccines",
+  preventionVaccinesDesc: "Vaccines are one of the safest and most effective ways to prevent serious diseases. Follow your local health authority's recommended immunization schedule.",
+  preventionMentalHealth: "Protect Your Mental Health",
+  preventionMentalHealthDesc: "Manage stress through meditation, deep breathing, or talking to someone you trust. Mental health is just as important as physical health for overall wellbeing.",
+  preventionScreenings: "Get Regular Screenings",
+  preventionScreeningsDesc: "Regular health screenings can detect conditions early when they are most treatable. Talk to your doctor about which screenings are appropriate for your age and risk factors.",
+  preventionHydration: "Stay Hydrated",
+  preventionHydrationDesc: "Drink at least 8 glasses of water daily. Proper hydration supports kidney function, helps maintain healthy skin, and keeps your body's systems running smoothly.",
+  preventionSunProtection: "Protect Your Skin from Sun",
+  preventionSunProtectionDesc: "Use sunscreen with SPF 30 or higher, wear protective clothing, and avoid peak sun hours (10 AM to 4 PM) to reduce your risk of skin cancer and premature aging.",
+  preventionAvoidTobacco: "Avoid Tobacco and Limit Alcohol",
+  preventionAvoidTobaccoDesc: "Smoking is the leading cause of preventable death. If you smoke, seek help to quit. Also, limit alcohol consumption to reduce your risk of liver disease, cancer, and other conditions.",
+  
+  // Lifestyle page body
+  lifestyleEatBetter: "Eat Better",
+  lifestyleEatBetterDesc: "Fuel your body with nutritious foods. Fill half your plate with fruits and vegetables, choose whole grains, and include lean proteins. Cooking at home gives you control over ingredients and portions.",
+  lifestyleMoveMore: "Move More",
+  lifestyleMoveMoreDesc: "Find activities you enjoy and make them part of your routine. Even 20 minutes of walking, dancing, or stretching can boost your mood, strengthen your heart, and improve your energy levels throughout the day.",
+  lifestyleSleepWell: "Sleep Well",
+  lifestyleSleepWellDesc: "Create a relaxing bedtime routine. Keep your room cool and dark, avoid screens before bed, and try to go to bed and wake up at the same time every day. Quality sleep is the foundation of good health.",
+  lifestyleStayHydrated: "Stay Hydrated",
+  lifestyleStayHydratedDesc: "Water is essential for every function in your body. Carry a water bottle, drink a glass of water first thing in the morning, and eat water-rich foods like cucumbers, watermelon, and oranges.",
+  lifestyleManageStress: "Manage Stress",
+  lifestyleManageStressDesc: "Chronic stress can harm your body and mind. Practice deep breathing, spend time in nature, journal your thoughts, or talk to a friend. Taking breaks throughout the day helps reset your focus.",
+  lifestyleMaintainHygiene: "Maintain Good Hygiene",
+  lifestyleMaintainHygieneDesc: "Simple daily habits like washing your hands, brushing your teeth twice a day, and keeping your living space clean can prevent infections and keep you feeling your best.",
+  
+  // Calendar page body
+  calendarEventDetails: "Event Details",
+  calendarIn: "In",
+  calendarDays: "days",
+  calendarPast: "Past",
+  calendarNoEvents: "No events for this month",
+  
+  // Emergency page body
+  emergencyCallEmergency: "Call Emergency Services",
+  emergencyCallEmergencyDesc: "If you or someone nearby is experiencing a medical emergency, call your local emergency number (911 in the US, 112 in Europe, 108 in India) immediately.",
+  emergencyWhenToCall: "When to Call Emergency Services",
+  emergencyWhenToCallDesc: "Call immediately for: chest pain, difficulty breathing, severe bleeding, loss of consciousness, suspected stroke, severe allergic reaction, choking, or any life-threatening situation.",
+  emergencyCPRTitle: "CPR Basics",
+  emergencyCPRDesc: "If someone collapses and is not breathing normally: Call emergency services, place your hands in the center of their chest, push hard and fast at least 2 inches deep, at a rate of 100-120 compressions per minute.",
+  emergencyChokingTitle: "Choking First Aid",
+  emergencyChokingDesc: "For a conscious choking adult: Stand behind them, place your fist just above their navel, and give quick upward thrusts. For infants, use back blows and chest thrusts.",
+  emergencyBleedingTitle: "Control Severe Bleeding",
+  emergencyBleedingDesc: "Apply firm, direct pressure with a clean cloth or gauze. Do not remove the cloth if it soaks through — add more on top. Elevate the injured area above the heart if possible.",
+  emergencyStrokeTitle: "FAST Stroke Recognition",
+  emergencyStrokeDesc: "F — Face: Is one side drooping? A — Arms: Can they raise both arms? S — Speech: Is their speech slurred? T — Time: If any of these, call emergency services immediately.",
+  emergencyBurnTitle: "Burn First Aid",
+  emergencyBurnDesc: "Cool the burn under running cold water for at least 20 minutes. Do not apply ice, butter, or toothpaste. Cover loosely with a clean, non-fluffy dressing. Seek medical help for burns larger than your palm.",
+  
+  // Symptoms page body
+  symptomsChestPain: "Chest pain or discomfort",
+  symptomsShortBreath: "Shortness of breath",
+  symptomsSevereHeadache: "Severe or sudden headache",
+  symptomsHighFever: "High fever (above 103F/39.4C)",
+  symptomsAbdominalPain: "Persistent abdominal pain",
+  symptomsVisionChanges: "Sudden vision changes",
+  symptomsFatigue: "Unexplained fatigue or weakness",
+  symptomsJointPain: "Joint pain or swelling",
+  symptomsRash: "Unexplained rash or skin changes",
+  symptomsNausea: "Persistent nausea or vomiting",
+  symptomsDizziness: "Dizziness or fainting",
+  symptomsBackPain: "Severe back pain",
+  symptomsSwelling: "Unexplained swelling",
+  symptomsCough: "Persistent cough",
+  symptomsInsomnia: "Difficulty sleeping",
+  symptomsWeightChange: "Unexplained weight change",
+  symptomsAnxiety: "Anxiety or panic attacks",
+  symptomsAllergies: "Allergic reactions",
+  
+  // Footer body
+  footerAbout: "About",
+  footerAboutDesc: "Digital Health Awareness Portal provides reliable, evidence-based health information to help you make informed decisions about your wellbeing.",
+  footerResources: "Resources",
+  footerSupport: "Support",
+  footerContactUs: "Contact Us",
+  footerPrivacy: "Privacy Policy",
+  footerTerms: "Terms of Service",
+  footerSitemap: "Sitemap",
+  footerRights: "All rights reserved. For educational and awareness purposes only.",
+  
+  // Registration login extra
+  regStep1Title: "Personal Information",
+  regStep1Desc: "Tell us a bit about yourself",
+  regProvideEmailOrPhone: "Please provide email or phone number",
+  regAccountInfo: "Account Information",
+  regCreateSecure: "Create a secure password for your account",
+  regSecureNote: "Your account is stored locally on this device. No email verification needed.",
+  regJoinDescription: "Create your free account and get personalized access to health topics, campaigns, bookmarks, and daily wellness tips.",
+  loginEmailOrPhone: "Email or Phone",
+  loginPasswordLabel: "Password",
+  loginNewUser: "New to the portal? Create an account with just your name, email/phone, and password. No OTP verification required.",
+  loginCreateOne: "Create one free",
+  
+  // AI Chat body
+  aiDisclaimer: "Educational info only. Not medical advice.",
+  
+  // Language selector body
+  langTitle: "Choose Your Language",
+  langDesc: "Select your preferred language to continue. You can change it anytime.",
+
+  loginDemoNote: "No OTP verification required. Sign in with just your credentials.",
+
 };
 
 const es: TranslationKeys = {
@@ -896,7 +1494,206 @@ const es: TranslationKeys = {
   language: "Idioma",
   chooseLanguage: "Elija Su Idioma",
   chooseLanguageDesc: "Seleccione su idioma preferido para la mejor experiencia",
-  getStarted: "Comenzar",
+  getStarted: "Comenzar",// Home page body content
+  trustedHealthPlatform: "Trusted Health Information Platform",
+  topicsCount: "12+ Topics",
+  topicsCountDesc: "Trusted Info",
+  aiAssistantLabel: "AI Assistant",
+  aiAssistantDesc: "24/7 Help",
+  homeLearnAbout: "Learn about common health conditions and health concerns.",
+  homeDiscoverWays: "Discover practical ways to reduce health risks.",
+  homeLearnTips: "Learn about nutrition, exercise, sleep and wellbeing.",
+  homeUnderstandSymptoms: "Understand common symptoms and warning signs.",
+  homeExploreAwareness: "Explore awareness campaigns and public-health initiatives.",
+  homeEmergencyInfo: "Learn when urgent professional medical attention may be needed.",
+  homeCardTopicsDesc: "Learn about common health conditions and health concerns.",
+  homeCardPreventionDesc: "Discover practical ways to reduce health risks.",
+  homeCardLifestyleDesc: "Learn about nutrition, exercise, sleep and wellbeing.",
+  homeCardSymptomsDesc: "Understand common symptoms and warning signs.",
+  homeCardCampaignsDesc: "Explore awareness campaigns and public-health initiatives.",
+  homeCardEmergencyDesc: "Learn when urgent professional medical attention may be needed.",
+  homeTipDesc: "A quick wellness tip to brighten your day.",
+  homeStartYourJourney: "Start Your Health Journey Today",
+  homeStartDesc: "Join thousands of people who are making better health choices every day. Create your free account to get personalized tips, save your favorite articles, and track your wellness progress.",
+  homeJoinNow: "Join Now — It's Free",
+  homeReadArticles: "Read the latest health articles and research-backed insights.",
+  homeReadArticlesDesc: "Stay informed with the latest health news and expert advice.",
+  homeViewAllEvents: "View all upcoming health awareness events and campaigns.",
+  homeViewAllEventsDesc: "Never miss an important health awareness day.",
+  
+  // About page
+  aboutSubtitle: "Our mission is to make reliable health information accessible to everyone, everywhere.",
+  missionTitle: "Our Mission",
+  missionDesc: "We believe that everyone deserves access to trustworthy health information. Our portal is designed to bridge the gap between complex medical knowledge and everyday understanding, empowering individuals to make informed decisions about their health and wellbeing.",
+  valuesTitle: "Our Values",
+  valueEvidence: "Evidence-Based",
+  valueEvidenceDesc: "All our content is reviewed by healthcare professionals and based on the latest medical research and guidelines.",
+  valueAccessible: "Accessible to All",
+  valueAccessibleDesc: "We present health information in simple, easy-to-understand language that anyone can follow, regardless of their background.",
+  valueCommunity: "Community Focused",
+  valueCommunityDesc: "We are committed to building a healthier community by spreading awareness and promoting preventive health practices.",
+  educationalDisclaimer: "This platform is for educational and awareness purposes only. It does not provide medical diagnosis, treatment, or professional medical advice. Always consult a qualified healthcare provider for any health concerns.",
+  
+  // Contact page
+  contactSubtitle: "Have questions or feedback? We would love to hear from you. Our team is here to help.",
+  contactInfo: "Contact Information",
+  contactName: "Your Name",
+  contactEmail: "Your Email",
+  contactSubject: "Subject",
+  contactMessage: "Your Message",
+  contactSend: "Send Message",
+  contactSent: "Message Sent!",
+  contactSentDesc: "Thank you for reaching out. We will get back to you within 24 hours.",
+  contactPhoneLabel: "Phone",
+  contactEmailLabel: "Email",
+  contactHoursLabel: "Hours",
+  contactResponseTime: "Response Time",
+  contactResponseDesc: "We typically respond within 24 hours on business days.",
+  
+  // Bookmarks page
+  noBookmarks: "No bookmarks yet",
+  allItems: "All Items",
+  remove: "Remove",
+  
+  // Search page
+  searchResults: "Search Results",
+  noResultsDesc: "Try different keywords or browse our categories to find what you are looking for.",
+  searchingFor: "Searching for",
+  
+  // Dashboard body
+  dashWelcome: "Welcome back",
+  dashWelcomeDesc: "Here is your health dashboard. Track your progress and explore new content.",
+  dashStats: "Your Stats",
+  dashSaved: "Saved Items",
+  dashTopicsExplored: "Topics",
+  dashArticlesRead: "Articles",
+  dashQuickActions: "Quick Actions",
+  dashBrowseTopics: "Browse Topics",
+  dashBrowseTopicsDesc: "Explore 12+ health topics",
+  dashViewBookmarks: "View Bookmarks",
+  dashViewBookmarksDesc: "Access your saved content",
+  dashBrowseArticles: "Read Articles",
+  dashBrowseArticlesDesc: "Latest health insights",
+  dashDailyTip: "Today's Wellness Tip",
+  dashLearnPrevention: "Prevention Guide",
+  dashLearnPreventionDesc: "Practical health tips",
+  dashLifestyle: "Healthy Lifestyle",
+  dashLifestyleDesc: "Daily wellness habits",
+  dashCheckSymptoms: "Check Symptoms",
+  dashCheckSymptomsDesc: "Understand warning signs",
+  
+  // Prevention page body
+  preventionEatWell: "Eat Well",
+  preventionEatWellDesc: "A balanced diet rich in fruits, vegetables, whole grains, and lean proteins is one of the most powerful tools for disease prevention. Limit processed foods, sugar, and excessive sodium.",
+  preventionExercise: "Exercise Regularly",
+  preventionExerciseDesc: "Aim for at least 150 minutes of moderate physical activity per week. Walking, cycling, swimming, or any activity you enjoy can significantly reduce your risk of chronic diseases.",
+  preventionSleep: "Prioritize Sleep",
+  preventionSleepDesc: "Adults need 7-9 hours of quality sleep each night. Good sleep strengthens your immune system, improves memory, and reduces the risk of heart disease and diabetes.",
+  preventionHygiene: "Practice Good Hygiene",
+  preventionHygieneDesc: "Wash your hands frequently with soap and water, especially before eating and after using the bathroom. Cover your mouth when coughing or sneezing to prevent the spread of germs.",
+  preventionVaccines: "Stay Up to Date on Vaccines",
+  preventionVaccinesDesc: "Vaccines are one of the safest and most effective ways to prevent serious diseases. Follow your local health authority's recommended immunization schedule.",
+  preventionMentalHealth: "Protect Your Mental Health",
+  preventionMentalHealthDesc: "Manage stress through meditation, deep breathing, or talking to someone you trust. Mental health is just as important as physical health for overall wellbeing.",
+  preventionScreenings: "Get Regular Screenings",
+  preventionScreeningsDesc: "Regular health screenings can detect conditions early when they are most treatable. Talk to your doctor about which screenings are appropriate for your age and risk factors.",
+  preventionHydration: "Stay Hydrated",
+  preventionHydrationDesc: "Drink at least 8 glasses of water daily. Proper hydration supports kidney function, helps maintain healthy skin, and keeps your body's systems running smoothly.",
+  preventionSunProtection: "Protect Your Skin from Sun",
+  preventionSunProtectionDesc: "Use sunscreen with SPF 30 or higher, wear protective clothing, and avoid peak sun hours (10 AM to 4 PM) to reduce your risk of skin cancer and premature aging.",
+  preventionAvoidTobacco: "Avoid Tobacco and Limit Alcohol",
+  preventionAvoidTobaccoDesc: "Smoking is the leading cause of preventable death. If you smoke, seek help to quit. Also, limit alcohol consumption to reduce your risk of liver disease, cancer, and other conditions.",
+  
+  // Lifestyle page body
+  lifestyleEatBetter: "Eat Better",
+  lifestyleEatBetterDesc: "Fuel your body with nutritious foods. Fill half your plate with fruits and vegetables, choose whole grains, and include lean proteins. Cooking at home gives you control over ingredients and portions.",
+  lifestyleMoveMore: "Move More",
+  lifestyleMoveMoreDesc: "Find activities you enjoy and make them part of your routine. Even 20 minutes of walking, dancing, or stretching can boost your mood, strengthen your heart, and improve your energy levels throughout the day.",
+  lifestyleSleepWell: "Sleep Well",
+  lifestyleSleepWellDesc: "Create a relaxing bedtime routine. Keep your room cool and dark, avoid screens before bed, and try to go to bed and wake up at the same time every day. Quality sleep is the foundation of good health.",
+  lifestyleStayHydrated: "Stay Hydrated",
+  lifestyleStayHydratedDesc: "Water is essential for every function in your body. Carry a water bottle, drink a glass of water first thing in the morning, and eat water-rich foods like cucumbers, watermelon, and oranges.",
+  lifestyleManageStress: "Manage Stress",
+  lifestyleManageStressDesc: "Chronic stress can harm your body and mind. Practice deep breathing, spend time in nature, journal your thoughts, or talk to a friend. Taking breaks throughout the day helps reset your focus.",
+  lifestyleMaintainHygiene: "Maintain Good Hygiene",
+  lifestyleMaintainHygieneDesc: "Simple daily habits like washing your hands, brushing your teeth twice a day, and keeping your living space clean can prevent infections and keep you feeling your best.",
+  
+  // Calendar page body
+  calendarEventDetails: "Event Details",
+  calendarIn: "In",
+  calendarDays: "days",
+  calendarPast: "Past",
+  calendarNoEvents: "No events for this month",
+  
+  // Emergency page body
+  emergencyCallEmergency: "Call Emergency Services",
+  emergencyCallEmergencyDesc: "If you or someone nearby is experiencing a medical emergency, call your local emergency number (911 in the US, 112 in Europe, 108 in India) immediately.",
+  emergencyWhenToCall: "When to Call Emergency Services",
+  emergencyWhenToCallDesc: "Call immediately for: chest pain, difficulty breathing, severe bleeding, loss of consciousness, suspected stroke, severe allergic reaction, choking, or any life-threatening situation.",
+  emergencyCPRTitle: "CPR Basics",
+  emergencyCPRDesc: "If someone collapses and is not breathing normally: Call emergency services, place your hands in the center of their chest, push hard and fast at least 2 inches deep, at a rate of 100-120 compressions per minute.",
+  emergencyChokingTitle: "Choking First Aid",
+  emergencyChokingDesc: "For a conscious choking adult: Stand behind them, place your fist just above their navel, and give quick upward thrusts. For infants, use back blows and chest thrusts.",
+  emergencyBleedingTitle: "Control Severe Bleeding",
+  emergencyBleedingDesc: "Apply firm, direct pressure with a clean cloth or gauze. Do not remove the cloth if it soaks through — add more on top. Elevate the injured area above the heart if possible.",
+  emergencyStrokeTitle: "FAST Stroke Recognition",
+  emergencyStrokeDesc: "F — Face: Is one side drooping? A — Arms: Can they raise both arms? S — Speech: Is their speech slurred? T — Time: If any of these, call emergency services immediately.",
+  emergencyBurnTitle: "Burn First Aid",
+  emergencyBurnDesc: "Cool the burn under running cold water for at least 20 minutes. Do not apply ice, butter, or toothpaste. Cover loosely with a clean, non-fluffy dressing. Seek medical help for burns larger than your palm.",
+  
+  // Symptoms page body
+  symptomsChestPain: "Chest pain or discomfort",
+  symptomsShortBreath: "Shortness of breath",
+  symptomsSevereHeadache: "Severe or sudden headache",
+  symptomsHighFever: "High fever (above 103F/39.4C)",
+  symptomsAbdominalPain: "Persistent abdominal pain",
+  symptomsVisionChanges: "Sudden vision changes",
+  symptomsFatigue: "Unexplained fatigue or weakness",
+  symptomsJointPain: "Joint pain or swelling",
+  symptomsRash: "Unexplained rash or skin changes",
+  symptomsNausea: "Persistent nausea or vomiting",
+  symptomsDizziness: "Dizziness or fainting",
+  symptomsBackPain: "Severe back pain",
+  symptomsSwelling: "Unexplained swelling",
+  symptomsCough: "Persistent cough",
+  symptomsInsomnia: "Difficulty sleeping",
+  symptomsWeightChange: "Unexplained weight change",
+  symptomsAnxiety: "Anxiety or panic attacks",
+  symptomsAllergies: "Allergic reactions",
+  
+  // Footer body
+  footerAbout: "About",
+  footerAboutDesc: "Digital Health Awareness Portal provides reliable, evidence-based health information to help you make informed decisions about your wellbeing.",
+  footerResources: "Resources",
+  footerSupport: "Support",
+  footerContactUs: "Contact Us",
+  footerPrivacy: "Privacy Policy",
+  footerTerms: "Terms of Service",
+  footerSitemap: "Sitemap",
+  footerRights: "All rights reserved. For educational and awareness purposes only.",
+  
+  // Registration login extra
+  regStep1Title: "Personal Information",
+  regStep1Desc: "Tell us a bit about yourself",
+  regProvideEmailOrPhone: "Please provide email or phone number",
+  regAccountInfo: "Account Information",
+  regCreateSecure: "Create a secure password for your account",
+  regSecureNote: "Your account is stored locally on this device. No email verification needed.",
+  regJoinDescription: "Create your free account and get personalized access to health topics, campaigns, bookmarks, and daily wellness tips.",
+  loginEmailOrPhone: "Email or Phone",
+  loginPasswordLabel: "Password",
+  loginNewUser: "New to the portal? Create an account with just your name, email/phone, and password. No OTP verification required.",
+  loginCreateOne: "Create one free",
+  
+  // AI Chat body
+  aiDisclaimer: "Educational info only. Not medical advice.",
+  
+  // Language selector body
+  langTitle: "Choose Your Language",
+  langDesc: "Select your preferred language to continue. You can change it anytime.",
+
+  loginDemoNote: "No OTP verification required. Sign in with just your credentials.",
+
 };
 
 const fr: TranslationKeys = {
@@ -1112,7 +1909,206 @@ const fr: TranslationKeys = {
   language: "Langue",
   chooseLanguage: "Choisissez Votre Langue",
   chooseLanguageDesc: "Sélectionnez votre langue préférée pour la meilleure expérience",
-  getStarted: "Commencer",
+  getStarted: "Commencer",// Home page body content
+  trustedHealthPlatform: "Trusted Health Information Platform",
+  topicsCount: "12+ Topics",
+  topicsCountDesc: "Trusted Info",
+  aiAssistantLabel: "AI Assistant",
+  aiAssistantDesc: "24/7 Help",
+  homeLearnAbout: "Learn about common health conditions and health concerns.",
+  homeDiscoverWays: "Discover practical ways to reduce health risks.",
+  homeLearnTips: "Learn about nutrition, exercise, sleep and wellbeing.",
+  homeUnderstandSymptoms: "Understand common symptoms and warning signs.",
+  homeExploreAwareness: "Explore awareness campaigns and public-health initiatives.",
+  homeEmergencyInfo: "Learn when urgent professional medical attention may be needed.",
+  homeCardTopicsDesc: "Learn about common health conditions and health concerns.",
+  homeCardPreventionDesc: "Discover practical ways to reduce health risks.",
+  homeCardLifestyleDesc: "Learn about nutrition, exercise, sleep and wellbeing.",
+  homeCardSymptomsDesc: "Understand common symptoms and warning signs.",
+  homeCardCampaignsDesc: "Explore awareness campaigns and public-health initiatives.",
+  homeCardEmergencyDesc: "Learn when urgent professional medical attention may be needed.",
+  homeTipDesc: "A quick wellness tip to brighten your day.",
+  homeStartYourJourney: "Start Your Health Journey Today",
+  homeStartDesc: "Join thousands of people who are making better health choices every day. Create your free account to get personalized tips, save your favorite articles, and track your wellness progress.",
+  homeJoinNow: "Join Now — It's Free",
+  homeReadArticles: "Read the latest health articles and research-backed insights.",
+  homeReadArticlesDesc: "Stay informed with the latest health news and expert advice.",
+  homeViewAllEvents: "View all upcoming health awareness events and campaigns.",
+  homeViewAllEventsDesc: "Never miss an important health awareness day.",
+  
+  // About page
+  aboutSubtitle: "Our mission is to make reliable health information accessible to everyone, everywhere.",
+  missionTitle: "Our Mission",
+  missionDesc: "We believe that everyone deserves access to trustworthy health information. Our portal is designed to bridge the gap between complex medical knowledge and everyday understanding, empowering individuals to make informed decisions about their health and wellbeing.",
+  valuesTitle: "Our Values",
+  valueEvidence: "Evidence-Based",
+  valueEvidenceDesc: "All our content is reviewed by healthcare professionals and based on the latest medical research and guidelines.",
+  valueAccessible: "Accessible to All",
+  valueAccessibleDesc: "We present health information in simple, easy-to-understand language that anyone can follow, regardless of their background.",
+  valueCommunity: "Community Focused",
+  valueCommunityDesc: "We are committed to building a healthier community by spreading awareness and promoting preventive health practices.",
+  educationalDisclaimer: "This platform is for educational and awareness purposes only. It does not provide medical diagnosis, treatment, or professional medical advice. Always consult a qualified healthcare provider for any health concerns.",
+  
+  // Contact page
+  contactSubtitle: "Have questions or feedback? We would love to hear from you. Our team is here to help.",
+  contactInfo: "Contact Information",
+  contactName: "Your Name",
+  contactEmail: "Your Email",
+  contactSubject: "Subject",
+  contactMessage: "Your Message",
+  contactSend: "Send Message",
+  contactSent: "Message Sent!",
+  contactSentDesc: "Thank you for reaching out. We will get back to you within 24 hours.",
+  contactPhoneLabel: "Phone",
+  contactEmailLabel: "Email",
+  contactHoursLabel: "Hours",
+  contactResponseTime: "Response Time",
+  contactResponseDesc: "We typically respond within 24 hours on business days.",
+  
+  // Bookmarks page
+  noBookmarks: "No bookmarks yet",
+  allItems: "All Items",
+  remove: "Remove",
+  
+  // Search page
+  searchResults: "Search Results",
+  noResultsDesc: "Try different keywords or browse our categories to find what you are looking for.",
+  searchingFor: "Searching for",
+  
+  // Dashboard body
+  dashWelcome: "Welcome back",
+  dashWelcomeDesc: "Here is your health dashboard. Track your progress and explore new content.",
+  dashStats: "Your Stats",
+  dashSaved: "Saved Items",
+  dashTopicsExplored: "Topics",
+  dashArticlesRead: "Articles",
+  dashQuickActions: "Quick Actions",
+  dashBrowseTopics: "Browse Topics",
+  dashBrowseTopicsDesc: "Explore 12+ health topics",
+  dashViewBookmarks: "View Bookmarks",
+  dashViewBookmarksDesc: "Access your saved content",
+  dashBrowseArticles: "Read Articles",
+  dashBrowseArticlesDesc: "Latest health insights",
+  dashDailyTip: "Today's Wellness Tip",
+  dashLearnPrevention: "Prevention Guide",
+  dashLearnPreventionDesc: "Practical health tips",
+  dashLifestyle: "Healthy Lifestyle",
+  dashLifestyleDesc: "Daily wellness habits",
+  dashCheckSymptoms: "Check Symptoms",
+  dashCheckSymptomsDesc: "Understand warning signs",
+  
+  // Prevention page body
+  preventionEatWell: "Eat Well",
+  preventionEatWellDesc: "A balanced diet rich in fruits, vegetables, whole grains, and lean proteins is one of the most powerful tools for disease prevention. Limit processed foods, sugar, and excessive sodium.",
+  preventionExercise: "Exercise Regularly",
+  preventionExerciseDesc: "Aim for at least 150 minutes of moderate physical activity per week. Walking, cycling, swimming, or any activity you enjoy can significantly reduce your risk of chronic diseases.",
+  preventionSleep: "Prioritize Sleep",
+  preventionSleepDesc: "Adults need 7-9 hours of quality sleep each night. Good sleep strengthens your immune system, improves memory, and reduces the risk of heart disease and diabetes.",
+  preventionHygiene: "Practice Good Hygiene",
+  preventionHygieneDesc: "Wash your hands frequently with soap and water, especially before eating and after using the bathroom. Cover your mouth when coughing or sneezing to prevent the spread of germs.",
+  preventionVaccines: "Stay Up to Date on Vaccines",
+  preventionVaccinesDesc: "Vaccines are one of the safest and most effective ways to prevent serious diseases. Follow your local health authority's recommended immunization schedule.",
+  preventionMentalHealth: "Protect Your Mental Health",
+  preventionMentalHealthDesc: "Manage stress through meditation, deep breathing, or talking to someone you trust. Mental health is just as important as physical health for overall wellbeing.",
+  preventionScreenings: "Get Regular Screenings",
+  preventionScreeningsDesc: "Regular health screenings can detect conditions early when they are most treatable. Talk to your doctor about which screenings are appropriate for your age and risk factors.",
+  preventionHydration: "Stay Hydrated",
+  preventionHydrationDesc: "Drink at least 8 glasses of water daily. Proper hydration supports kidney function, helps maintain healthy skin, and keeps your body's systems running smoothly.",
+  preventionSunProtection: "Protect Your Skin from Sun",
+  preventionSunProtectionDesc: "Use sunscreen with SPF 30 or higher, wear protective clothing, and avoid peak sun hours (10 AM to 4 PM) to reduce your risk of skin cancer and premature aging.",
+  preventionAvoidTobacco: "Avoid Tobacco and Limit Alcohol",
+  preventionAvoidTobaccoDesc: "Smoking is the leading cause of preventable death. If you smoke, seek help to quit. Also, limit alcohol consumption to reduce your risk of liver disease, cancer, and other conditions.",
+  
+  // Lifestyle page body
+  lifestyleEatBetter: "Eat Better",
+  lifestyleEatBetterDesc: "Fuel your body with nutritious foods. Fill half your plate with fruits and vegetables, choose whole grains, and include lean proteins. Cooking at home gives you control over ingredients and portions.",
+  lifestyleMoveMore: "Move More",
+  lifestyleMoveMoreDesc: "Find activities you enjoy and make them part of your routine. Even 20 minutes of walking, dancing, or stretching can boost your mood, strengthen your heart, and improve your energy levels throughout the day.",
+  lifestyleSleepWell: "Sleep Well",
+  lifestyleSleepWellDesc: "Create a relaxing bedtime routine. Keep your room cool and dark, avoid screens before bed, and try to go to bed and wake up at the same time every day. Quality sleep is the foundation of good health.",
+  lifestyleStayHydrated: "Stay Hydrated",
+  lifestyleStayHydratedDesc: "Water is essential for every function in your body. Carry a water bottle, drink a glass of water first thing in the morning, and eat water-rich foods like cucumbers, watermelon, and oranges.",
+  lifestyleManageStress: "Manage Stress",
+  lifestyleManageStressDesc: "Chronic stress can harm your body and mind. Practice deep breathing, spend time in nature, journal your thoughts, or talk to a friend. Taking breaks throughout the day helps reset your focus.",
+  lifestyleMaintainHygiene: "Maintain Good Hygiene",
+  lifestyleMaintainHygieneDesc: "Simple daily habits like washing your hands, brushing your teeth twice a day, and keeping your living space clean can prevent infections and keep you feeling your best.",
+  
+  // Calendar page body
+  calendarEventDetails: "Event Details",
+  calendarIn: "In",
+  calendarDays: "days",
+  calendarPast: "Past",
+  calendarNoEvents: "No events for this month",
+  
+  // Emergency page body
+  emergencyCallEmergency: "Call Emergency Services",
+  emergencyCallEmergencyDesc: "If you or someone nearby is experiencing a medical emergency, call your local emergency number (911 in the US, 112 in Europe, 108 in India) immediately.",
+  emergencyWhenToCall: "When to Call Emergency Services",
+  emergencyWhenToCallDesc: "Call immediately for: chest pain, difficulty breathing, severe bleeding, loss of consciousness, suspected stroke, severe allergic reaction, choking, or any life-threatening situation.",
+  emergencyCPRTitle: "CPR Basics",
+  emergencyCPRDesc: "If someone collapses and is not breathing normally: Call emergency services, place your hands in the center of their chest, push hard and fast at least 2 inches deep, at a rate of 100-120 compressions per minute.",
+  emergencyChokingTitle: "Choking First Aid",
+  emergencyChokingDesc: "For a conscious choking adult: Stand behind them, place your fist just above their navel, and give quick upward thrusts. For infants, use back blows and chest thrusts.",
+  emergencyBleedingTitle: "Control Severe Bleeding",
+  emergencyBleedingDesc: "Apply firm, direct pressure with a clean cloth or gauze. Do not remove the cloth if it soaks through — add more on top. Elevate the injured area above the heart if possible.",
+  emergencyStrokeTitle: "FAST Stroke Recognition",
+  emergencyStrokeDesc: "F — Face: Is one side drooping? A — Arms: Can they raise both arms? S — Speech: Is their speech slurred? T — Time: If any of these, call emergency services immediately.",
+  emergencyBurnTitle: "Burn First Aid",
+  emergencyBurnDesc: "Cool the burn under running cold water for at least 20 minutes. Do not apply ice, butter, or toothpaste. Cover loosely with a clean, non-fluffy dressing. Seek medical help for burns larger than your palm.",
+  
+  // Symptoms page body
+  symptomsChestPain: "Chest pain or discomfort",
+  symptomsShortBreath: "Shortness of breath",
+  symptomsSevereHeadache: "Severe or sudden headache",
+  symptomsHighFever: "High fever (above 103F/39.4C)",
+  symptomsAbdominalPain: "Persistent abdominal pain",
+  symptomsVisionChanges: "Sudden vision changes",
+  symptomsFatigue: "Unexplained fatigue or weakness",
+  symptomsJointPain: "Joint pain or swelling",
+  symptomsRash: "Unexplained rash or skin changes",
+  symptomsNausea: "Persistent nausea or vomiting",
+  symptomsDizziness: "Dizziness or fainting",
+  symptomsBackPain: "Severe back pain",
+  symptomsSwelling: "Unexplained swelling",
+  symptomsCough: "Persistent cough",
+  symptomsInsomnia: "Difficulty sleeping",
+  symptomsWeightChange: "Unexplained weight change",
+  symptomsAnxiety: "Anxiety or panic attacks",
+  symptomsAllergies: "Allergic reactions",
+  
+  // Footer body
+  footerAbout: "About",
+  footerAboutDesc: "Digital Health Awareness Portal provides reliable, evidence-based health information to help you make informed decisions about your wellbeing.",
+  footerResources: "Resources",
+  footerSupport: "Support",
+  footerContactUs: "Contact Us",
+  footerPrivacy: "Privacy Policy",
+  footerTerms: "Terms of Service",
+  footerSitemap: "Sitemap",
+  footerRights: "All rights reserved. For educational and awareness purposes only.",
+  
+  // Registration login extra
+  regStep1Title: "Personal Information",
+  regStep1Desc: "Tell us a bit about yourself",
+  regProvideEmailOrPhone: "Please provide email or phone number",
+  regAccountInfo: "Account Information",
+  regCreateSecure: "Create a secure password for your account",
+  regSecureNote: "Your account is stored locally on this device. No email verification needed.",
+  regJoinDescription: "Create your free account and get personalized access to health topics, campaigns, bookmarks, and daily wellness tips.",
+  loginEmailOrPhone: "Email or Phone",
+  loginPasswordLabel: "Password",
+  loginNewUser: "New to the portal? Create an account with just your name, email/phone, and password. No OTP verification required.",
+  loginCreateOne: "Create one free",
+  
+  // AI Chat body
+  aiDisclaimer: "Educational info only. Not medical advice.",
+  
+  // Language selector body
+  langTitle: "Choose Your Language",
+  langDesc: "Select your preferred language to continue. You can change it anytime.",
+
+  loginDemoNote: "No OTP verification required. Sign in with just your credentials.",
+
 };
 
 const ar: TranslationKeys = {
@@ -1328,7 +2324,206 @@ const ar: TranslationKeys = {
   language: "اللغة",
   chooseLanguage: "اختر لغتك",
   chooseLanguageDesc: "حدد لغتك المفضلة لأفضل تجربة",
-  getStarted: "ابدأ",
+  getStarted: "ابدأ",// Home page body content
+  trustedHealthPlatform: "Trusted Health Information Platform",
+  topicsCount: "12+ Topics",
+  topicsCountDesc: "Trusted Info",
+  aiAssistantLabel: "AI Assistant",
+  aiAssistantDesc: "24/7 Help",
+  homeLearnAbout: "Learn about common health conditions and health concerns.",
+  homeDiscoverWays: "Discover practical ways to reduce health risks.",
+  homeLearnTips: "Learn about nutrition, exercise, sleep and wellbeing.",
+  homeUnderstandSymptoms: "Understand common symptoms and warning signs.",
+  homeExploreAwareness: "Explore awareness campaigns and public-health initiatives.",
+  homeEmergencyInfo: "Learn when urgent professional medical attention may be needed.",
+  homeCardTopicsDesc: "Learn about common health conditions and health concerns.",
+  homeCardPreventionDesc: "Discover practical ways to reduce health risks.",
+  homeCardLifestyleDesc: "Learn about nutrition, exercise, sleep and wellbeing.",
+  homeCardSymptomsDesc: "Understand common symptoms and warning signs.",
+  homeCardCampaignsDesc: "Explore awareness campaigns and public-health initiatives.",
+  homeCardEmergencyDesc: "Learn when urgent professional medical attention may be needed.",
+  homeTipDesc: "A quick wellness tip to brighten your day.",
+  homeStartYourJourney: "Start Your Health Journey Today",
+  homeStartDesc: "Join thousands of people who are making better health choices every day. Create your free account to get personalized tips, save your favorite articles, and track your wellness progress.",
+  homeJoinNow: "Join Now — It's Free",
+  homeReadArticles: "Read the latest health articles and research-backed insights.",
+  homeReadArticlesDesc: "Stay informed with the latest health news and expert advice.",
+  homeViewAllEvents: "View all upcoming health awareness events and campaigns.",
+  homeViewAllEventsDesc: "Never miss an important health awareness day.",
+  
+  // About page
+  aboutSubtitle: "Our mission is to make reliable health information accessible to everyone, everywhere.",
+  missionTitle: "Our Mission",
+  missionDesc: "We believe that everyone deserves access to trustworthy health information. Our portal is designed to bridge the gap between complex medical knowledge and everyday understanding, empowering individuals to make informed decisions about their health and wellbeing.",
+  valuesTitle: "Our Values",
+  valueEvidence: "Evidence-Based",
+  valueEvidenceDesc: "All our content is reviewed by healthcare professionals and based on the latest medical research and guidelines.",
+  valueAccessible: "Accessible to All",
+  valueAccessibleDesc: "We present health information in simple, easy-to-understand language that anyone can follow, regardless of their background.",
+  valueCommunity: "Community Focused",
+  valueCommunityDesc: "We are committed to building a healthier community by spreading awareness and promoting preventive health practices.",
+  educationalDisclaimer: "This platform is for educational and awareness purposes only. It does not provide medical diagnosis, treatment, or professional medical advice. Always consult a qualified healthcare provider for any health concerns.",
+  
+  // Contact page
+  contactSubtitle: "Have questions or feedback? We would love to hear from you. Our team is here to help.",
+  contactInfo: "Contact Information",
+  contactName: "Your Name",
+  contactEmail: "Your Email",
+  contactSubject: "Subject",
+  contactMessage: "Your Message",
+  contactSend: "Send Message",
+  contactSent: "Message Sent!",
+  contactSentDesc: "Thank you for reaching out. We will get back to you within 24 hours.",
+  contactPhoneLabel: "Phone",
+  contactEmailLabel: "Email",
+  contactHoursLabel: "Hours",
+  contactResponseTime: "Response Time",
+  contactResponseDesc: "We typically respond within 24 hours on business days.",
+  
+  // Bookmarks page
+  noBookmarks: "No bookmarks yet",
+  allItems: "All Items",
+  remove: "Remove",
+  
+  // Search page
+  searchResults: "Search Results",
+  noResultsDesc: "Try different keywords or browse our categories to find what you are looking for.",
+  searchingFor: "Searching for",
+  
+  // Dashboard body
+  dashWelcome: "Welcome back",
+  dashWelcomeDesc: "Here is your health dashboard. Track your progress and explore new content.",
+  dashStats: "Your Stats",
+  dashSaved: "Saved Items",
+  dashTopicsExplored: "Topics",
+  dashArticlesRead: "Articles",
+  dashQuickActions: "Quick Actions",
+  dashBrowseTopics: "Browse Topics",
+  dashBrowseTopicsDesc: "Explore 12+ health topics",
+  dashViewBookmarks: "View Bookmarks",
+  dashViewBookmarksDesc: "Access your saved content",
+  dashBrowseArticles: "Read Articles",
+  dashBrowseArticlesDesc: "Latest health insights",
+  dashDailyTip: "Today's Wellness Tip",
+  dashLearnPrevention: "Prevention Guide",
+  dashLearnPreventionDesc: "Practical health tips",
+  dashLifestyle: "Healthy Lifestyle",
+  dashLifestyleDesc: "Daily wellness habits",
+  dashCheckSymptoms: "Check Symptoms",
+  dashCheckSymptomsDesc: "Understand warning signs",
+  
+  // Prevention page body
+  preventionEatWell: "Eat Well",
+  preventionEatWellDesc: "A balanced diet rich in fruits, vegetables, whole grains, and lean proteins is one of the most powerful tools for disease prevention. Limit processed foods, sugar, and excessive sodium.",
+  preventionExercise: "Exercise Regularly",
+  preventionExerciseDesc: "Aim for at least 150 minutes of moderate physical activity per week. Walking, cycling, swimming, or any activity you enjoy can significantly reduce your risk of chronic diseases.",
+  preventionSleep: "Prioritize Sleep",
+  preventionSleepDesc: "Adults need 7-9 hours of quality sleep each night. Good sleep strengthens your immune system, improves memory, and reduces the risk of heart disease and diabetes.",
+  preventionHygiene: "Practice Good Hygiene",
+  preventionHygieneDesc: "Wash your hands frequently with soap and water, especially before eating and after using the bathroom. Cover your mouth when coughing or sneezing to prevent the spread of germs.",
+  preventionVaccines: "Stay Up to Date on Vaccines",
+  preventionVaccinesDesc: "Vaccines are one of the safest and most effective ways to prevent serious diseases. Follow your local health authority's recommended immunization schedule.",
+  preventionMentalHealth: "Protect Your Mental Health",
+  preventionMentalHealthDesc: "Manage stress through meditation, deep breathing, or talking to someone you trust. Mental health is just as important as physical health for overall wellbeing.",
+  preventionScreenings: "Get Regular Screenings",
+  preventionScreeningsDesc: "Regular health screenings can detect conditions early when they are most treatable. Talk to your doctor about which screenings are appropriate for your age and risk factors.",
+  preventionHydration: "Stay Hydrated",
+  preventionHydrationDesc: "Drink at least 8 glasses of water daily. Proper hydration supports kidney function, helps maintain healthy skin, and keeps your body's systems running smoothly.",
+  preventionSunProtection: "Protect Your Skin from Sun",
+  preventionSunProtectionDesc: "Use sunscreen with SPF 30 or higher, wear protective clothing, and avoid peak sun hours (10 AM to 4 PM) to reduce your risk of skin cancer and premature aging.",
+  preventionAvoidTobacco: "Avoid Tobacco and Limit Alcohol",
+  preventionAvoidTobaccoDesc: "Smoking is the leading cause of preventable death. If you smoke, seek help to quit. Also, limit alcohol consumption to reduce your risk of liver disease, cancer, and other conditions.",
+  
+  // Lifestyle page body
+  lifestyleEatBetter: "Eat Better",
+  lifestyleEatBetterDesc: "Fuel your body with nutritious foods. Fill half your plate with fruits and vegetables, choose whole grains, and include lean proteins. Cooking at home gives you control over ingredients and portions.",
+  lifestyleMoveMore: "Move More",
+  lifestyleMoveMoreDesc: "Find activities you enjoy and make them part of your routine. Even 20 minutes of walking, dancing, or stretching can boost your mood, strengthen your heart, and improve your energy levels throughout the day.",
+  lifestyleSleepWell: "Sleep Well",
+  lifestyleSleepWellDesc: "Create a relaxing bedtime routine. Keep your room cool and dark, avoid screens before bed, and try to go to bed and wake up at the same time every day. Quality sleep is the foundation of good health.",
+  lifestyleStayHydrated: "Stay Hydrated",
+  lifestyleStayHydratedDesc: "Water is essential for every function in your body. Carry a water bottle, drink a glass of water first thing in the morning, and eat water-rich foods like cucumbers, watermelon, and oranges.",
+  lifestyleManageStress: "Manage Stress",
+  lifestyleManageStressDesc: "Chronic stress can harm your body and mind. Practice deep breathing, spend time in nature, journal your thoughts, or talk to a friend. Taking breaks throughout the day helps reset your focus.",
+  lifestyleMaintainHygiene: "Maintain Good Hygiene",
+  lifestyleMaintainHygieneDesc: "Simple daily habits like washing your hands, brushing your teeth twice a day, and keeping your living space clean can prevent infections and keep you feeling your best.",
+  
+  // Calendar page body
+  calendarEventDetails: "Event Details",
+  calendarIn: "In",
+  calendarDays: "days",
+  calendarPast: "Past",
+  calendarNoEvents: "No events for this month",
+  
+  // Emergency page body
+  emergencyCallEmergency: "Call Emergency Services",
+  emergencyCallEmergencyDesc: "If you or someone nearby is experiencing a medical emergency, call your local emergency number (911 in the US, 112 in Europe, 108 in India) immediately.",
+  emergencyWhenToCall: "When to Call Emergency Services",
+  emergencyWhenToCallDesc: "Call immediately for: chest pain, difficulty breathing, severe bleeding, loss of consciousness, suspected stroke, severe allergic reaction, choking, or any life-threatening situation.",
+  emergencyCPRTitle: "CPR Basics",
+  emergencyCPRDesc: "If someone collapses and is not breathing normally: Call emergency services, place your hands in the center of their chest, push hard and fast at least 2 inches deep, at a rate of 100-120 compressions per minute.",
+  emergencyChokingTitle: "Choking First Aid",
+  emergencyChokingDesc: "For a conscious choking adult: Stand behind them, place your fist just above their navel, and give quick upward thrusts. For infants, use back blows and chest thrusts.",
+  emergencyBleedingTitle: "Control Severe Bleeding",
+  emergencyBleedingDesc: "Apply firm, direct pressure with a clean cloth or gauze. Do not remove the cloth if it soaks through — add more on top. Elevate the injured area above the heart if possible.",
+  emergencyStrokeTitle: "FAST Stroke Recognition",
+  emergencyStrokeDesc: "F — Face: Is one side drooping? A — Arms: Can they raise both arms? S — Speech: Is their speech slurred? T — Time: If any of these, call emergency services immediately.",
+  emergencyBurnTitle: "Burn First Aid",
+  emergencyBurnDesc: "Cool the burn under running cold water for at least 20 minutes. Do not apply ice, butter, or toothpaste. Cover loosely with a clean, non-fluffy dressing. Seek medical help for burns larger than your palm.",
+  
+  // Symptoms page body
+  symptomsChestPain: "Chest pain or discomfort",
+  symptomsShortBreath: "Shortness of breath",
+  symptomsSevereHeadache: "Severe or sudden headache",
+  symptomsHighFever: "High fever (above 103F/39.4C)",
+  symptomsAbdominalPain: "Persistent abdominal pain",
+  symptomsVisionChanges: "Sudden vision changes",
+  symptomsFatigue: "Unexplained fatigue or weakness",
+  symptomsJointPain: "Joint pain or swelling",
+  symptomsRash: "Unexplained rash or skin changes",
+  symptomsNausea: "Persistent nausea or vomiting",
+  symptomsDizziness: "Dizziness or fainting",
+  symptomsBackPain: "Severe back pain",
+  symptomsSwelling: "Unexplained swelling",
+  symptomsCough: "Persistent cough",
+  symptomsInsomnia: "Difficulty sleeping",
+  symptomsWeightChange: "Unexplained weight change",
+  symptomsAnxiety: "Anxiety or panic attacks",
+  symptomsAllergies: "Allergic reactions",
+  
+  // Footer body
+  footerAbout: "About",
+  footerAboutDesc: "Digital Health Awareness Portal provides reliable, evidence-based health information to help you make informed decisions about your wellbeing.",
+  footerResources: "Resources",
+  footerSupport: "Support",
+  footerContactUs: "Contact Us",
+  footerPrivacy: "Privacy Policy",
+  footerTerms: "Terms of Service",
+  footerSitemap: "Sitemap",
+  footerRights: "All rights reserved. For educational and awareness purposes only.",
+  
+  // Registration login extra
+  regStep1Title: "Personal Information",
+  regStep1Desc: "Tell us a bit about yourself",
+  regProvideEmailOrPhone: "Please provide email or phone number",
+  regAccountInfo: "Account Information",
+  regCreateSecure: "Create a secure password for your account",
+  regSecureNote: "Your account is stored locally on this device. No email verification needed.",
+  regJoinDescription: "Create your free account and get personalized access to health topics, campaigns, bookmarks, and daily wellness tips.",
+  loginEmailOrPhone: "Email or Phone",
+  loginPasswordLabel: "Password",
+  loginNewUser: "New to the portal? Create an account with just your name, email/phone, and password. No OTP verification required.",
+  loginCreateOne: "Create one free",
+  
+  // AI Chat body
+  aiDisclaimer: "Educational info only. Not medical advice.",
+  
+  // Language selector body
+  langTitle: "Choose Your Language",
+  langDesc: "Select your preferred language to continue. You can change it anytime.",
+
+  loginDemoNote: "No OTP verification required. Sign in with just your credentials.",
+
 };
 
 const te: TranslationKeys = {
@@ -1526,7 +2721,206 @@ const te: TranslationKeys = {
   language: "భాష",
   chooseLanguage: "మీ భాషను ఎంచుకోండి",
   chooseLanguageDesc: "మెరుగైన అనుభవం కోసం మీ ప్రాధాన్య భాషను ఎంచుకోండి",
-  getStarted: "ప్రారంభించండి",
+  getStarted: "ప్రారంభించండి",// Home page body content
+  trustedHealthPlatform: "Trusted Health Information Platform",
+  topicsCount: "12+ Topics",
+  topicsCountDesc: "Trusted Info",
+  aiAssistantLabel: "AI Assistant",
+  aiAssistantDesc: "24/7 Help",
+  homeLearnAbout: "Learn about common health conditions and health concerns.",
+  homeDiscoverWays: "Discover practical ways to reduce health risks.",
+  homeLearnTips: "Learn about nutrition, exercise, sleep and wellbeing.",
+  homeUnderstandSymptoms: "Understand common symptoms and warning signs.",
+  homeExploreAwareness: "Explore awareness campaigns and public-health initiatives.",
+  homeEmergencyInfo: "Learn when urgent professional medical attention may be needed.",
+  homeCardTopicsDesc: "Learn about common health conditions and health concerns.",
+  homeCardPreventionDesc: "Discover practical ways to reduce health risks.",
+  homeCardLifestyleDesc: "Learn about nutrition, exercise, sleep and wellbeing.",
+  homeCardSymptomsDesc: "Understand common symptoms and warning signs.",
+  homeCardCampaignsDesc: "Explore awareness campaigns and public-health initiatives.",
+  homeCardEmergencyDesc: "Learn when urgent professional medical attention may be needed.",
+  homeTipDesc: "A quick wellness tip to brighten your day.",
+  homeStartYourJourney: "Start Your Health Journey Today",
+  homeStartDesc: "Join thousands of people who are making better health choices every day. Create your free account to get personalized tips, save your favorite articles, and track your wellness progress.",
+  homeJoinNow: "Join Now — It's Free",
+  homeReadArticles: "Read the latest health articles and research-backed insights.",
+  homeReadArticlesDesc: "Stay informed with the latest health news and expert advice.",
+  homeViewAllEvents: "View all upcoming health awareness events and campaigns.",
+  homeViewAllEventsDesc: "Never miss an important health awareness day.",
+  
+  // About page
+  aboutSubtitle: "Our mission is to make reliable health information accessible to everyone, everywhere.",
+  missionTitle: "Our Mission",
+  missionDesc: "We believe that everyone deserves access to trustworthy health information. Our portal is designed to bridge the gap between complex medical knowledge and everyday understanding, empowering individuals to make informed decisions about their health and wellbeing.",
+  valuesTitle: "Our Values",
+  valueEvidence: "Evidence-Based",
+  valueEvidenceDesc: "All our content is reviewed by healthcare professionals and based on the latest medical research and guidelines.",
+  valueAccessible: "Accessible to All",
+  valueAccessibleDesc: "We present health information in simple, easy-to-understand language that anyone can follow, regardless of their background.",
+  valueCommunity: "Community Focused",
+  valueCommunityDesc: "We are committed to building a healthier community by spreading awareness and promoting preventive health practices.",
+  educationalDisclaimer: "This platform is for educational and awareness purposes only. It does not provide medical diagnosis, treatment, or professional medical advice. Always consult a qualified healthcare provider for any health concerns.",
+  
+  // Contact page
+  contactSubtitle: "Have questions or feedback? We would love to hear from you. Our team is here to help.",
+  contactInfo: "Contact Information",
+  contactName: "Your Name",
+  contactEmail: "Your Email",
+  contactSubject: "Subject",
+  contactMessage: "Your Message",
+  contactSend: "Send Message",
+  contactSent: "Message Sent!",
+  contactSentDesc: "Thank you for reaching out. We will get back to you within 24 hours.",
+  contactPhoneLabel: "Phone",
+  contactEmailLabel: "Email",
+  contactHoursLabel: "Hours",
+  contactResponseTime: "Response Time",
+  contactResponseDesc: "We typically respond within 24 hours on business days.",
+  
+  // Bookmarks page
+  noBookmarks: "No bookmarks yet",
+  allItems: "All Items",
+  remove: "Remove",
+  
+  // Search page
+  searchResults: "Search Results",
+  noResultsDesc: "Try different keywords or browse our categories to find what you are looking for.",
+  searchingFor: "Searching for",
+  
+  // Dashboard body
+  dashWelcome: "Welcome back",
+  dashWelcomeDesc: "Here is your health dashboard. Track your progress and explore new content.",
+  dashStats: "Your Stats",
+  dashSaved: "Saved Items",
+  dashTopicsExplored: "Topics",
+  dashArticlesRead: "Articles",
+  dashQuickActions: "Quick Actions",
+  dashBrowseTopics: "Browse Topics",
+  dashBrowseTopicsDesc: "Explore 12+ health topics",
+  dashViewBookmarks: "View Bookmarks",
+  dashViewBookmarksDesc: "Access your saved content",
+  dashBrowseArticles: "Read Articles",
+  dashBrowseArticlesDesc: "Latest health insights",
+  dashDailyTip: "Today's Wellness Tip",
+  dashLearnPrevention: "Prevention Guide",
+  dashLearnPreventionDesc: "Practical health tips",
+  dashLifestyle: "Healthy Lifestyle",
+  dashLifestyleDesc: "Daily wellness habits",
+  dashCheckSymptoms: "Check Symptoms",
+  dashCheckSymptomsDesc: "Understand warning signs",
+  
+  // Prevention page body
+  preventionEatWell: "Eat Well",
+  preventionEatWellDesc: "A balanced diet rich in fruits, vegetables, whole grains, and lean proteins is one of the most powerful tools for disease prevention. Limit processed foods, sugar, and excessive sodium.",
+  preventionExercise: "Exercise Regularly",
+  preventionExerciseDesc: "Aim for at least 150 minutes of moderate physical activity per week. Walking, cycling, swimming, or any activity you enjoy can significantly reduce your risk of chronic diseases.",
+  preventionSleep: "Prioritize Sleep",
+  preventionSleepDesc: "Adults need 7-9 hours of quality sleep each night. Good sleep strengthens your immune system, improves memory, and reduces the risk of heart disease and diabetes.",
+  preventionHygiene: "Practice Good Hygiene",
+  preventionHygieneDesc: "Wash your hands frequently with soap and water, especially before eating and after using the bathroom. Cover your mouth when coughing or sneezing to prevent the spread of germs.",
+  preventionVaccines: "Stay Up to Date on Vaccines",
+  preventionVaccinesDesc: "Vaccines are one of the safest and most effective ways to prevent serious diseases. Follow your local health authority's recommended immunization schedule.",
+  preventionMentalHealth: "Protect Your Mental Health",
+  preventionMentalHealthDesc: "Manage stress through meditation, deep breathing, or talking to someone you trust. Mental health is just as important as physical health for overall wellbeing.",
+  preventionScreenings: "Get Regular Screenings",
+  preventionScreeningsDesc: "Regular health screenings can detect conditions early when they are most treatable. Talk to your doctor about which screenings are appropriate for your age and risk factors.",
+  preventionHydration: "Stay Hydrated",
+  preventionHydrationDesc: "Drink at least 8 glasses of water daily. Proper hydration supports kidney function, helps maintain healthy skin, and keeps your body's systems running smoothly.",
+  preventionSunProtection: "Protect Your Skin from Sun",
+  preventionSunProtectionDesc: "Use sunscreen with SPF 30 or higher, wear protective clothing, and avoid peak sun hours (10 AM to 4 PM) to reduce your risk of skin cancer and premature aging.",
+  preventionAvoidTobacco: "Avoid Tobacco and Limit Alcohol",
+  preventionAvoidTobaccoDesc: "Smoking is the leading cause of preventable death. If you smoke, seek help to quit. Also, limit alcohol consumption to reduce your risk of liver disease, cancer, and other conditions.",
+  
+  // Lifestyle page body
+  lifestyleEatBetter: "Eat Better",
+  lifestyleEatBetterDesc: "Fuel your body with nutritious foods. Fill half your plate with fruits and vegetables, choose whole grains, and include lean proteins. Cooking at home gives you control over ingredients and portions.",
+  lifestyleMoveMore: "Move More",
+  lifestyleMoveMoreDesc: "Find activities you enjoy and make them part of your routine. Even 20 minutes of walking, dancing, or stretching can boost your mood, strengthen your heart, and improve your energy levels throughout the day.",
+  lifestyleSleepWell: "Sleep Well",
+  lifestyleSleepWellDesc: "Create a relaxing bedtime routine. Keep your room cool and dark, avoid screens before bed, and try to go to bed and wake up at the same time every day. Quality sleep is the foundation of good health.",
+  lifestyleStayHydrated: "Stay Hydrated",
+  lifestyleStayHydratedDesc: "Water is essential for every function in your body. Carry a water bottle, drink a glass of water first thing in the morning, and eat water-rich foods like cucumbers, watermelon, and oranges.",
+  lifestyleManageStress: "Manage Stress",
+  lifestyleManageStressDesc: "Chronic stress can harm your body and mind. Practice deep breathing, spend time in nature, journal your thoughts, or talk to a friend. Taking breaks throughout the day helps reset your focus.",
+  lifestyleMaintainHygiene: "Maintain Good Hygiene",
+  lifestyleMaintainHygieneDesc: "Simple daily habits like washing your hands, brushing your teeth twice a day, and keeping your living space clean can prevent infections and keep you feeling your best.",
+  
+  // Calendar page body
+  calendarEventDetails: "Event Details",
+  calendarIn: "In",
+  calendarDays: "days",
+  calendarPast: "Past",
+  calendarNoEvents: "No events for this month",
+  
+  // Emergency page body
+  emergencyCallEmergency: "Call Emergency Services",
+  emergencyCallEmergencyDesc: "If you or someone nearby is experiencing a medical emergency, call your local emergency number (911 in the US, 112 in Europe, 108 in India) immediately.",
+  emergencyWhenToCall: "When to Call Emergency Services",
+  emergencyWhenToCallDesc: "Call immediately for: chest pain, difficulty breathing, severe bleeding, loss of consciousness, suspected stroke, severe allergic reaction, choking, or any life-threatening situation.",
+  emergencyCPRTitle: "CPR Basics",
+  emergencyCPRDesc: "If someone collapses and is not breathing normally: Call emergency services, place your hands in the center of their chest, push hard and fast at least 2 inches deep, at a rate of 100-120 compressions per minute.",
+  emergencyChokingTitle: "Choking First Aid",
+  emergencyChokingDesc: "For a conscious choking adult: Stand behind them, place your fist just above their navel, and give quick upward thrusts. For infants, use back blows and chest thrusts.",
+  emergencyBleedingTitle: "Control Severe Bleeding",
+  emergencyBleedingDesc: "Apply firm, direct pressure with a clean cloth or gauze. Do not remove the cloth if it soaks through — add more on top. Elevate the injured area above the heart if possible.",
+  emergencyStrokeTitle: "FAST Stroke Recognition",
+  emergencyStrokeDesc: "F — Face: Is one side drooping? A — Arms: Can they raise both arms? S — Speech: Is their speech slurred? T — Time: If any of these, call emergency services immediately.",
+  emergencyBurnTitle: "Burn First Aid",
+  emergencyBurnDesc: "Cool the burn under running cold water for at least 20 minutes. Do not apply ice, butter, or toothpaste. Cover loosely with a clean, non-fluffy dressing. Seek medical help for burns larger than your palm.",
+  
+  // Symptoms page body
+  symptomsChestPain: "Chest pain or discomfort",
+  symptomsShortBreath: "Shortness of breath",
+  symptomsSevereHeadache: "Severe or sudden headache",
+  symptomsHighFever: "High fever (above 103F/39.4C)",
+  symptomsAbdominalPain: "Persistent abdominal pain",
+  symptomsVisionChanges: "Sudden vision changes",
+  symptomsFatigue: "Unexplained fatigue or weakness",
+  symptomsJointPain: "Joint pain or swelling",
+  symptomsRash: "Unexplained rash or skin changes",
+  symptomsNausea: "Persistent nausea or vomiting",
+  symptomsDizziness: "Dizziness or fainting",
+  symptomsBackPain: "Severe back pain",
+  symptomsSwelling: "Unexplained swelling",
+  symptomsCough: "Persistent cough",
+  symptomsInsomnia: "Difficulty sleeping",
+  symptomsWeightChange: "Unexplained weight change",
+  symptomsAnxiety: "Anxiety or panic attacks",
+  symptomsAllergies: "Allergic reactions",
+  
+  // Footer body
+  footerAbout: "About",
+  footerAboutDesc: "Digital Health Awareness Portal provides reliable, evidence-based health information to help you make informed decisions about your wellbeing.",
+  footerResources: "Resources",
+  footerSupport: "Support",
+  footerContactUs: "Contact Us",
+  footerPrivacy: "Privacy Policy",
+  footerTerms: "Terms of Service",
+  footerSitemap: "Sitemap",
+  footerRights: "All rights reserved. For educational and awareness purposes only.",
+  
+  // Registration login extra
+  regStep1Title: "Personal Information",
+  regStep1Desc: "Tell us a bit about yourself",
+  regProvideEmailOrPhone: "Please provide email or phone number",
+  regAccountInfo: "Account Information",
+  regCreateSecure: "Create a secure password for your account",
+  regSecureNote: "Your account is stored locally on this device. No email verification needed.",
+  regJoinDescription: "Create your free account and get personalized access to health topics, campaigns, bookmarks, and daily wellness tips.",
+  loginEmailOrPhone: "Email or Phone",
+  loginPasswordLabel: "Password",
+  loginNewUser: "New to the portal? Create an account with just your name, email/phone, and password. No OTP verification required.",
+  loginCreateOne: "Create one free",
+  
+  // AI Chat body
+  aiDisclaimer: "Educational info only. Not medical advice.",
+  
+  // Language selector body
+  langTitle: "Choose Your Language",
+  langDesc: "Select your preferred language to continue. You can change it anytime.",
+
+  loginDemoNote: "No OTP verification required. Sign in with just your credentials.",
+
 };
 
 const translations: Record<Language, TranslationKeys> = { en, hi, es, te, fr, ar };

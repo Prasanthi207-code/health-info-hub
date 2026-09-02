@@ -87,7 +87,7 @@ export default function Landing() {
                 <motion.div {...fadeUp}>
                   <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 backdrop-blur-sm text-xs font-medium text-white/80 mb-6">
                     <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=40&h=40&fit=crop&crop=face" alt="Doctor" className="h-5 w-5 rounded-full object-cover" />
-                    Trusted Health Information Platform
+                    {t("trustedHealthPlatform")}
                   </div>
                 </motion.div>
 
@@ -171,7 +171,7 @@ export default function Landing() {
                   >
                     <div className="flex items-center gap-2">
                       <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-green-50"><Heart className="h-4 w-4 text-green-600" /></div>
-                      <div><p className="text-xs font-bold text-[oklch(0.2_0.03_255)]">12+ Topics</p><p className="text-[10px] text-[oklch(0.5_0.02_250)]">Trusted Info</p></div>
+                      <div><p className="text-xs font-bold text-[oklch(0.2_0.03_255)]">{t("topicsCount")}</p><p className="text-[10px] text-[oklch(0.5_0.02_250)]">{t("topicsCountDesc")}</p></div>
                     </div>
                   </motion.div>
                   <motion.div
@@ -181,7 +181,7 @@ export default function Landing() {
                   >
                     <div className="flex items-center gap-2">
                       <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-50"><Shield className="h-4 w-4 text-blue-600" /></div>
-                      <div><p className="text-xs font-bold text-[oklch(0.2_0.03_255)]">AI Assistant</p><p className="text-[10px] text-[oklch(0.5_0.02_250)]">24/7 Help</p></div>
+                      <div><p className="text-xs font-bold text-[oklch(0.2_0.03_255)]">{t("aiAssistantLabel")}</p><p className="text-[10px] text-[oklch(0.5_0.02_250)]">{t("aiAssistantDesc")}</p></div>
                     </div>
                   </motion.div>
                 </div>
