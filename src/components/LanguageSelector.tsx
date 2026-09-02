@@ -47,55 +47,58 @@ export default function LanguageSelector() {
           exit={{ opacity: 0 }}
         >
           <motion.div
-            className="w-full max-w-lg bg-white rounded-2xl shadow-2xl overflow-hidden"
+            className="w-full max-w-lg max-h-[90vh] bg-white rounded-2xl shadow-2xl flex flex-col"
             initial={{ opacity: 0, scale: 0.9, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 20 }}
             transition={{ type: "spring", damping: 25, stiffness: 300 }}
+            onClick={(e) => e.stopPropagation()}
           >
-            {/* Header */}
-            <div className="bg-gradient-to-br from-[oklch(0.22_0.06_255)] via-[oklch(0.28_0.08_230)] to-[oklch(0.35_0.07_200)] p-8 text-center text-white">
-              <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-white/15">
-                <Globe className="h-8 w-8" />
+            {/* Header - fixed at top */}
+            <div className="bg-gradient-to-br from-[oklch(0.22_0.06_255)] via-[oklch(0.28_0.08_230)] to-[oklch(0.35_0.07_200)] p-6 md:p-8 text-center text-white shrink-0">
+              <div className="mx-auto mb-3 flex h-14 w-14 items-center justify-center rounded-2xl bg-white/15">
+                <Globe className="h-7 w-7" />
               </div>
-              <h2 className="text-2xl font-bold mb-2">{t("chooseLanguage")}</h2>
-              <p className="text-white/70 text-sm">{t("chooseLanguageDesc")}</p>
+              <h2 className="text-xl md:text-2xl font-bold mb-1">{t("chooseLanguage")}</h2>
+              <p className="text-white/70 text-xs md:text-sm">{t("chooseLanguageDesc")}</p>
             </div>
 
-            {/* Language Grid */}
-            <div className="p-6">
-              <div className="space-y-2">
-                {languages.map((lang) => (
-                  <button
-                    key={lang.code}
-                    onClick={() => handleSelect(lang.code)}
-                    className={`w-full flex items-center gap-4 p-4 rounded-xl border-2 transition-all ${
-                      language === lang.code
-                        ? "border-[oklch(0.32_0.08_255)] bg-[oklch(0.32_0.08_255_/_0.04)]"
-                        : "border-[oklch(0.92_0.01_240)] hover:border-[oklch(0.32_0.08_255_/_0.3)] hover:bg-[oklch(0.97_0.003_250)]"
-                    }`}
-                  >
-                    <span className="text-2xl">{lang.flag}</span>
-                    <div className="text-left flex-1">
-                      <p className="text-sm font-semibold text-[oklch(0.2_0.03_255)]">{lang.nativeName}</p>
-                      <p className="text-xs text-[oklch(0.5_0.02_250)]">{lang.name}</p>
-                    </div>
-                    {language === lang.code && (
-                      <div className="flex h-6 w-6 items-center justify-center rounded-full bg-[oklch(0.32_0.08_255)] text-white">
-                        <Check className="h-3.5 w-3.5" />
+            {/* Scrollable language list + button */}
+            <div className="overflow-y-auto flex-1 min-h-0">
+              <div className="p-4 md:p-6">
+                <div className="space-y-2">
+                  {languages.map((lang) => (
+                    <button
+                      key={lang.code}
+                      onClick={() => handleSelect(lang.code)}
+                      className={`w-full flex items-center gap-4 p-3 md:p-4 rounded-xl border-2 transition-all ${
+                        language === lang.code
+                          ? "border-[oklch(0.32_0.08_255)] bg-[oklch(0.32_0.08_255_/_0.04)]"
+                          : "border-[oklch(0.92_0.01_240)] hover:border-[oklch(0.32_0.08_255_/_0.3)] hover:bg-[oklch(0.97_0.003_250)]"
+                      }`}
+                    >
+                      <span className="text-2xl">{lang.flag}</span>
+                      <div className="text-left flex-1">
+                        <p className="text-sm font-semibold text-[oklch(0.2_0.03_255)]">{lang.nativeName}</p>
+                        <p className="text-xs text-[oklch(0.5_0.02_250)]">{lang.name}</p>
                       </div>
-                    )}
-                  </button>
-                ))}
-              </div>
+                      {language === lang.code && (
+                        <div className="flex h-6 w-6 items-center justify-center rounded-full bg-[oklch(0.32_0.08_255)] text-white">
+                          <Check className="h-3.5 w-3.5" />
+                        </div>
+                      )}
+                    </button>
+                  ))}
+                </div>
 
-              <button
-                onClick={handleContinue}
-                className="mt-6 w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-[oklch(0.32_0.08_255)] text-white text-sm font-semibold hover:bg-[oklch(0.28_0.08_255)] transition-colors shadow-lg"
-              >
-                {t("getStarted")}
-                <ArrowRight className="h-4 w-4" />
-              </button>
+                <button
+                  onClick={handleContinue}
+                  className="mt-5 w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-[oklch(0.32_0.08_255)] text-white text-sm font-semibold hover:bg-[oklch(0.28_0.08_255)] transition-colors shadow-lg sticky bottom-0"
+                >
+                  {t("getStarted")}
+                  <ArrowRight className="h-4 w-4" />
+                </button>
+              </div>
             </div>
           </motion.div>
         </motion.div>
