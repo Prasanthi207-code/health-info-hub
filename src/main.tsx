@@ -14,6 +14,20 @@ const Landing = lazy(() => import("./pages/Landing.tsx"));
 const AuthPage = lazy(() => import("./pages/Auth.tsx"));
 const Dashboard = lazy(() => import("./pages/Dashboard.tsx"));
 const NotFound = lazy(() => import("./pages/NotFound.tsx"));
+const Campaigns = lazy(() => import("./pages/Campaigns.tsx"));
+const CampaignDetail = lazy(() => import("./pages/CampaignDetail.tsx"));
+const Topics = lazy(() => import("./pages/Topics.tsx"));
+const TopicDetail = lazy(() => import("./pages/TopicDetail.tsx"));
+const Articles = lazy(() => import("./pages/Articles.tsx"));
+const ArticleDetail = lazy(() => import("./pages/ArticleDetail.tsx"));
+const Prevention = lazy(() => import("./pages/Prevention.tsx"));
+const Lifestyle = lazy(() => import("./pages/Lifestyle.tsx"));
+const HealthCalendar = lazy(() => import("./pages/Calendar.tsx"));
+const Emergency = lazy(() => import("./pages/Emergency.tsx"));
+const SearchPage = lazy(() => import("./pages/Search.tsx"));
+const About = lazy(() => import("./pages/About.tsx"));
+const Contact = lazy(() => import("./pages/Contact.tsx"));
+const BookmarksPage = lazy(() => import("./pages/Bookmarks.tsx"));
 
 // Simple loading fallback for route transitions
 function RouteLoading() {
@@ -120,6 +134,20 @@ createRoot(document.getElementById("root")!).render(
           <Suspense fallback={<RouteLoading />}>
             <Routes>
               <Route path="/" element={<Landing />} />
+              <Route path="/campaigns" element={<Campaigns />} />
+              <Route path="/campaigns/:id" element={<CampaignDetail />} />
+              <Route path="/topics" element={<Topics />} />
+              <Route path="/topics/:id" element={<TopicDetail />} />
+              <Route path="/articles" element={<Articles />} />
+              <Route path="/articles/:id" element={<ArticleDetail />} />
+              <Route path="/prevention" element={<Prevention />} />
+              <Route path="/lifestyle" element={<Lifestyle />} />
+              <Route path="/calendar" element={<HealthCalendar />} />
+              <Route path="/emergency" element={<Emergency />} />
+              <Route path="/search" element={<SearchPage />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/bookmarks" element={<BookmarksPage />} />
               <Route
                 path="/auth"
                 element={<AuthPage redirectAfterAuth="/dashboard" />}
