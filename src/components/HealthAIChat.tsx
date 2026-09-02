@@ -12,65 +12,90 @@ interface Message {
 
 const AI_RESPONSES: Record<string, string[]> = {
   heart: [
-    "Keep your heart happy with these simple steps:\n\n- Walk 30 min daily\n- Eat fruits, veggies & nuts\n- Check BP regularly\n- No smoking\n- Manage stress\n\nWarning: Chest pain or arm pain? Call emergency right away!",
+    "Heart health tips:\n\n- Walk 30 min daily\n- Eat fruits, veggies & nuts\n- Check BP regularly\n- No smoking\n- Manage stress\n\nWarning: Chest pain or arm pain? Call emergency right away!",
   ],
   diabetes: [
-    "Prevent diabetes easily:\n\n- Maintain healthy weight\n- Exercise 30 min/day\n- Cut sugary drinks & junk food\n- Get blood sugar checked yearly\n\nWatch for: Too much thirst, frequent urination, blurred vision.",
+    "To prevent diabetes:\n\n- Maintain healthy weight\n- Exercise 30 min/day\n- Cut sugary drinks\n- Get blood sugar checked yearly\n\nWatch for: Too much thirst, frequent urination, blurred vision.",
   ],
   cancer: [
-    "50% of cancers are preventable!\n\n- No tobacco\n- Use sunscreen\n- Eat more fruits & veggies\n- Limit alcohol\n- Exercise regularly\n- Get screenings done on time\n\nEarly detection = best protection.",
+    "50% of cancers are preventable:\n\n- No tobacco\n- Use sunscreen\n- Eat more fruits & veggies\n- Limit alcohol\n- Get screenings done\n\nEarly detection = best protection.",
   ],
   mental: [
-    "Your mental health matters!\n\n- Meditate 5 min daily\n- Talk to someone you trust\n- Exercise (nature's antidepressant)\n- Sleep well\n- It is okay to ask for help\n\nYou are not alone. Strong people ask for support.",
+    "Take care of your mind:\n\n- Meditate 5 min daily\n- Talk to someone you trust\n- Exercise regularly\n- Sleep well\n- It is okay to ask for help\n\nYou are not alone.",
   ],
   diet: [
-    "Eat smart, stay healthy:\n\n- Half plate = fruits & veggies\n- Choose whole grains\n- Drink 8 glasses of water\n- Cut sugar below 25g/day\n- Cook at home more\n\nTip: Eat the rainbow - colorful plates are healthiest!",
+    "Healthy eating made simple:\n\n- Half plate = fruits & veggies\n- Choose whole grains\n- Drink 8 glasses of water\n- Cut sugar below 25g/day\n- Cook at home more\n\nTip: Eat the rainbow - colorful plates are healthiest!",
   ],
   sleep: [
-    "Sleep better tonight:\n\n- Fixed bedtime (even weekends)\n- No screens 30 min before bed\n- No caffeine after 2 PM\n- Cool, dark room\n- Try 4-7-8 breathing: inhale 4s, hold 7s, exhale 8s\n\nNeed 7-9 hours every night.",
+    "Sleep better tonight:\n\n- Fixed bedtime daily\n- No screens 30 min before bed\n- No caffeine after 2 PM\n- Cool dark room\n- Try 4-7-8 breathing\n\nNeed 7-9 hours every night.",
   ],
   exercise: [
-    "Move your body:\n\n- 150 min/week moderate activity\n- 2 strength sessions/week\n- Best options: walking, swimming, yoga\n- Even 10 min counts!\n\nBenefits: Better mood, stronger bones, good sleep, healthy weight.",
+    "Stay active, stay healthy:\n\n- 150 min/week moderate activity\n- 2 strength sessions/week\n- Best options: walking, swimming, yoga\n- Even 10 min counts!\n\nBenefits: Better mood, stronger bones, good sleep.",
   ],
   stress: [
-    "Beat stress easily:\n\n- Deep breathing (4-7-8)\n- 5 min meditation\n- Go for a walk\n- Write a journal\n- Say no when needed\n- Limit social media\n\nRemember: Asking for help is strength, not weakness.",
+    "Beat stress easily:\n\n- Deep breathing (4-7-8)\n- 5 min meditation\n- Go for a walk\n- Write a journal\n- Say no when needed\n\nAsking for help is strength, not weakness.",
   ],
   headache: [
-    "Quick headache relief:\n\n- Drink water first (most common cause!)\n- Rest in dark room\n- Cold compress on forehead\n- Massage your temples\n\nSee doctor if: Sudden severe pain, fever + stiff neck, or keeps coming back.",
+    "Quick headache relief:\n\n- Drink water first\n- Rest in dark room\n- Cold compress on forehead\n- Massage your temples\n\nSee doctor if: Sudden severe pain, fever + stiff neck.",
   ],
   fever: [
-    "Fever means your body is fighting!\n\nDo this:\n- Rest well\n- Drink lots of fluids\n- Wear light clothes\n- Take paracetamif needed\n- Check temperature often\n\nSee doctor if: Above 103F, lasts 3+ days, or with severe headache.",
+    "Fever means your body is fighting:\n\n- Rest well\n- Drink lots of fluids\n- Wear light clothes\n- Take paracetamol if needed\n- Check temperature often\n\nSee doctor if: Above 103F, lasts 3+ days, or with severe headache.",
   ],
   cold: [
     "Cold care basics:\n\n- Rest + warm fluids\n- Saline nasal drops\n- Honey + warm water for cough\n- Wash hands often\n\nSee doctor if: Worsens after 10 days, high fever, or breathing trouble.",
   ],
   allergy: [
-    "Manage allergies:\n\n- Find your triggers (pollen? dust? pets?)\n- Antihistamines help a lot\n- Keep home clean\n- Wash bedding weekly in hot water\n\nEmergency: Difficulty breathing or throat swelling? Call 108 immediately!",
+    "Manage your allergies:\n\n- Find triggers (pollen? dust? pets?)\n- Antihistamines help a lot\n- Keep home clean\n- Wash bedding weekly\n\nEmergency: Difficulty breathing? Call 108 immediately!",
   ],
   blood: [
-    "Blood pressure basics:\n\nNormal: Below 120/80\nHigh: 130/80 or above\n\nControl it:\n- Less salt (under 2300mg/day)\n- Exercise regularly\n- No smoking\n- Manage weight & stress\n\nIt is called silent killer - get checked regularly!",
+    "Blood pressure basics:\n\nNormal: Below 120/80\nHigh: 130/80 or above\n\nControl it:\n- Less salt (under 2300mg/day)\n- Exercise regularly\n- No smoking\n- Manage weight\n\nSilent killer - get checked regularly!",
+  ],
+  bmi: [
+    "BMI (Body Mass Index):\n\n- Below 18.5 = Underweight\n- 18.5 to 24.9 = Normal\n- 25 to 29.9 = Overweight\n- 30+ = Obese\n\nBMI = weight(kg) / height(m) squared\n\nIt is a general guide, not perfect for everyone.",
+  ],
+  weight: [
+    "Healthy weight tips:\n\n- Eat more protein & fiber\n- Cut sugar & processed food\n- Walk 30 min daily\n- Drink water before meals\n- Sleep 7-9 hours\n\nSlow and steady wins the race!",
+  ],
+  covid: [
+    "COVID care tips:\n\n- Isolate for 5 days\n- Rest + drink fluids\n- Monitor oxygen levels\n- Take paracetamol for fever\n\nEmergency: Oxygen below 94%, breathing trouble, chest pain? Go to hospital immediately.",
+  ],
+  pregnancy: [
+    "Pregnancy health basics:\n\n- Take folic acid daily\n- Regular prenatal checkups\n- Eat balanced diet\n- Stay active (walking is great)\n- Avoid alcohol & smoking\n- Get enough rest\n\nAlways follow your doctor's advice.",
+  ],
+  skin: [
+    "Skin care tips:\n\n- Drink plenty of water\n- Use sunscreen daily\n- Moisturize regularly\n- Wash face twice daily\n- Avoid touching face\n\nFor rashes, acne, or unusual changes, see a dermatologist.",
+  ],
+  eye: [
+    "Eye care tips:\n\n- Follow 20-20-20 rule: every 20 min, look 20 feet away for 20 seconds\n- Wear sunglasses outdoors\n- Get regular eye checkups\n- Eat leafy greens & fish\n- Limit screen time\n\nFor sudden vision changes, see a doctor immediately.",
   ],
   default: [
-    "Hi! I can help with:\n\n- Heart health\n- Diabetes\n- Mental health\n- Nutrition\n- Sleep tips\n- Exercise\n- Fever, cold, allergies\n- Cancer prevention\n\nJust ask a topic and I will give you a quick, clear answer!",
+    "Thanks for your question! Here is what I know:\n\nFor any health concern, the best steps are:\n- Note your symptoms\n- Rest and stay hydrated\n- Do not self-medicate\n- See a doctor if symptoms persist or worsen\n\nI can help with specific topics like heart health, diabetes, sleep, exercise, nutrition, fever, cold, allergies, mental health, and more. Just ask!",
   ],
 };
 
 function findBestResponse(input: string): string {
   const lower = input.toLowerCase();
   let result: string[];
-  if (lower.includes("heart") || lower.includes("cardio") || lower.includes("blood pressure")) result = AI_RESPONSES.heart;
+
+  if (lower.includes("heart") || lower.includes("cardio") || lower.includes("chest")) result = AI_RESPONSES.heart;
   else if (lower.includes("diabet") || lower.includes("sugar") || lower.includes("insulin")) result = AI_RESPONSES.diabetes;
   else if (lower.includes("cancer") || lower.includes("tumor") || lower.includes("mole")) result = AI_RESPONSES.cancer;
-  else if (lower.includes("mental") || lower.includes("depress") || lower.includes("anxiety")) result = AI_RESPONSES.mental;
-  else if (lower.includes("stress") || lower.includes("stressed") || lower.includes("overwhelm")) result = AI_RESPONSES.stress;
-  else if (lower.includes("diet") || lower.includes("eat") || lower.includes("food") || lower.includes("nutrition") || lower.includes("fruit") || lower.includes("vegetable")) result = AI_RESPONSES.diet;
-  else if (lower.includes("sleep") || lower.includes("insomnia") || lower.includes("rest") || lower.includes("tired")) result = AI_RESPONSES.sleep;
-  else if (lower.includes("exercise") || lower.includes("workout") || lower.includes("fitness") || lower.includes("gym") || lower.includes("walk") || lower.includes("running")) result = AI_RESPONSES.exercise;
+  else if (lower.includes("mental") || lower.includes("depress") || lower.includes("anxiety") || lower.includes("sad") || lower.includes("lonely")) result = AI_RESPONSES.mental;
+  else if (lower.includes("stress") || lower.includes("stressed") || lower.includes("overwhelm") || lower.includes("pressure")) result = AI_RESPONSES.stress;
+  else if (lower.includes("diet") || lower.includes("eat") || lower.includes("food") || lower.includes("nutrition") || lower.includes("fruit") || lower.includes("vegetable") || lower.includes("protein") || lower.includes("vitamin")) result = AI_RESPONSES.diet;
+  else if (lower.includes("sleep") || lower.includes("insomnia") || lower.includes("rest") || lower.includes("tired") || lower.includes("fatigue")) result = AI_RESPONSES.sleep;
+  else if (lower.includes("exercise") || lower.includes("workout") || lower.includes("fitness") || lower.includes("gym") || lower.includes("walk") || lower.includes("running") || lower.includes("active")) result = AI_RESPONSES.exercise;
   else if (lower.includes("headache") || lower.includes("migraine") || lower.includes("head pain")) result = AI_RESPONSES.headache;
-  else if (lower.includes("fever") || lower.includes("temperature") || lower.includes("hot") || lower.includes("chills")) result = AI_RESPONSES.fever;
-  else if (lower.includes("cold") || lower.includes("flu") || lower.includes("cough") || lower.includes("sneeze") || lower.includes("stuffy")) result = AI_RESPONSES.cold;
-  else if (lower.includes("allergy") || lower.includes("allergic") || lower.includes("rash") || lower.includes("hives")) result = AI_RESPONSES.allergy;
-  else if (lower.includes("blood")) result = AI_RESPONSES.blood;
+  else if (lower.includes("fever") || lower.includes("temperature") || lower.includes("chills") || lower.includes("feverish")) result = AI_RESPONSES.fever;
+  else if (lower.includes("cold") || lower.includes("flu") || lower.includes("cough") || lower.includes("sneeze") || lower.includes("stuffy") || lower.includes("runny nose")) result = AI_RESPONSES.cold;
+  else if (lower.includes("allergy") || lower.includes("allergic") || lower.includes("rash") || lower.includes("hives") || lower.includes("itching")) result = AI_RESPONSES.allergy;
+  else if (lower.includes("blood") || lower.includes("bp") || lower.includes("hypertension")) result = AI_RESPONSES.blood;
+  else if (lower.includes("bmi") || lower.includes("body mass")) result = AI_RESPONSES.bmi;
+  else if (lower.includes("weight") || lower.includes("obesity") || lower.includes("fat") || lower.includes("slim") || lower.includes("thin")) result = AI_RESPONSES.weight;
+  else if (lower.includes("covid") || lower.includes("corona") || lower.includes("omnicron")) result = AI_RESPONSES.covid;
+  else if (lower.includes("pregnant") || lower.includes("pregnancy") || lower.includes("baby") || lower.includes("folic")) result = AI_RESPONSES.pregnancy;
+  else if (lower.includes("skin") || lower.includes("acne") || lower.includes("pimple") || lower.includes("derma")) result = AI_RESPONSES.skin;
+  else if (lower.includes("eye") || lower.includes("vision") || lower.includes("glasses") || lower.includes("sight")) result = AI_RESPONSES.eye;
   else result = AI_RESPONSES.default;
   return result[Math.floor(Math.random() * result.length)];
 }
@@ -127,7 +152,7 @@ export default function HealthAIChat() {
       const aiMsg: Message = { id: `a-${Date.now()}`, role: "ai", text: response, timestamp: new Date() };
       setMessages((prev) => [...prev, aiMsg]);
       setIsTyping(false);
-    }, 800 + Math.random() * 600);
+    }, 600 + Math.random() * 500);
   };
 
   return (
@@ -231,7 +256,7 @@ export default function HealthAIChat() {
                       : "bg-white text-slate-700 border border-slate-200/80 rounded-2xl rounded-bl-lg shadow-sm"
                   }`}>
                     {msg.role === "ai" ? (
-                      <div className="[&_strong]:font-bold [&_strong]:text-blue-600 [&_.text-blue-500]:text-blue-500" dangerouslySetInnerHTML={{ __html: formatAIResponse(msg.text) }} />
+                      <div className="[&_strong]:font-bold [&_strong]:text-blue-600" dangerouslySetInnerHTML={{ __html: formatAIResponse(msg.text) }} />
                     ) : (
                       <span>{msg.text}</span>
                     )}
