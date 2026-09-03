@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router";
 import { motion } from "framer-motion";
-import { Shield, Mail, Phone, Lock, Eye, EyeOff, ArrowRight, Stethoscope, Heart, ShieldCheck } from "lucide-react";
+import { Shield, Mail, Phone, Lock, Eye, EyeOff, ArrowRight, ArrowLeft, Stethoscope, Heart, ShieldCheck } from "lucide-react";
 import { useUser } from "@/hooks/use-user";
 import { useTranslation } from "@/i18n/LanguageContext";
 
@@ -63,13 +63,13 @@ export default function Login() {
           {/* Health Images Grid */}
           <div className="grid grid-cols-2 gap-3 mt-8">
             <div className="rounded-xl overflow-hidden border border-white/10">
-              <img src="https://images.unsplash.com/photo-1638202993928-7267aad84c31?w=300&h=200&fit=crop" alt="Healthcare" className="w-full h-28 object-cover opacity-80" />
+              <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=600&h=400&fit=crop" alt="Doctor ready to support patients" className="w-full h-28 object-cover opacity-80" />
             </div>
             <div className="rounded-xl overflow-hidden border border-white/10">
-              <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=300&h=200&fit=crop" alt="Medical research" className="w-full h-28 object-cover opacity-80" />
+              <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600&h=400&fit=crop" alt="Healthcare professionals working together" className="w-full h-28 object-cover opacity-80" />
             </div>
             <div className="rounded-xl overflow-hidden border border-white/10 col-span-2">
-              <img src="https://images.unsplash.com/photo-1559757175-5700dde675bc?w=600&h=200&fit=crop" alt="Heart health" className="w-full h-28 object-cover opacity-80" />
+              <img src="https://images.unsplash.com/photo-1584982751601-97dcc096659c?w=900&h=350&fit=crop" alt="Doctor providing patient care" className="w-full h-28 object-cover opacity-80" />
             </div>
           </div>
 
@@ -89,7 +89,10 @@ export default function Login() {
       </div>
 
       {/* Right: Form Panel */}
-      <div className="flex-1 flex items-center justify-center p-6 sm:p-10">
+      <div className="relative flex-1 flex items-center justify-center p-6 sm:p-10">
+        <button onClick={() => navigate(-1)} className="absolute left-5 top-5 rounded-md p-2 text-[oklch(0.45_0.03_250)] hover:bg-[oklch(0.95_0.003_250)]" aria-label="Go back" title="Go back">
+          <ArrowLeft className="h-5 w-5" />
+        </button>
         <motion.div
           className="w-full max-w-md"
           initial={{ opacity: 0, y: 20 }}

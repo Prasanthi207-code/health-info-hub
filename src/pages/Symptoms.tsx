@@ -17,6 +17,15 @@ const BODY_SYSTEMS = [
   { id: "general", label: "General", icon: Activity, color: "oklch(0.5 0.12 150)" },
 ];
 
+const TELUGU_SYSTEM_LABELS: Record<string, string> = {
+  cardiovascular: "హృదయ సంబంధిత",
+  respiratory: "శ్వాసకోశ",
+  neurological: "నాడీ సంబంధిత",
+  digestive: "జీర్ణవ్యవస్థ",
+  musculoskeletal: "కండరాలు మరియు ఎముకలు",
+  general: "సాధారణం",
+};
+
 const COMMON_SYMPTOMS = [
   { symptom: "Persistent fever", urgency: "moderate", topics: ["t7", "t8"], system: "general", description: "Fever lasting more than 3 days or over 104°F (40°C) may indicate infection." },
   { symptom: "Chest pain", urgency: "high", topics: ["t1"], system: "cardiovascular", description: "Sudden or severe chest pain requires immediate medical attention." },
@@ -49,7 +58,7 @@ const fadeUp = {
 };
 
 export default function Symptoms() {
-  const { t } = useTranslation();
+  const { t, language } = useTranslation();
   const [search, setSearch] = useState("");
   const [system, setSystem] = useState<string | null>(null);
 
@@ -87,7 +96,7 @@ export default function Symptoms() {
                 </p>
               </motion.div>
               <motion.div className="hidden lg:flex justify-end" initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.3 }}>
-                <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=500&h=360&fit=crop" alt="Symptoms awareness" className="rounded-2xl shadow-2xl border-2 border-white/10 w-full max-w-md object-cover h-[280px]" />
+                <img src="https://images.pexels.com/photos/5452190/pexels-photo-5452190.jpeg?auto=compress&cs=tinysrgb&w=900&h=650&fit=crop" alt="Doctors discussing patient care" className="rounded-2xl shadow-2xl border-2 border-white/10 w-full max-w-md object-cover h-[280px]" />
               </motion.div>
             </div>
           </div>
@@ -98,7 +107,7 @@ export default function Symptoms() {
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-3">
             <div className="flex items-center gap-3">
               <HealthCamera />
-              <p className="text-xs text-[oklch(0.5_0.02_250)]">Take a photo of a skin condition or visible health issue and get AI-powered guidance</p>
+              <p className="text-xs text-[oklch(0.5_0.02_250)]">{language === "te" ? "చర్మ సమస్య లేదా కనిపించే ఆరోగ్య సమస్య ఫోటో తీసి AI మార్గదర్శకత్వం పొందండి" : "Take a photo of a skin condition or visible health issue and get AI-powered guidance"}</p>
             </div>
           </div>
         </section>
@@ -152,7 +161,7 @@ export default function Symptoms() {
                       : "bg-white text-[oklch(0.5_0.02_250)] border-[oklch(0.88_0.01_240)] hover:border-[oklch(0.32_0.08_255_/_0.3)]"
                   }`}
                 >
-                  {sys.label}
+                  {language === "te" ? TELUGU_SYSTEM_LABELS[sys.id] : sys.label}
                 </button>
               ))}
             </div>
@@ -163,14 +172,14 @@ export default function Symptoms() {
         <section className="py-10 lg:py-14">
           <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
             <p className="text-sm text-[oklch(0.5_0.02_250)] mb-6">
-              {filtered.length} symptom{filtered.length !== 1 && "s"} found
+              {language === "te" ? `${filtered.length} లక్షణాలు కనుగొనబడ్డాయి` : `${filtered.length} symptom${filtered.length !== 1 ? "s" : ""} found`}
             </p>
 
             {filtered.length === 0 ? (
               <div className="text-center py-20">
                 <Search className="h-10 w-10 text-[oklch(0.75_0.01_250)] mx-auto mb-3" />
-                <p className="text-[oklch(0.4_0.02_250)] font-medium">No symptoms found</p>
-                <p className="text-sm text-[oklch(0.55_0.02_250)] mt-1">Try adjusting your search or filters.</p>
+                <p className="text-[oklch(0.4_0.02_250)] font-medium">{language === "te" ? "లక్షణాలు కనుగొనబడలేదు" : "No symptoms found"}</p>
+                <p className="text-sm text-[oklch(0.55_0.02_250)] mt-1">{language === "te" ? "మీ శోధన లేదా ఫిల్టర్లను మార్చి ప్రయత్నించండి." : "Try adjusting your search or filters."}</p>
               </div>
             ) : (
               <div className="space-y-3">
@@ -191,12 +200,14 @@ export default function Symptoms() {
                         <span className={`mt-1 h-2.5 w-2.5 rounded-full shrink-0 ${urgency.dot}`} />
                         <div className="min-w-0 flex-1">
                           <div className="flex flex-wrap items-center gap-2 mb-1">
-                            <h3 className="text-sm font-semibold text-[oklch(0.2_0.03_255)]">{item.symptom}</h3>
+                            <h3 className="text-sm font-semibold text-[oklch(0.2_0.03_255)]">{language === "te" ? {
+                              "Persistent fever": "నిరంతర జ్వరం", "Chest pain": "ఛాతీ నొప్పి", "Shortness of breath": "శ్వాస తీసుకోవడంలో ఇబ్బంది", "Persistent fatigue": "నిరంతర అలసట", "Unexplained weight loss": "కారణం తెలియని బరువు తగ్గడం", "Frequent headaches": "తరచుగా తలనొప్పి", "Blurred vision": "మసక దృష్టి", "Persistent cough": "నిరంతర దగ్గు", "Abdominal pain": "కడుపు నొప్పి", "Joint pain": "కీళ్ల నొప్పి", "Skin changes": "చర్మ మార్పులు", "Mood changes": "మానసిక స్థితి మార్పులు", "Increased thirst": "అధిక దాహం", "Swelling in legs/ankles": "కాళ్లు లేదా మడమల వాపు", "Night sweats": "రాత్రి చెమటలు", "Slow-healing wounds": "ఆలస్యంగా మానుతున్న గాయాలు"
+                            }[item.symptom] || item.symptom : item.symptom}</h3>
                             <span className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-semibold ${urgency.bg} ${urgency.text}`}>
                               {(t as (k: string) => string)(urgency.labelKey)}
                             </span>
                           </div>
-                          <p className="text-xs text-[oklch(0.5_0.02_250)] leading-relaxed mb-2">{item.description}</p>
+                          <p className="text-xs text-[oklch(0.5_0.02_250)] leading-relaxed mb-2">{language === "te" ? "ఈ లక్షణం కొనసాగితే, తీవ్రంగా ఉంటే లేదా ఇతర హెచ్చరిక సంకేతాలతో ఉంటే ఆరోగ్య నిపుణుడిని సంప్రదించండి." : item.description}</p>
                           {relatedTopics.length > 0 && (
                             <div className="flex flex-wrap gap-1.5">
                               {relatedTopics.map((topic) => topic && (
@@ -230,7 +241,7 @@ export default function Symptoms() {
               className="text-center"
             >
               <AlertTriangle className="h-10 w-10 text-red-500 mx-auto mb-4" />
-              <h2 className="text-xl font-bold text-red-800 mb-2">When in Doubt, Seek Help</h2>
+              <h2 className="text-xl font-bold text-red-800 mb-2">{language === "te" ? "సందేహం ఉంటే సహాయం పొందండి" : "When in Doubt, Seek Help"}</h2>
               <p className="text-sm text-red-700 max-w-xl mx-auto leading-relaxed mb-4">
                 {t("whenInDoubtDesc")}
               </p>
@@ -240,13 +251,13 @@ export default function Symptoms() {
                   className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-red-600 text-white text-sm font-medium hover:bg-red-700 transition-colors"
                 >
                   <ShieldCheck className="h-4 w-4" />
-                  Emergency Information
+                  {language === "te" ? "అత్యవసర సమాచారం" : "Emergency Information"}
                 </Link>
                 <Link
                   to="/prevention"
                   className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-red-300 text-red-700 text-sm font-medium hover:bg-red-100 transition-colors"
                 >
-                  Prevention Guide
+                  {language === "te" ? "నివారణ మార్గదర్శిని" : "Prevention Guide"}
                 </Link>
               </div>
             </motion.div>

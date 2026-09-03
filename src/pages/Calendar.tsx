@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { Calendar as CalendarIcon, Filter } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { AWARENESS_EVENTS, DISCLAIMER } from "@/data";
+import { AWARENESS_EVENTS, DISCLAIMER, localizeEvents, localizeCategory } from "@/data";
 import { useTranslation } from "@/i18n/LanguageContext";
 
 const MONTHS = [
@@ -27,23 +27,24 @@ const MONTH_COLORS = [
 ];
 
 export default function HealthCalendar() {
-  const { t } = useTranslation();
+  const { t, language } = useTranslation();
+  const localizedEvents = localizeEvents(AWARENESS_EVENTS, language);
   const [selectedMonth, setSelectedMonth] = useState<number | null>(null);
 
   const events = useMemo(() => {
     if (selectedMonth !== null) {
-      return AWARENESS_EVENTS.filter((e) => e.month === selectedMonth);
+      return localizedEvents.filter((e) => e.month === selectedMonth);
     }
-    return AWARENESS_EVENTS;
-  }, [selectedMonth]);
+    return localizedEvents;
+  }, [selectedMonth, localizedEvents]);
 
   const eventsByMonth = useMemo(() => {
     const grouped: Record<number, typeof AWARENESS_EVENTS> = {};
     MONTHS.forEach((_, i) => {
-      grouped[i + 1] = AWARENESS_EVENTS.filter((e) => e.month === i + 1);
+      grouped[i + 1] = localizedEvents.filter((e) => e.month === i + 1);
     });
     return grouped;
-  }, []);
+  }, [localizedEvents]);
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
@@ -59,7 +60,7 @@ export default function HealthCalendar() {
               <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
                 <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 backdrop-blur-sm text-xs font-medium text-white/80 mb-4">
                   <CalendarIcon className="h-3.5 w-3.5" />
-                  Health Calendar
+                  {t("healthCalendar")}
                 </div>
                 <h1 className="text-3xl sm:text-4xl font-bold">{t("calendarTitle")}</h1>
                 <p className="mt-3 text-white/70 max-w-2xl leading-relaxed">
@@ -138,7 +139,7 @@ export default function HealthCalendar() {
                           </div>
                           <div>
                             <span className="inline-block px-2 py-0.5 rounded text-[10px] font-semibold uppercase tracking-wider bg-[oklch(0.32_0.08_255_/_0.08)] text-[oklch(0.32_0.08_255)] mb-1">
-                              {event.category}
+                              {localizeCategory(event.category, language)}
                             </span>
                             <h3 className="text-sm font-semibold text-[oklch(0.2_0.03_255)]">{event.title}</h3>
                             <p className="mt-1 text-xs text-[oklch(0.5_0.02_250)] leading-relaxed">{event.description}</p>

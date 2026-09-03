@@ -105,6 +105,34 @@ const DAILY_ROUTINE = [
   { timeKey: "night" as const, icon: Smile, items: ["Prepare for sleep", "Gratitude reflection", "Consistent bedtime", "Cool, dark bedroom"] },
 ];
 
+const TELUGU_HABITS: Record<string, string[]> = {
+  lifestyleEatBetter: ["రోజూ కనీసం 5 సార్లు పండ్లు, కూరగాయలు తినండి", "శుద్ధి చేసిన ధాన్యాల బదులు సంపూర్ణ ధాన్యాలను ఎంచుకోండి", "ప్రతి భోజనంలో తక్కువ కొవ్వు ప్రోటీన్ మరియు ఆరోగ్యకరమైన కొవ్వులు చేర్చండి", "రోజుకు చేర్చే చక్కెరను 25 గ్రాముల కంటే తక్కువగా ఉంచండి", "పోషకాహార లేబుళ్లను చదివి అర్థం చేసుకోండి", "శ్రద్ధగా తినడం మరియు సరైన పరిమాణాన్ని పాటించండి"],
+  lifestyleMoveMore: ["వారానికి 150 నిమిషాల మితమైన ఏరోబిక్ వ్యాయామం చేయండి", "వారానికి రెండుసార్లు బలపరిచే వ్యాయామాలు చేయండి", "ఎక్కువసేపు కూర్చుంటే ప్రతి గంటకు నడక విరామం తీసుకోండి", "ప్రేరణగా ఉండేందుకు మీకు నచ్చిన కార్యకలాపాలను ఎంచుకోండి", "నెమ్మదిగా ప్రారంభించి తీవ్రతను క్రమంగా పెంచండి", "సాధ్యమైనప్పుడు లిఫ్ట్ బదులు మెట్లు ఉపయోగించండి"],
+  lifestyleSleepWell: ["ప్రతి రాత్రి 7-9 గంటలు నిద్రపోవాలని లక్ష్యంగా పెట్టుకోండి", "వారాంతాల్లో కూడా ఒకే నిద్ర సమయాన్ని పాటించండి", "చల్లగా, చీకటిగా, నిశ్శబ్దంగా ఉన్న నిద్ర వాతావరణాన్ని సృష్టించండి", "పడుకునే 30 నిమిషాల ముందు స్క్రీన్ వాడకాన్ని తగ్గించండి", "పడుకునే ముందు కెఫీన్ మరియు బరువైన భోజనం నివారించండి", "నిద్రకు ముందు ప్రశాంతమైన అలవాటును ఏర్పరచుకోండి"],
+  lifestyleManageStress: ["నియమితంగా మైండ్‌ఫుల్‌నెస్ మరియు ధ్యానం చేయండి", "రోజంతా లోతైన శ్వాస విరామాలు తీసుకోండి", "ప్రకృతి మరియు పచ్చని ప్రదేశాల్లో సమయం గడపండి", "బలమైన సామాజిక సంబంధాలను కొనసాగించండి", "పని మరియు ఇంటి వద్ద ఆరోగ్యకరమైన పరిమితులను పెట్టుకోండి", "ప్రతిరోజూ కృతజ్ఞతను సాధన చేయండి"],
+  lifestyleStayHydrated: ["రోజూ కనీసం 8 గ్లాసుల నీరు తాగండి", "మీ రోజును ఒక గ్లాసు నీటితో ప్రారంభించండి", "రోజంతా పునర్వినియోగ నీటి సీసాను వెంట ఉంచుకోండి", "చక్కెర పానీయాల బదులు నీరు లేదా హెర్బల్ టీ తాగండి", "నీటి స్థాయిని తెలుసుకోవడానికి మూత్రం రంగును గమనించండి", "పండ్లు, కూరగాయలు వంటి నీరు ఎక్కువగా ఉన్న ఆహారం తినండి"],
+  lifestyleMaintainHygiene: ["సబ్బు మరియు నీటితో కనీసం 20 సెకన్లు చేతులు కడుక్కోండి", "రోజుకు రెండుసార్లు పళ్లు తోముకుని, క్రమం తప్పకుండా ఫ్లాస్ చేయండి", "క్రమం తప్పకుండా స్నానం చేసి శుభ్రమైన బట్టలు ధరించండి", "దగ్గినప్పుడు, తుమ్మినప్పుడు మోచేతితో కప్పుకోండి", "ఇంటి ప్రదేశాలను శుభ్రంగా మరియు గాలి ప్రసరణతో ఉంచండి", "ప్రతి 3 నెలలకు టూత్‌బ్రష్ మార్చండి"],
+};
+
+const TELUGU_ROUTINE: Record<string, string[]> = {
+  morning: ["ఒక గ్లాసు నీరు తాగండి", "పోషకమైన అల్పాహారం తినండి", "ఉదయపు విటమిన్లు తీసుకోండి", "కొద్దిసేపు ఉదయపు స్ట్రెచింగ్ చేయండి"],
+  afternoon: ["నీరు తాగుతూ ఉండండి", "ఆరోగ్యకరమైన మధ్యాహ్న భోజనం", "కొద్దిసేపు నడక విరామం", "శ్రద్ధగా తినండి"],
+  evening: ["సమతుల్య రాత్రి భోజనం", "తేలికపాటి వ్యాయామం లేదా నడక", "స్క్రీన్ సమయాన్ని తగ్గించండి", "విశ్రాంతి అలవాటు పాటించండి"],
+  night: ["నిద్రకు సిద్ధం అవ్వండి", "కృతజ్ఞతను గుర్తుచేసుకోండి", "నిర్దిష్ట నిద్ర సమయాన్ని పాటించండి", "చల్లని, చీకటి గదిలో నిద్రించండి"],
+};
+
+const TELUGU_TIPS: Record<string, { title: string; description: string; category: string }> = {
+  ht1: { title: "రోజును నీటితో ప్రారంభించండి", description: "నిద్ర తర్వాత శరీరాన్ని హైడ్రేట్ చేయడానికి ఉదయం మొదట ఒక గ్లాసు నీరు తాగండి.", category: "నీరు" },
+  ht2: { title: "నడక విరామాలు తీసుకోండి", description: "ఎక్కువసేపు కూర్చుంటే ప్రతి గంటకు 5 నిమిషాలు లేచి నడవండి.", category: "శారీరక చురుకుదనం" },
+  ht3: { title: "ఎక్కువ కూరగాయలు తినండి", description: "ఈరోజు కనీసం ఒక భోజనంలో అదనంగా కూరగాయలను చేర్చండి.", category: "పోషకాహారం" },
+  ht4: { title: "లోతైన శ్వాస సాధన చేయండి", description: "ఒత్తిడిగా అనిపించినప్పుడు 5 సార్లు లోతుగా శ్వాస తీసుకోండి.", category: "మానసిక ఆరోగ్యం" },
+  ht5: { title: "7-8 గంటలు నిద్రపోండి", description: "నిర్దిష్ట నిద్ర సమయాన్ని పాటించి, పడుకునే ముందు స్క్రీన్ సమయాన్ని తగ్గించండి.", category: "నిద్ర" },
+  ht6: { title: "చేతులను సరిగ్గా కడుక్కోండి", description: "తినే ముందు మరియు మరుగుదొడ్డి ఉపయోగించిన తర్వాత కనీసం 20 సెకన్లు చేతులు కడుక్కోండి.", category: "పరిశుభ్రత" },
+  ht7: { title: "మెట్లు ఉపయోగించండి", description: "సాధ్యమైనప్పుడు లిఫ్ట్ బదులు మెట్లు ఉపయోగించి రోజువారీ చురుకుదనాన్ని పెంచండి.", category: "శారీరక చురుకుదనం" },
+  ht8: { title: "చక్కెర పానీయాలను తగ్గించండి", description: "ఈరోజు ఒక చక్కెర పానీయానికి బదులు నీరు లేదా హెర్బల్ టీ తాగండి.", category: "పోషకాహారం" },
+  ht9: { title: "ఎవరితోనైనా మాట్లాడండి", description: "స్నేహితుడు లేదా కుటుంబ సభ్యుడిని సంప్రదించండి. సామాజిక సంబంధం మానసిక ఆరోగ్యానికి ముఖ్యమైనది.", category: "మానసిక ఆరోగ్యం" },
+};
+
 const fadeUp = {
   initial: { opacity: 0, y: 24 },
   animate: { opacity: 1, y: 0 },
@@ -116,7 +144,7 @@ const stagger = {
 };
 
 export default function Lifestyle() {
-  const { t } = useTranslation();
+  const { t, language } = useTranslation();
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
@@ -185,7 +213,7 @@ export default function Lifestyle() {
                       {pillar.habits.map((habit, i) => (
                         <li key={i} className="flex items-start gap-2 text-xs text-[oklch(0.35_0.02_250)] leading-relaxed">
                           <span className="mt-1 h-1 w-1 rounded-full shrink-0" style={{ backgroundColor: pillar.color }} />
-                          {habit}
+                          {language === "te" ? TELUGU_HABITS[pillar.titleKey][i] : habit}
                         </li>
                       ))}
                     </ul>
@@ -212,8 +240,8 @@ export default function Lifestyle() {
               />
               <div className="absolute inset-0 bg-gradient-to-r from-[oklch(0.22_0.06_255_/_0.8)] to-transparent flex items-center p-8">
                 <div className="max-w-md">
-                  <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">Move Every Day</h3>
-                  <p className="text-white/80 text-sm leading-relaxed">Even 30 minutes of daily activity can transform your physical and mental health.</p>
+                  <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">{language === "te" ? "ప్రతిరోజూ కదలండి" : "Move Every Day"}</h3>
+                  <p className="text-white/80 text-sm leading-relaxed">{language === "te" ? "ప్రతిరోజూ 30 నిమిషాల చురుకుదనం మీ శారీరక మరియు మానసిక ఆరోగ్యాన్ని మెరుగుపరచగలదు." : "Even 30 minutes of daily activity can transform your physical and mental health."}</p>
                 </div>
               </div>
             </motion.div>
@@ -254,7 +282,7 @@ export default function Lifestyle() {
                     {slot.items.map((item, j) => (
                       <li key={j} className="flex items-center gap-2 text-xs text-[oklch(0.35_0.02_250)]">
                         <span className="h-1 w-1 rounded-full bg-[oklch(0.32_0.08_255)]" />
-                        {item}
+                        {language === "te" ? TELUGU_ROUTINE[slot.timeKey][j] : item}
                       </li>
                     ))}
                   </ul>
@@ -291,10 +319,10 @@ export default function Lifestyle() {
                   className="rounded-xl border border-[oklch(0.9_0.01_240)] bg-white p-4"
                 >
                   <span className="inline-block px-2 py-0.5 rounded text-[10px] font-semibold uppercase tracking-wider bg-[oklch(0.32_0.08_255_/_0.08)] text-[oklch(0.32_0.08_255)] mb-2">
-                    {tip.category}
+                    {language === "te" ? TELUGU_TIPS[tip.id]?.category || tip.category : tip.category}
                   </span>
-                  <h3 className="text-sm font-semibold text-[oklch(0.2_0.03_255)] mb-1">{tip.title}</h3>
-                  <p className="text-xs text-[oklch(0.5_0.02_250)] leading-relaxed">{tip.description}</p>
+                  <h3 className="text-sm font-semibold text-[oklch(0.2_0.03_255)] mb-1">{language === "te" ? TELUGU_TIPS[tip.id]?.title || tip.title : tip.title}</h3>
+                  <p className="text-xs text-[oklch(0.5_0.02_250)] leading-relaxed">{language === "te" ? TELUGU_TIPS[tip.id]?.description || tip.description : tip.description}</p>
                 </motion.div>
               ))}
             </div>
@@ -304,7 +332,7 @@ export default function Lifestyle() {
         <section className="py-6 border-t border-[oklch(0.92_0.01_240)]">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <p className="text-xs text-[oklch(0.5_0.02_250)] text-center leading-relaxed max-w-4xl mx-auto">
-              <strong className="text-[oklch(0.4_0.02_250)]">Disclaimer:</strong> {DISCLAIMER}
+              <strong className="text-[oklch(0.4_0.02_250)]">{language === "te" ? "నిరాకరణ:" : "Disclaimer:"}</strong> {language === "te" ? "ఈ సమాచారం సాధారణ విద్యా మరియు అవగాహన కోసం మాత్రమే. వ్యక్తిగత వైద్య సలహా కోసం ఆరోగ్య నిపుణుడిని సంప్రదించండి." : DISCLAIMER}
             </p>
           </div>
         </section>

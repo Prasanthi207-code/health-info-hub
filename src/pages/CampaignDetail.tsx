@@ -4,7 +4,8 @@ import { ArrowLeft, ArrowRight, Share2, Calendar, ShieldCheck, Target, AlertTria
 import { useBookmarks } from "@/hooks/use-bookmarks";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { CAMPAIGNS, ARTICLES, DISCLAIMER } from "@/data";
+import { CAMPAIGNS, ARTICLES, DISCLAIMER, localizeContent } from "@/data";
+import { useTranslation } from "@/i18n/LanguageContext";
 
 const BADGE: Record<string, string> = {
   "Disease Prevention": "bg-red-50 text-red-700",
@@ -18,7 +19,10 @@ const BADGE: Record<string, string> = {
 
 export default function CampaignDetail() {
   const { id } = useParams();
-  const campaign = CAMPAIGNS.find((c) => c.id === id);
+  const { language } = useTranslation();
+  const localizedCampaigns = localizeContent(CAMPAIGNS, language, "campaigns");
+  const localizedArticles = localizeContent(ARTICLES, language, "articles");
+  const campaign = localizedCampaigns.find((c) => c.id === id);
   const { isBookmarked, toggleBookmark } = useBookmarks();
 
   if (!campaign) {
@@ -38,8 +42,8 @@ export default function CampaignDetail() {
     );
   }
 
-  const relatedArticles = ARTICLES.filter((a) => campaign.relatedArticleIds.includes(a.id));
-  const relatedCampaigns = CAMPAIGNS.filter((c) => c.id !== campaign.id && c.category === campaign.category).slice(0, 2);
+  const relatedArticles = localizedArticles.filter((a) => campaign.relatedArticleIds.includes(a.id));
+  const relatedCampaigns = localizedCampaigns.filter((c) => c.id !== campaign.id && c.category === campaign.category).slice(0, 2);
 
   const shareText = `Check out the ${campaign.title} campaign on the Digital Health Awareness Portal!`;
 

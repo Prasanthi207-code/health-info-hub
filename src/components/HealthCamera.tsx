@@ -11,20 +11,20 @@ const ANALYSIS_RESULTS = [
   {
     category: "Skin Condition",
     severity: "low",
-    suggestion: "This appears to be a minor skin irritation. Keep the area clean and moisturized. If it persists for more than 2 weeks, consult a dermatologist.",
-    tip: "Avoid scratching, use fragrance-free moisturizer, and protect from sun exposure.",
+    suggestion: "An image alone cannot identify a health condition. Keep the area clean, avoid scratching or squeezing it, and arrange a clinician visit if it is spreading, painful, infected-looking, or not improving.",
+    tip: "Precautions: avoid new creams or medicines on the area, do not share towels, and seek urgent care for facial swelling, breathing difficulty, rapidly spreading redness, or severe pain.",
   },
   {
     category: "Skin Condition",
     severity: "moderate",
-    suggestion: "This may indicate a common skin condition like eczema or dermatitis. Consider consulting a healthcare provider for proper diagnosis and treatment.",
-    tip: "Keep a symptom diary noting triggers, take photos for tracking, and avoid known irritants.",
+    suggestion: "The photo may show a skin concern, but it cannot confirm the cause. Stop any product that seems to trigger it, use gentle fragrance-free care, and book a healthcare appointment for proper assessment.",
+    tip: "Precautions: do not scratch, share personal items, or use steroid or antibiotic creams without medical advice. Seek urgent care for swelling of the face or throat, breathing difficulty, fever, pus, or rapidly worsening symptoms.",
   },
   {
     category: "General Health",
     severity: "info",
-    suggestion: "For accurate diagnosis of any health concern, please consult a qualified healthcare professional. This tool provides general educational guidance only.",
-    tip: "Document symptoms with photos and notes to share with your doctor during consultation.",
+    suggestion: "Guidance: an image cannot diagnose a disease. Note when the problem started, measure your temperature if you feel feverish, and record pain, swelling, breathing changes, discharge, or whether it is getting worse. Arrange a healthcare appointment if it persists or concerns you.",
+    tip: "Precautions: rest, drink fluids, avoid self-medicating or using someone else’s prescription, and bring this photo with your notes to a clinician. Seek urgent care for trouble breathing, chest pain, confusion, fainting, severe pain, sudden weakness, uncontrolled bleeding, or face/throat swelling.",
   },
 ];
 
@@ -34,6 +34,7 @@ export default function HealthCamera() {
   const [inputMode, setInputMode] = useState<InputMode>("choose");
   const [capturedImage, setCapturedImage] = useState<string | null>(null);
   const [imageUrl, setImageUrl] = useState("");
+  const [submittedUrl, setSubmittedUrl] = useState<string | null>(null);
   const [urlError, setUrlError] = useState("");
   const [urlLoading, setUrlLoading] = useState(false);
   const [result, setResult] = useState<typeof ANALYSIS_RESULTS[0] | null>(null);
@@ -122,11 +123,20 @@ export default function HealthCamera() {
     setUrlError("");
     setUrlLoading(true);
 
-    // Test if the image loads
+    // Accept both direct image URLs and disease/article pages.
+    const looksLikeImage = /\.(avif|gif|jpe?g|png|webp)(\?.*)?$/i.test(trimmed);
+    if (!looksLikeImage) {
+      setSubmittedUrl(trimmed);
+      setState("captured");
+      setUrlLoading(false);
+      return;
+    }
+
     const img = new window.Image();
     img.crossOrigin = "anonymous";
     img.onload = () => {
       setCapturedImage(trimmed);
+      setSubmittedUrl(trimmed);
       setState("captured");
       setUrlLoading(false);
     };
@@ -140,14 +150,22 @@ export default function HealthCamera() {
   const analyze = useCallback(() => {
     setState("analyzing");
     setTimeout(() => {
-      const randomResult = ANALYSIS_RESULTS[Math.floor(Math.random() * ANALYSIS_RESULTS.length)];
-      setResult(randomResult);
+      const source = submittedUrl || "";
+      const relatedResult = source.match(/diabet|cancer|covid|corona|heart|cardio|hypertension|blood-pressure|asthma|allerg|eczema|dermatitis|mental-health|anxiety|depress/i)?.[0];
+      const label = relatedResult ? relatedResult.replace(/-/g, " ") : "health topic";
+      setResult(relatedResult ? {
+        category: "Related Information",
+        severity: "info",
+        suggestion: `This link appears to be about ${label}. Review the information from the source and discuss any symptoms, risk factors, or treatment questions with a qualified healthcare professional. This tool provides general educational guidance and cannot diagnose disease.`,
+        tip: "Precautions: use trusted sources, note symptoms and dates, avoid self-prescribing, and seek professional care for persistent or worsening concerns.",
+      } : ANALYSIS_RESULTS[2]);
       setState("result");
     }, 2000);
-  }, []);
+  }, [submittedUrl]);
 
   const reset = useCallback(() => {
     setCapturedImage(null);
+    setSubmittedUrl(null);
     setResult(null);
     setImageUrl("");
     setUrlError("");
@@ -281,14 +299,14 @@ export default function HealthCamera() {
                     <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-purple-50 mx-auto mb-4">
                       <Link className="h-7 w-7 text-purple-600" />
                     </div>
-                    <p className="text-sm font-semibold text-[oklch(0.2_0.03_255)] text-center mb-1">Paste Image URL</p>
-                    <p className="text-xs text-[oklch(0.5_0.02_250)] text-center mb-4">Enter a direct link to an image of your health concern</p>
+                    <p className="text-sm font-semibold text-[oklch(0.2_0.03_255)] text-center mb-1">Paste Health Link</p>
+                    <p className="text-xs text-[oklch(0.5_0.02_250)] text-center mb-4">Paste an image or disease information link to get related guidance</p>
                     <div className="space-y-3">
                       <input
                         type="url"
                         value={imageUrl}
                         onChange={(e) => { setImageUrl(e.target.value); setUrlError(""); }}
-                        placeholder="https://example.com/image.jpg"
+                        placeholder="https://example.com/diabetes-information"
                         className="w-full rounded-xl border border-[oklch(0.88_0.01_240)] bg-[oklch(0.97_0.003_250)] px-4 py-3 text-sm outline-none focus:border-[oklch(0.42_0.1_210)] focus:ring-2 focus:ring-[oklch(0.42_0.1_210_/_0.1)] transition-all"
                         autoFocus
                       />
@@ -301,7 +319,7 @@ export default function HealthCamera() {
                         {urlLoading ? (
                           <div className="h-4 w-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
                         ) : (
-                          <><Image className="h-4 w-4" /> Load Image</>
+                          <><Image className="h-4 w-4" /> Load Health Link</>
                         )}
                       </button>
                     </div>
@@ -331,18 +349,18 @@ export default function HealthCamera() {
                 )}
 
                 {/* CAPTURED */}
-                {state === "captured" && capturedImage && (
+                {state === "captured" && (capturedImage || submittedUrl) && (
                   <div>
                     <div className="rounded-xl overflow-hidden border border-[oklch(0.9_0.01_240)]">
-                      <img
-                        src={capturedImage}
-                        alt="Captured health concern"
-                        className="w-full aspect-[4/3] object-cover"
-                        onError={(e) => {
-                          // If image fails to load, go back
-                          (e.target as HTMLImageElement).src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300'%3E%3Crect fill='%23f3f4f6' width='400' height='300'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='%236b7280' font-size='14'%3EImage could not be loaded%3C/text%3E%3C/svg%3E";
-                        }}
-                      />
+                      {capturedImage ? (
+                        <img src={capturedImage} alt="Captured health concern" className="w-full aspect-[4/3] object-cover" />
+                      ) : (
+                        <div className="flex aspect-[4/3] flex-col items-center justify-center bg-[oklch(0.97_0.003_250)] p-6 text-center">
+                          <Link className="mb-3 h-10 w-10 text-[oklch(0.32_0.08_255)]" />
+                          <p className="text-sm font-semibold text-[oklch(0.25_0.03_255)]">Health information link received</p>
+                          <p className="mt-2 break-all text-xs text-[oklch(0.5_0.02_250)]">{submittedUrl}</p>
+                        </div>
+                      )}
                     </div>
                     <div className="flex gap-3 mt-3">
                       <button onClick={() => { reset(); setInputMode("choose"); }} className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg border border-[oklch(0.88_0.01_240)] text-sm font-medium text-[oklch(0.5_0.02_250)] hover:bg-[oklch(0.95_0.003_250)] transition-colors">
@@ -383,7 +401,7 @@ export default function HealthCamera() {
                           result.severity === "low" ? "text-green-700" :
                           result.severity === "moderate" ? "text-amber-700" : "text-blue-700"
                         }`}>
-                          {t("analysisResult")} — {result.category}
+                          Guidance — {result.category}
                         </span>
                       </div>
                       <p className="text-sm text-[oklch(0.3_0.02_250)] leading-relaxed">{result.suggestion}</p>

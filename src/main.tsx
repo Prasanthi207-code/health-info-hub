@@ -31,6 +31,7 @@ const Emergency = lazy(() => import("./pages/Emergency.tsx"));
 const SearchPage = lazy(() => import("./pages/Search.tsx"));
 const About = lazy(() => import("./pages/About.tsx"));
 const Contact = lazy(() => import("./pages/Contact.tsx"));
+const SafetyPrivacy = lazy(() => import("./pages/SafetyPrivacy.tsx"));
 const BookmarksPage = lazy(() => import("./pages/Bookmarks.tsx"));
 const SymptomsPage = lazy(() => import("./pages/Symptoms.tsx"));
 const RegisterPage = lazy(() => import("./pages/Register.tsx"));
@@ -168,6 +169,7 @@ createRoot(document.getElementById("root")!).render(
               <Route path="/search" element={<SearchPage />} />
               <Route path="/about" element={<About />} />
               <Route path="/contact" element={<Contact />} />
+              <Route path="/safety-privacy" element={<SafetyPrivacy />} />
               <Route path="/bookmarks" element={<BookmarksPage />} />
               <Route path="/symptoms" element={<SymptomsPage />} />
               <Route path="/register" element={<RegisterPage />} />

@@ -10,7 +10,7 @@ import {
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import HealthCamera from "@/components/HealthCamera";
-import { CAMPAIGNS, HEALTH_TOPICS, ARTICLES, HEALTH_TIPS, AWARENESS_EVENTS, DISCLAIMER } from "@/data";
+import { CAMPAIGNS, HEALTH_TOPICS, ARTICLES, HEALTH_TIPS, AWARENESS_EVENTS, DISCLAIMER, localizeContent, localizeEvents, localizeCategory } from "@/data";
 import { useTranslation } from "@/i18n/LanguageContext";
 
 const fadeUp = {
@@ -59,7 +59,11 @@ export default function Landing() {
   const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState("");
   const dailyTip = HEALTH_TIPS[new Date().getDate() % HEALTH_TIPS.length];
-  const { t } = useTranslation();
+  const { t, language } = useTranslation();
+  const localizedCampaigns = localizeContent(CAMPAIGNS, language, "campaigns");
+  const localizedTopics = localizeContent(HEALTH_TOPICS, language, "topics");
+  const localizedArticles = localizeContent(ARTICLES, language, "articles");
+  const localizedEvents = localizeEvents(AWARENESS_EVENTS, language);
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
@@ -81,7 +85,7 @@ export default function Landing() {
           }} />
 
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-28 relative">
-            <div className="grid lg:grid-cols-2 gap-10 items-center">
+            <div className="grid md:grid-cols-2 gap-8 lg:gap-10 items-center">
               {/* Text Content */}
               <div className="max-w-xl">
                 <motion.div {...fadeUp}>
@@ -151,18 +155,25 @@ export default function Landing() {
 
               {/* Doctor Image */}
               <motion.div
-                className="hidden lg:block"
+                className="block"
                 initial={{ opacity: 0, x: 40, scale: 0.95 }}
                 animate={{ opacity: 1, x: 0, scale: 1 }}
                 transition={{ duration: 0.7, delay: 0.2 }}
               >
                 <div className="relative">
                   <div className="absolute inset-0 bg-white/5 rounded-3xl -m-3" />
-                  <img
-                    src="https://images.unsplash.com/photo-1631815588090-d4bfec5b1ccb?w=600&h=500&fit=crop"
-                    alt="Healthcare professional"
-                    className="relative rounded-2xl w-full h-[380px] object-cover shadow-2xl border-2 border-white/10"
-                  />
+                  <a
+                    href="https://www.istockphoto.com/photos/doctor-group"
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label="View doctor group images on iStock"
+                  >
+                    <img
+                      src="https://images.pexels.com/photos/6129507/pexels-photo-6129507.jpeg?auto=compress&cs=tinysrgb&w=900&h=700&fit=crop"
+                      alt="A diverse group of doctors and nurses smiling together"
+                      className="relative rounded-2xl w-full h-[300px] sm:h-[380px] object-contain bg-white shadow-2xl border-2 border-white/10"
+                    />
+                  </a>
                   {/* Floating stat cards */}
                   <motion.div
                     className="absolute -left-4 bottom-12 bg-white rounded-xl px-4 py-3 shadow-xl"
@@ -207,10 +218,10 @@ export default function Landing() {
               viewport={{ once: true }}
             >
               <h2 className="text-2xl sm:text-3xl font-bold text-[oklch(0.18_0.03_255)]">
-                Quick Access
+                {t("quickAccess")}
               </h2>
               <p className="mt-2 text-[oklch(0.5_0.02_250)] max-w-lg mx-auto">
-                Find the health information you need, organized by topic.
+                {t("quickAccessDesc")}
               </p>
             </motion.div>
 
@@ -262,7 +273,7 @@ export default function Landing() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                 >
-                  Featured Health Campaigns
+                  {t("featuredCampaigns")}
                 </motion.h2>
                 <motion.p
                   className="mt-2 text-[oklch(0.5_0.02_250)]"
@@ -271,19 +282,19 @@ export default function Landing() {
                   viewport={{ once: true }}
                   transition={{ delay: 0.1 }}
                 >
-                  Discover campaigns making a difference in public health.
+                  {t("featuredCampaignsDesc")}
                 </motion.p>
               </div>
               <Link
                 to="/campaigns"
                 className="hidden sm:inline-flex items-center gap-1 text-sm font-medium text-[oklch(0.32_0.08_255)] hover:text-[oklch(0.25_0.08_255)] transition-colors"
               >
-                View All <ArrowRight className="h-4 w-4" />
+                {t("viewAll")} <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-              {CAMPAIGNS.slice(0, 4).map((campaign, i) => (
+              {localizedCampaigns.slice(0, 4).map((campaign, i) => (
                 <motion.div
                   key={campaign.id}
                   initial={{ opacity: 0, y: 24 }}
@@ -318,7 +329,7 @@ export default function Landing() {
                           {campaign.status}
                         </span>
                         <span className="inline-flex items-center gap-1 text-xs font-medium text-[oklch(0.32_0.08_255)] group-hover:gap-1.5 transition-all">
-                          Learn More <ArrowRight className="h-3 w-3" />
+                          {t("learnMore")} <ArrowRight className="h-3 w-3" />
                         </span>
                       </div>
                     </div>
@@ -348,7 +359,7 @@ export default function Landing() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
               >
-                Explore Health Topics
+                {t("healthTopicsTitle")}
               </motion.h2>
               <motion.p
                 className="mt-2 text-[oklch(0.5_0.02_250)] max-w-lg mx-auto"
@@ -357,12 +368,12 @@ export default function Landing() {
                 viewport={{ once: true }}
                 transition={{ delay: 0.1 }}
               >
-                Evidence-based information on common health conditions and wellness.
+                {t("healthTopicsDesc")}
               </motion.p>
             </div>
 
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-              {HEALTH_TOPICS.slice(0, 8).map((topic, i) => (
+              {localizedTopics.slice(0, 8).map((topic, i) => (
                 <motion.div
                   key={topic.id}
                   initial={{ opacity: 0, y: 20 }}
@@ -416,7 +427,7 @@ export default function Landing() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
               >
-                Prevention & Healthy Living
+                {t("preventionLifestyle")}
               </motion.h2>
               <motion.p
                 className="mt-2 text-[oklch(0.5_0.02_250)] max-w-lg mx-auto"
@@ -474,7 +485,7 @@ export default function Landing() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                 >
-                  Latest Health Articles
+                  {t("latestArticles")}
                 </motion.h2>
                 <motion.p
                   className="mt-2 text-[oklch(0.5_0.02_250)]"
@@ -483,19 +494,19 @@ export default function Landing() {
                   viewport={{ once: true }}
                   transition={{ delay: 0.1 }}
                 >
-                  Stay informed with evidence-based health insights.
+                  {t("latestArticlesDesc")}
                 </motion.p>
               </div>
               <Link
                 to="/articles"
                 className="hidden sm:inline-flex items-center gap-1 text-sm font-medium text-[oklch(0.32_0.08_255)] hover:text-[oklch(0.25_0.08_255)] transition-colors"
               >
-                View All <ArrowRight className="h-4 w-4" />
+                {t("viewAll")} <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-              {ARTICLES.slice(0, 4).map((article, i) => (
+              {localizedArticles.slice(0, 4).map((article, i) => (
                 <motion.div
                   key={article.id}
                   initial={{ opacity: 0, y: 24 }}
@@ -548,7 +559,7 @@ export default function Landing() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                 >
-                  Health Awareness Calendar
+                  {t("healthCalendar")}
                 </motion.h2>
                 <motion.p
                   className="mt-2 text-[oklch(0.5_0.02_250)]"
@@ -557,19 +568,19 @@ export default function Landing() {
                   viewport={{ once: true }}
                   transition={{ delay: 0.1 }}
                 >
-                  Important health days and awareness events throughout the year.
+                  {t("healthCalendarDesc")}
                 </motion.p>
               </div>
               <Link
                 to="/calendar"
                 className="hidden sm:inline-flex items-center gap-1 text-sm font-medium text-[oklch(0.32_0.08_255)] hover:text-[oklch(0.25_0.08_255)] transition-colors"
               >
-                View Calendar <ArrowRight className="h-4 w-4" />
+                {t("viewAll")} <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              {AWARENESS_EVENTS.slice(0, 6).map((event, i) => (
+              {localizedEvents.slice(0, 6).map((event, i) => (
                 <motion.div
                   key={event.id}
                   initial={{ opacity: 0, y: 20 }}
@@ -598,7 +609,7 @@ export default function Landing() {
                         {event.description}
                       </p>
                       <span className="mt-1 inline-block text-[10px] font-medium text-[oklch(0.45_0.04_210)]">
-                        {event.category}
+                        {localizeCategory(event.category, language)}
                       </span>
                     </div>
                   </Link>

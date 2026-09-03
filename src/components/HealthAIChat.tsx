@@ -1,6 +1,8 @@
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { MessageCircle, X, Send, Bot, User, Sparkles, Heart, Moon, Apple, Brain, Dumbbell, Stethoscope } from "lucide-react";
+import { api } from "@/convex/_generated/api";
+import { useAction } from "convex/react";
 import { useTranslation } from "@/i18n/LanguageContext";
 
 interface Message {
@@ -41,6 +43,9 @@ const AI_RESPONSES: Record<string, string[]> = {
   fever: [
     "Fever is actually your body's way of fighting an infection. It means your immune system is working hard.\n\nThe best things to do at home are rest, drink plenty of fluids like water and clear broths, wear light comfortable clothing, and take paracetamol or ibuprofen if you need relief. Check your temperature regularly to keep track.\n\nMost fevers resolve on their own within a few days as your body fights the infection.\n\nYou should seek medical help if the fever goes above 103 degrees Fahrenheit, lasts more than 3 days, comes with a severe headache or stiff neck, or if it is in a small child.\n\nTrust your instincts. If something feels wrong, it is always better to get checked.",
   ],
+  prolongedFeverBackPain: [
+    "Fever lasting 6 days together with a cold and back pain needs medical assessment today. Please contact a doctor or visit urgent care rather than continuing home treatment alone. You may need an examination and tests to find the cause.\n\nGo to emergency care now if you have trouble breathing, chest pain, confusion, severe weakness, a stiff neck, severe headache, repeated vomiting, a rash or bleeding, very little urine, severe abdominal pain, or new leg weakness or loss of bladder or bowel control.\n\nUntil you are seen, rest, drink water or oral rehydration fluid, and record your temperature. Follow the label for paracetamol/acetaminophen only if it is normally safe for you. Do not exceed the package dose or combine products containing it. Avoid ibuprofen or aspirin until a clinician has assessed you if dengue or another bleeding illness is possible.\n\nThis is educational guidance, not a diagnosis. Tell the clinician that the fever has lasted 6 days and includes back pain.",
+  ],
   cold: [
     "The common cold is annoying but usually goes away on its own in about 7 to 10 days.\n\nThe best care is rest, staying hydrated with warm teas and soups, and using saline nasal drops for congestion. Honey in warm water can help soothe a cough if you are an adult.\n\nTo prevent spreading it, cover your coughs and sneezes, wash your hands frequently, and do not share drinks or utensils with others.\n\nSee a doctor if your symptoms get worse after 10 days, you develop a high fever, have trouble breathing, or experience severe sinus pain.\n\nA simple favorite remedy is hot ginger tea with honey and a cozy blanket.",
   ],
@@ -80,7 +85,10 @@ function findBestResponse(input: string): string {
   const lower = input.toLowerCase();
   let result: string[];
 
-  if (lower.includes("heart") || lower.includes("cardio") || lower.includes("chest")) result = AI_RESPONSES.heart;
+  if ((lower.includes("fever") || lower.includes("temperature") || lower.includes("feverish")) &&
+      (lower.includes("back") || lower.includes("spine") || lower.includes("backbone")) &&
+      /(?:6|seven|7|five|5|four|4|three|3)\s*(?:day|days|d)/i.test(lower)) result = AI_RESPONSES.prolongedFeverBackPain;
+  else if (lower.includes("heart") || lower.includes("cardio") || lower.includes("chest")) result = AI_RESPONSES.heart;
   else if (lower.includes("diabet") || lower.includes("sugar") || lower.includes("insulin")) result = AI_RESPONSES.diabetes;
   else if (lower.includes("cancer") || lower.includes("tumor") || lower.includes("mole")) result = AI_RESPONSES.cancer;
   else if (lower.includes("mental") || lower.includes("depress") || lower.includes("anxiety") || lower.includes("sad") || lower.includes("lonely")) result = AI_RESPONSES.mental;
@@ -100,8 +108,29 @@ function findBestResponse(input: string): string {
   else if (lower.includes("skin") || lower.includes("acne") || lower.includes("pimple") || lower.includes("derma")) result = AI_RESPONSES.skin;
   else if (lower.includes("eye") || lower.includes("vision") || lower.includes("glasses") || lower.includes("sight")) result = AI_RESPONSES.eye;
   else if (lower.includes("tooth") || lower.includes("teeth") || lower.includes("dental") || lower.includes("cavity")) result = AI_RESPONSES.tooth;
-  else result = AI_RESPONSES.default;
-  return result[Math.floor(Math.random() * result.length)];
+  else if (lower.includes("sore throat") || lower.includes("throat pain") || lower.includes("swallow")) result = ["For a sore throat, drink warm fluids, rest, and avoid smoke or other irritants. Monitor your temperature and symptoms.\n\nArrange medical care if it lasts more than a few days, keeps worsening, or makes swallowing difficult. Seek urgent help for breathing difficulty, drooling, severe swelling, confusion, or a stiff neck."];
+  else if (lower.includes("vomit") || lower.includes("nausea") || lower.includes("diarrhea") || lower.includes("loose motion")) result = ["For vomiting or diarrhea, take small frequent sips of water or oral rehydration solution and eat light foods when you can. Rest and wash your hands carefully to reduce spread.\n\nContact a clinician if symptoms continue, you cannot keep fluids down, or you have blood, high fever, severe pain, dizziness, or very little urine. Seek emergency care for fainting, confusion, or severe dehydration."];
+  else if (lower.includes("dizz") || lower.includes("faint") || lower.includes("vertigo")) result = ["For dizziness, sit or lie down safely, avoid driving, drink fluids, and stand up slowly. Note when it happens and any medicines or triggers.\n\nArrange medical care if it is new, repeated, or persistent. Seek emergency help for fainting, chest pain, severe headache, trouble speaking, facial drooping, new weakness, or difficulty walking."];
+  else if (lower.includes("urine") || lower.includes("urinary") || lower.includes("pee") || lower.includes("burning while urinating")) result = ["For urinary symptoms, drink fluids unless a clinician has told you to restrict them, and arrange a medical check because testing may be needed. Do not use leftover antibiotics.\n\nSeek urgent care for fever with back or side pain, vomiting, blood in urine, pregnancy, confusion, or inability to urinate."];
+  else if (lower.includes("joint") || lower.includes("muscle pain") || lower.includes("body pain")) result = ["For muscle or joint pain, rest the affected area, avoid activities that worsen it, and use a gentle cold or warm compress. Keep notes about swelling, injury, fever, and how long it lasts.\n\nArrange medical care for severe or persistent pain, significant swelling, redness, fever, numbness, or inability to move the area. Seek emergency help after a major injury or with sudden weakness."];
+  else result = [buildGeneralFallback(input)];
+  return result[0];
+}
+
+function buildGeneralFallback(input: string): string {
+  const question = input.trim().replace(/\s+/g, " ");
+  return `I understand you are asking about: "${question}". The safest next step depends on the exact symptoms, how long they have been present, your age, and any medical conditions or medicines.\n\nFor now, rest, drink fluids if you can, avoid starting someone else's medicine, and write down your symptoms, temperature, timing, and triggers. A clinician should assess symptoms that persist, worsen, or interfere with normal activities.\n\nSeek emergency help for trouble breathing, chest pain, fainting, confusion, sudden weakness, severe pain, uncontrolled bleeding, or swelling of the face or throat. What is the main symptom, when did it start, and is it getting worse?`;
+}
+
+function findPriorityResponse(input: string): string | null {
+  const lower = input.toLowerCase();
+  const hasFever = lower.includes("fever") || lower.includes("temperature") || lower.includes("feverish");
+  const hasBackPain = lower.includes("back") || lower.includes("spine") || lower.includes("backbone");
+  const hasSeveralDays = /(?:6|seven|7|five|5|four|4|three|3)\s*(?:day|days|d)/i.test(lower);
+
+  return hasFever && hasBackPain && hasSeveralDays
+    ? AI_RESPONSES.prolongedFeverBackPain[0]
+    : null;
 }
 
 function formatAIResponse(text: string): string {
@@ -109,7 +138,7 @@ function formatAIResponse(text: string): string {
     .replace(/&/g, "&amp;")
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;");
-  safe = safe.replace(/\n\n/g, '<div class="h-2" />');
+  safe = safe.replace(/\n\n/g, '<div class="h-2"></div>');
   safe = safe.replace(/\n/g, "<br />");
   return safe;
 }
@@ -131,6 +160,7 @@ export default function HealthAIChat() {
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const { t } = useTranslation();
+  const generateAIResponse = useAction(api.ai.generateAIResponse);
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -140,7 +170,14 @@ export default function HealthAIChat() {
     if (open) setTimeout(() => inputRef.current?.focus(), 300);
   }, [open]);
 
-  const sendMessage = (text?: string) => {
+  const closeChat = () => {
+    setOpen(false);
+    setMessages([]);
+    setInput("");
+    setIsTyping(false);
+  };
+
+  const sendMessage = async (text?: string) => {
     const msg = text || input.trim();
     if (!msg) return;
 
@@ -149,19 +186,23 @@ export default function HealthAIChat() {
     setInput("");
     setIsTyping(true);
 
-    setTimeout(() => {
-      const response = findBestResponse(msg);
+    try {
+      const response = findPriorityResponse(msg) || await generateAIResponse({ question: msg });
       const aiMsg: Message = { id: `a-${Date.now()}`, role: "ai", text: response, timestamp: new Date() };
       setMessages((prev) => [...prev, aiMsg]);
+    } catch {
+      const fallbackMsg: Message = { id: `a-${Date.now()}`, role: "ai", text: findBestResponse(msg), timestamp: new Date() };
+      setMessages((prev) => [...prev, fallbackMsg]);
+    } finally {
       setIsTyping(false);
-    }, 600 + Math.random() * 500);
+    }
   };
 
   return (
     <>
       {/* Floating button */}
       <motion.button
-        onClick={() => setOpen(!open)}
+        onClick={() => open ? closeChat() : setOpen(true)}
         className="fixed bottom-5 right-5 z-[60] flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-blue-600 to-cyan-500 text-white shadow-lg cursor-pointer"
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
@@ -204,7 +245,7 @@ export default function HealthAIChat() {
                   <p className="text-[11px] text-white/80 truncate">{t("aiChatDesc")}</p>
                 </div>
               </div>
-              <button onClick={() => setOpen(false)} className="h-8 w-8 rounded-lg bg-white/15 flex items-center justify-center hover:bg-white/25 transition-colors cursor-pointer">
+              <button onClick={closeChat} className="h-8 w-8 rounded-lg bg-white/15 flex items-center justify-center hover:bg-white/25 transition-colors cursor-pointer">
                 <X className="h-4 w-4 text-white" />
               </button>
             </div>
@@ -249,13 +290,13 @@ export default function HealthAIChat() {
                       <Bot className="h-3.5 w-3.5 text-white" />
                     </div>
                   )}
-                  <div className={`max-w-[80%] px-3.5 py-2.5 text-[13px] leading-[1.6] rounded-2xl ${
+                  <div className={`max-w-[80%] min-w-0 break-words [overflow-wrap:anywhere] px-3.5 py-2.5 text-[13px] leading-[1.6] rounded-2xl ${
                     msg.role === "user"
                       ? "bg-blue-600 text-white rounded-br-md"
                       : "bg-white text-gray-700 border border-gray-200 rounded-bl-md shadow-sm"
                   }`}>
                     {msg.role === "ai" ? (
-                      <div dangerouslySetInnerHTML={{ __html: formatAIResponse(msg.text) }} />
+                      <div className="min-w-0 break-words [overflow-wrap:anywhere]" dangerouslySetInnerHTML={{ __html: formatAIResponse(msg.text) }} />
                     ) : (
                       msg.text
                     )}

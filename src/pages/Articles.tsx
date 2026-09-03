@@ -4,14 +4,17 @@ import { motion } from "framer-motion";
 import { Search, ArrowRight, Clock, User } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { ARTICLES, ARTICLE_CATEGORIES, DISCLAIMER } from "@/data";
+import { ARTICLES, ARTICLE_CATEGORIES, DISCLAIMER, localizeContent } from "@/data";
+import { useTranslation } from "@/i18n/LanguageContext";
 
 export default function Articles() {
+  const { language, t } = useTranslation();
+  const localizedArticles = localizeContent(ARTICLES, language, "articles");
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("All");
 
   const filtered = useMemo(() => {
-    let list = ARTICLES;
+    let list = localizedArticles;
     if (category !== "All") list = list.filter((a) => a.category === category);
     if (search.trim()) {
       const q = search.toLowerCase();
@@ -20,7 +23,7 @@ export default function Articles() {
       );
     }
     return list;
-  }, [search, category]);
+  }, [search, category, localizedArticles]);
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
@@ -34,10 +37,10 @@ export default function Articles() {
             <div className="grid lg:grid-cols-2 gap-10 items-center">
               <div>
                 <motion.h1 className="text-3xl sm:text-4xl font-bold" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-                  Health Articles & Resources
+                  {t("articles")}
                 </motion.h1>
                 <motion.p className="mt-3 text-white/70 max-w-2xl" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}>
-                  Stay informed with evidence-based health articles and expert insights.
+                  {t("latestArticlesDesc")}
                 </motion.p>
               </div>
               <motion.div className="hidden lg:flex justify-end" initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.3 }}>
@@ -55,7 +58,7 @@ export default function Articles() {
                 type="text"
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
-                placeholder="Search articles..."
+                placeholder={t("searchPlaceholder")}
                 className="w-full rounded-lg border border-[oklch(0.88_0.01_240)] bg-[oklch(0.97_0.003_250)] py-2 pl-9 pr-3 text-sm outline-none focus:border-[oklch(0.42_0.1_210)] focus:ring-2 focus:ring-[oklch(0.42_0.1_210_/_0.1)]"
               />
             </div>
@@ -85,8 +88,8 @@ export default function Articles() {
 
             {filtered.length === 0 ? (
               <div className="text-center py-20">
-                <p className="text-[oklch(0.4_0.02_250)] font-medium">No articles found</p>
-                <p className="text-sm text-[oklch(0.55_0.02_250)] mt-1">Try adjusting your search or filters.</p>
+                <p className="text-[oklch(0.4_0.02_250)] font-medium">{t("noResults")}</p>
+                <p className="text-sm text-[oklch(0.55_0.02_250)] mt-1">{t("tryDifferent")}</p>
               </div>
             ) : (
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">

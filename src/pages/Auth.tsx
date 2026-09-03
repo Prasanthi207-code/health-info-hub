@@ -16,7 +16,7 @@ import {
 
 import { useAuth } from "@/hooks/use-auth";
 import logo from "@/assets/logo.svg";
-import { ArrowRight, Loader2, Mail, UserX } from "lucide-react";
+import { ArrowRight, ArrowLeft, Loader2, Mail, UserX } from "lucide-react";
 import { Suspense, useEffect, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router";
 
@@ -110,7 +110,10 @@ function Auth({ redirectAfterAuth }: AuthProps = {}) {
   };
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="relative min-h-screen flex flex-col">
+      <button onClick={() => navigate(-1)} className="absolute left-5 top-5 z-10 rounded-md p-2 text-muted-foreground hover:bg-muted" aria-label="Go back" title="Go back">
+        <ArrowLeft className="h-5 w-5" />
+      </button>
 
       
       {/* Auth Content */}

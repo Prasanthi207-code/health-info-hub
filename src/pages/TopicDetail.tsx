@@ -4,11 +4,13 @@ import { ArrowLeft, AlertTriangle, ShieldCheck, Activity, Clock, BookOpen, Exter
 import { useBookmarks } from "@/hooks/use-bookmarks";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { HEALTH_TOPICS, TOPIC_CATEGORIES, DISCLAIMER } from "@/data";
+import { HEALTH_TOPICS, TOPIC_CATEGORIES, DISCLAIMER, localizeContent } from "@/data";
+import { useTranslation } from "@/i18n/LanguageContext";
 
 export default function TopicDetail() {
   const { id } = useParams();
-  const topic = HEALTH_TOPICS.find((t) => t.id === id);
+  const { language } = useTranslation();
+  const topic = localizeContent(HEALTH_TOPICS, language, "topics").find((t) => t.id === id);
   const { isBookmarked, toggleBookmark } = useBookmarks();
 
   if (!topic) {

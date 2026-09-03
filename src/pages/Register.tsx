@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router";
 import { motion } from "framer-motion";
-import { Shield, User, Mail, Phone, Lock, Eye, EyeOff, ArrowRight, CheckCircle, Heart, Stethoscope, Activity } from "lucide-react";
+import { Shield, User, Mail, Phone, Lock, Eye, EyeOff, ArrowRight, ArrowLeft, CheckCircle, Heart, Stethoscope, Activity } from "lucide-react";
 import { useUser } from "@/hooks/use-user";
 import { useTranslation } from "@/i18n/LanguageContext";
 
@@ -85,8 +85,8 @@ export default function Register() {
           {/* Health Image */}
           <div className="mt-10 rounded-2xl overflow-hidden border border-white/10">
             <img
-              src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600&h=400&fit=crop"
-              alt="Healthcare professionals"
+              src="https://images.pexels.com/photos/6129502/pexels-photo-6129502.jpeg?auto=compress&cs=tinysrgb&w=900&h=500&fit=crop"
+              alt="Healthcare team discussing patient care"
               className="w-full h-48 object-cover opacity-80"
             />
           </div>
@@ -94,7 +94,10 @@ export default function Register() {
       </div>
 
       {/* Right: Form Panel */}
-      <div className="flex-1 flex items-center justify-center p-6 sm:p-10">
+      <div className="relative flex-1 flex items-center justify-center p-6 sm:p-10">
+        <button onClick={() => navigate(-1)} className="absolute left-5 top-5 rounded-md p-2 text-[oklch(0.45_0.03_250)] hover:bg-[oklch(0.95_0.003_250)]" aria-label="Go back" title="Go back">
+          <ArrowLeft className="h-5 w-5" />
+        </button>
         <motion.div
           className="w-full max-w-md"
           initial={{ opacity: 0, y: 20 }}

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useNavigate, useLocation } from "react-router";
-import { Search, Menu, X, Shield, Bookmark, LogOut, User, Globe } from "lucide-react";
+import { Search, Menu, X, Shield, Bookmark, LogOut, User, Globe, ArrowLeft } from "lucide-react";
 import { useUser } from "@/hooks/use-user";
 import { useTranslation } from "@/i18n/LanguageContext";
 
@@ -67,7 +67,18 @@ export default function Header() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2 shrink-0">
+          <div className="flex items-center gap-2 shrink-0">
+            {location.pathname !== "/" && (
+              <button
+                onClick={() => navigate(-1)}
+                className="p-2 rounded-md text-[oklch(0.45_0.03_250)] hover:bg-[oklch(0.32_0.08_255_/_0.06)] hover:text-[oklch(0.32_0.08_255)] transition-colors"
+                aria-label="Go back"
+                title="Go back"
+              >
+                <ArrowLeft className="h-5 w-5" />
+              </button>
+            )}
+            <Link to="/" className="flex items-center gap-2">
             <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-[oklch(0.32_0.08_255)] text-white">
               <Shield className="h-5 w-5" strokeWidth={2.5} />
             </div>
@@ -79,7 +90,8 @@ export default function Header() {
                 Awareness Portal
               </span>
             </div>
-          </Link>
+            </Link>
+          </div>
 
           {/* Desktop Nav */}
           <nav className="hidden lg:flex items-center gap-1">

@@ -4,11 +4,14 @@ import { ArrowLeft, Clock, User, Calendar, CheckCircle2, BookOpen, Bookmark, Boo
 import { useBookmarks } from "@/hooks/use-bookmarks";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { ARTICLES, DISCLAIMER } from "@/data";
+import { ARTICLES, DISCLAIMER, localizeContent } from "@/data";
+import { useTranslation } from "@/i18n/LanguageContext";
 
 export default function ArticleDetail() {
   const { id } = useParams();
-  const article = ARTICLES.find((a) => a.id === id);
+  const { language } = useTranslation();
+  const localizedArticles = localizeContent(ARTICLES, language, "articles");
+  const article = localizedArticles.find((a) => a.id === id);
   const { isBookmarked, toggleBookmark } = useBookmarks();
 
   if (!article) {
@@ -28,7 +31,7 @@ export default function ArticleDetail() {
     );
   }
 
-  const relatedArticles = ARTICLES.filter((a) => a.id !== article.id && a.category === article.category).slice(0, 3);
+  const relatedArticles = localizedArticles.filter((a) => a.id !== article.id && a.category === article.category).slice(0, 3);
 
   return (
     <div className="min-h-screen flex flex-col bg-background">

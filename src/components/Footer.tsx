@@ -5,22 +5,23 @@ import { useTranslation } from "@/i18n/LanguageContext";
 
 const FOOTER_LINKS = {
   explore: [
-    { label: "Health Topics", href: "/topics" },
-    { label: "Campaigns", href: "/campaigns" },
-    { label: "Articles", href: "/articles" },
-    { label: "Health Calendar", href: "/calendar" },
+    { key: "healthTopics", href: "/topics" },
+    { key: "campaigns", href: "/campaigns" },
+    { key: "articles", href: "/articles" },
+    { key: "calendar", href: "/calendar" },
   ],
   health: [
-    { label: "Prevention", href: "/prevention" },
-    { label: "Healthy Lifestyle", href: "/lifestyle" },
-    { label: "Symptoms Guide", href: "/topics" },
-    { label: "Emergency Awareness", href: "/emergency" },
+    { key: "prevention", href: "/prevention" },
+    { key: "healthyLifestyle", href: "/lifestyle" },
+    { key: "symptomsGuide", href: "/symptoms" },
+    { key: "emergency", href: "/emergency" },
   ],
   portal: [
-    { label: "About", href: "/about" },
-    { label: "Contact", href: "/contact" },
-    { label: "Register", href: "/register" },
-    { label: "Sign In", href: "/login" },
+    { key: "aboutTitle", href: "/about" },
+    { key: "contactTitle", href: "/contact" },
+    { key: "footerPrivacy", href: "/safety-privacy" },
+    { key: "register", href: "/register" },
+    { key: "signIn", href: "/login" },
   ],
 };
 
@@ -70,12 +71,12 @@ export default function Footer() {
               </h3>
               <ul className="space-y-2.5">
                 {links.map((link) => (
-                  <li key={link.href + link.label}>
+                  <li key={link.href + link.key}>
                     <Link
                       to={link.href}
                       className="text-sm text-white/55 hover:text-white transition-colors"
                     >
-                      {link.label}
+                      {t(link.key)}
                     </Link>
                   </li>
                 ))}

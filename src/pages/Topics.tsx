@@ -4,14 +4,17 @@ import { motion } from "framer-motion";
 import { Search, ArrowRight, Filter } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { HEALTH_TOPICS, TOPIC_CATEGORIES, DISCLAIMER } from "@/data";
+import { HEALTH_TOPICS, TOPIC_CATEGORIES, DISCLAIMER, localizeContent } from "@/data";
+import { useTranslation } from "@/i18n/LanguageContext";
 
 export default function Topics() {
+  const { t, language } = useTranslation();
+  const localizedTopics = localizeContent(HEALTH_TOPICS, language, "topics");
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("All");
 
   const filtered = useMemo(() => {
-    let list = HEALTH_TOPICS;
+    let list = localizedTopics;
     if (category !== "All") list = list.filter((t) => t.categoryId === category);
     if (search.trim()) {
       const q = search.toLowerCase();
@@ -20,7 +23,7 @@ export default function Topics() {
       );
     }
     return list;
-  }, [search, category]);
+  }, [search, category, localizedTopics]);
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
@@ -35,14 +38,14 @@ export default function Topics() {
             <div className="grid lg:grid-cols-2 gap-10 items-center">
               <div>
                 <motion.h1 className="text-3xl sm:text-4xl font-bold" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-                  Explore Health Topics
+                  {t("healthTopicsTitle")}
                 </motion.h1>
                 <motion.p className="mt-3 text-white/70 max-w-2xl" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}>
-                  Evidence-based information on common health conditions and wellness.
+                  {t("healthTopicsDesc")}
                 </motion.p>
               </div>
               <motion.div className="hidden lg:flex justify-end" initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.3 }}>
-                <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=500&h=360&fit=crop" alt="Health topics" className="rounded-2xl shadow-2xl border-2 border-white/10 w-full max-w-md object-cover h-[280px]" />
+                <img src="https://images.pexels.com/photos/15238817/pexels-photo-15238817.jpeg?auto=compress&cs=tinysrgb&w=900" alt="A group of doctors standing together" className="rounded-2xl shadow-2xl border-2 border-white/10 w-full max-w-md object-contain bg-white h-[280px]" />
               </motion.div>
             </div>
           </div>
@@ -57,7 +60,7 @@ export default function Topics() {
                 type="text"
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
-                placeholder="Search health topics..."
+                placeholder={t("searchPlaceholder")}
                 className="w-full rounded-lg border border-[oklch(0.88_0.01_240)] bg-[oklch(0.97_0.003_250)] py-2 pl-9 pr-3 text-sm outline-none focus:border-[oklch(0.42_0.1_210)] focus:ring-2 focus:ring-[oklch(0.42_0.1_210_/_0.1)]"
               />
             </div>
@@ -124,7 +127,7 @@ export default function Topics() {
                           {topic.shortDescription}
                         </p>
                         <div className="mt-3 flex items-center gap-1 text-xs font-medium text-[oklch(0.32_0.08_255)] group-hover:gap-1.5 transition-all">
-                          Learn More <ArrowRight className="h-3 w-3" />
+                          {t("learnMore")} <ArrowRight className="h-3 w-3" />
                         </div>
                       </div>
                     </Link>

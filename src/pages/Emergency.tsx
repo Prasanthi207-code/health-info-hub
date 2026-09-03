@@ -156,6 +156,30 @@ const FIRST_AID = [
   },
 ];
 
+const TELUGU_EMERGENCY: Record<string, { title: string; description?: string; signs: string[] }> = {
+  "When to Call Emergency Services": { title: "అత్యవసర సేవలకు ఎప్పుడు కాల్ చేయాలి", description: "మీకు లేదా మరెవరికైనా ఈ లక్షణాలు ఉంటే వెంటనే స్థానిక అత్యవసర నంబర్‌కు కాల్ చేయండి:", signs: ["శ్వాస తీసుకోవడంలో ఇబ్బంది లేదా శ్వాస ఆగిపోవడం", "స్పృహ లేకపోవడం", "కొన్ని నిమిషాలుగా కొనసాగుతున్న ఛాతీ నొప్పి లేదా ఒత్తిడి", "తీవ్రమైన అలర్జీ ప్రతిచర్య", "అకస్మాత్తుగా తీవ్రమైన తలనొప్పి లేదా గందరగోళం", "మూర్ఛలు", "తీవ్రమైన అదుపులేని రక్తస్రావం", "స్ట్రోక్ సంకేతాలు: ముఖం వంగడం, చేతి బలహీనత, మాటలో ఇబ్బంది", "పెద్ద ప్రాంతంలో తీవ్రమైన కాలిన గాయాలు", "తల లేదా మెడ గాయం", "గొంతులో వస్తువు ఇరుక్కోవడం", "తీవ్రమైన కడుపు నొప్పి"] },
+  "Heart Attack Warning Signs": { title: "గుండెపోటు హెచ్చరిక సంకేతాలు", signs: ["ఛాతీలో అసౌకర్యం, ఒత్తిడి లేదా నొప్పి", "చేయి, దవడ, మెడ లేదా వీపుకు వ్యాపించే నొప్పి", "శ్వాస తీసుకోవడంలో ఇబ్బంది", "చల్లని చెమట, వికారం లేదా తల తిరగడం", "అసాధారణ అలసట", "మహిళల్లో వికారం మరియు వెన్నునొప్పి వంటి భిన్న లక్షణాలు ఉండవచ్చు"] },
+  "Stroke Warning Signs (FAST)": { title: "స్ట్రోక్ హెచ్చరిక సంకేతాలు (FAST)", signs: ["ముఖం వంగడం లేదా ఒక వైపు మొద్దుబారడం", "చేతి బలహీనత లేదా పైకి ఎత్తినప్పుడు కిందకు జారడం", "మాట స్పష్టంగా రాకపోవడం", "లక్షణాలు ప్రారంభమైన సమయాన్ని గుర్తించి వెంటనే కాల్ చేయడం"] },
+  "Severe Breathing Problems": { title: "తీవ్రమైన శ్వాస సమస్యలు", signs: ["తీవ్రమైన శ్వాస ఇబ్బంది", "పెదవులు లేదా గోర్లు నీలం రంగులోకి మారడం", "తగ్గని వేగవంతమైన శ్వాస", "శ్వాస తీసుకునేటప్పుడు ఛాతీ నొప్పి", "రక్తంతో దగ్గు", "మందులతో తగ్గని తీవ్రమైన శ్వాసలో శబ్దం"] },
+  "Severe Allergic Reactions": { title: "తీవ్రమైన అలర్జీ ప్రతిచర్యలు", signs: ["ముఖం, పెదవులు, నాలుక లేదా గొంతు వాపు", "శ్వాస లేదా మింగడంలో ఇబ్బంది", "వేగంగా కొట్టుకునే గుండె", "తల తిరగడం లేదా స్పృహ కోల్పోవడం", "శరీరం అంతా దద్దుర్లు", "వికారం, వాంతులు లేదా కడుపు నొప్పి", "స్పృహ కోల్పోవడం"] },
+  "Severe Dehydration": { title: "తీవ్రమైన డీహైడ్రేషన్", signs: ["తీవ్రమైన దాహం మరియు నోరు ఎండిపోవడం", "ముదురు మూత్రం లేదా 8 గంటలకు పైగా మూత్రం రాకపోవడం", "నిలబడినప్పుడు తల తిరగడం", "వేగవంతమైన గుండె చప్పుడు మరియు శ్వాస", "గందరగోళం లేదా చిరాకు", "కళ్లు లోపలికి పడినట్లు కనిపించడం", "చర్మం నొక్కిన తర్వాత వెంటనే మామూలుగా మారకపోవడం"] },
+  "High Fever in Children": { title: "పిల్లల్లో అధిక జ్వరం", signs: ["పిల్లల్లో 104°F (40°C) కంటే ఎక్కువ జ్వరం", "3 నెలల లోపు శిశువులకు ఏ జ్వరం అయినా", "3 రోజులకు మించిన జ్వరం", "నొక్కినా రంగు మారని దద్దుర్లు", "శ్వాస తీసుకోవడంలో ఇబ్బంది", "జ్వరంతో కూడిన మూర్ఛ", "తీవ్రమైన తలనొప్పి లేదా మెడ బిగుసుకుపోవడం"] },
+  "Bone Fractures & Trauma": { title: "ఎముక విరుగుడు మరియు గాయాలు", signs: ["అవయవం అసహజంగా వంగడం", "గాయం జరిగిన చోట తీవ్రమైన నొప్పి", "కదలలేకపోవడం లేదా బరువు మోయలేకపోవడం", "వాపు మరియు నీలికల", "చర్మం బయటకు వచ్చిన ఎముక", "గాయం కింద మొద్దుబారడం లేదా చిమ్మటలు"] },
+};
+
+const TELUGU_FIRST_AID: Record<string, { title: string; steps: string[] }> = {
+  "CPR Basics": { title: "CPR ప్రాథమికాలు", steps: ["వ్యక్తి స్పందిస్తున్నారా, సాధారణంగా శ్వాస తీసుకుంటున్నారా చూడండి", "వెంటనే అత్యవసర సేవలకు కాల్ చేయండి", "మీ చేతి అరను ఛాతీ మధ్యలో ఉంచండి", "గట్టిగా మరియు వేగంగా నొక్కండి — 100-120 సార్లు నిమిషానికి", "శిక్షణ ఉంటే 30 సార్లు నొక్కి 2 శ్వాసలు ఇవ్వండి", "సహాయం వచ్చే వరకు లేదా వ్యక్తి కోలుకునే వరకు కొనసాగించండి"] },
+  "Choking Response": { title: "గొంతులో వస్తువు ఇరుక్కుంటే", steps: ["వ్యక్తి మాట్లాడగలరా లేదా దగ్గగలరా అడగండి", "మాట్లాడలేకపోతే వెనుక నిలబడి నడుము చుట్టూ చేతులు వేయండి", "నాభికి కొద్దిగా పైన పిడికిలి ఉంచండి", "మరో చేతితో పట్టుకుని లోపలికి, పైకి బలంగా నెట్టండి", "వస్తువు బయటకు వచ్చే వరకు లేదా వ్యక్తి స్పృహ కోల్పోయే వరకు పునరావృతం చేయండి"] },
+  "Controlling Bleeding": { title: "రక్తస్రావాన్ని నియంత్రించడం", steps: ["శుభ్రమైన గుడ్డ లేదా గాజుతో గట్టిగా నేరుగా ఒత్తిడి చేయండి", "కనీసం 15 నిమిషాలు ఒత్తిడి కొనసాగించండి", "గుడ్డ తడిస్తే మొదటి గుడ్డను తీసివేయకుండా పైన మరొకటి ఉంచండి", "సాధ్యమైతే గాయపడిన భాగాన్ని గుండె కంటే ఎత్తుగా ఉంచండి", "రక్తస్రావం తగ్గిన తర్వాత ఒత్తిడి కట్టు వేయండి", "తీవ్రమైన రక్తస్రావానికి వెంటనే వైద్య సహాయం పొందండి"] },
+};
+
+const TELUGU_FACILITIES: Record<string, string> = {
+  "City General Hospital": "సిటీ జనరల్ హాస్పిటల్", "HealthFirst Medical Center": "హెల్త్‌ఫస్ట్ మెడికల్ సెంటర్", "QuickCare Urgent Clinic": "క్విక్‌కేర్ అత్యవసర క్లినిక్", "HeartCare Specialists": "హార్ట్‌కేర్ నిపుణుల క్లినిక్", "MindWell Mental Health": "మైండ్‌వెల్ మానసిక ఆరోగ్య కేంద్రం", "Community Health Center": "కమ్యూనిటీ ఆరోగ్య కేంద్రం",
+  Hospital: "ఆసుపత్రి", "Medical Center": "వైద్య కేంద్రం", "Urgent Care": "అత్యవసర క్లినిక్", "Specialist Clinic": "నిపుణుల క్లినిక్", "Mental Health Clinic": "మానసిక ఆరోగ్య క్లినిక్", "Community Clinic": "సమాజ క్లినిక్",
+  "24/7 Emergency": "24/7 అత్యవసర సేవలు", "Mon-Sun 6AM-10PM": "సోమ-ఆది ఉదయం 6 - రాత్రి 10", "Mon-Sat 8AM-8PM": "సోమ-శని ఉదయం 8 - రాత్రి 8", "Mon-Fri 9AM-5PM": "సోమ-శుక్ర ఉదయం 9 - సాయంత్రం 5", "Mon-Sun 8AM-9PM": "సోమ-ఆది ఉదయం 8 - రాత్రి 9", "Mon-Sat 7AM-7PM": "సోమ-శని ఉదయం 7 - రాత్రి 7",
+  "Emergency Care": "అత్యవసర సంరక్షణ", Cardiology: "హృదయ వైద్యం", Neurology: "నాడీ వైద్యం", "General Medicine": "సాధారణ వైద్యం", Pediatrics: "శిశు వైద్యం", Dermatology: "చర్మ వైద్యం", "X-Ray": "ఎక్స్-రే", "Lab Tests": "ప్రయోగశాల పరీక్షలు", ECG: "ECG", "Stress Test": "ఒత్తిడి పరీక్ష", Psychiatry: "మనోవైద్యం", Counseling: "కౌన్సెలింగ్", Therapy: "చికిత్స", "Primary Care": "ప్రాథమిక వైద్యం", Vaccinations: "టీకాలు", "Health Screenings": "ఆరోగ్య పరీక్షలు",
+};
+
 const fadeUp = {
   initial: { opacity: 0, y: 24 },
   animate: { opacity: 1, y: 0 },
@@ -167,7 +191,7 @@ const stagger = {
 };
 
 export default function Emergency() {
-  const { t } = useTranslation();
+  const { t, language } = useTranslation();
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
@@ -183,7 +207,7 @@ export default function Emergency() {
               <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
                 <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/15 backdrop-blur-sm text-xs font-medium text-white mb-4">
                   <AlertTriangle className="h-3.5 w-3.5" />
-                  Emergency Awareness
+                  {language === "te" ? "అత్యవసర ఆరోగ్య అవగాహన" : "Emergency Awareness"}
                 </div>
                 <h1 className="text-3xl sm:text-4xl font-bold">{t("emergencyTitle")}</h1>
                 <p className="mt-3 text-white/80 max-w-2xl leading-relaxed">
@@ -236,16 +260,16 @@ export default function Emergency() {
                       >
                         <section.icon className="h-4.5 w-4.5" style={{ color: section.color }} />
                       </div>
-                      <h3 className="text-sm font-semibold text-[oklch(0.2_0.03_255)]">{section.title}</h3>
+                      <h3 className="text-sm font-semibold text-[oklch(0.2_0.03_255)]">{language === "te" ? TELUGU_EMERGENCY[section.title]?.title || section.title : section.title}</h3>
                     </div>
                     {section.description && (
-                      <p className="text-xs text-[oklch(0.4_0.02_250)] mb-3 leading-relaxed">{section.description}</p>
+                      <p className="text-xs text-[oklch(0.4_0.02_250)] mb-3 leading-relaxed">{language === "te" ? TELUGU_EMERGENCY[section.title]?.description || section.description : section.description}</p>
                     )}
                     <ul className="space-y-1.5">
                       {section.signs.map((sign, i) => (
                         <li key={i} className="flex items-start gap-2 text-xs text-[oklch(0.3_0.02_250)] leading-relaxed">
                           <span className="mt-1 h-1.5 w-1.5 rounded-full bg-red-400 shrink-0" />
-                          {sign}
+                          {language === "te" ? TELUGU_EMERGENCY[section.title]?.signs[i] || sign : sign}
                         </li>
                       ))}
                     </ul>
@@ -272,8 +296,8 @@ export default function Emergency() {
               />
               <div className="absolute inset-0 bg-gradient-to-r from-red-700/80 to-transparent flex items-center p-8">
                 <div className="max-w-md">
-                  <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">Be Prepared</h3>
-                  <p className="text-white/80 text-sm leading-relaxed">Learn first aid basics and keep an emergency kit accessible at home, work, and in your car.</p>
+                  <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">{language === "te" ? "సిద్ధంగా ఉండండి" : "Be Prepared"}</h3>
+                  <p className="text-white/80 text-sm leading-relaxed">{language === "te" ? "ప్రాథమిక సహాయాన్ని నేర్చుకుని, ఇల్లు, పని ప్రదేశం మరియు కారులో అత్యవసర వస్తు సామగ్రిని అందుబాటులో ఉంచండి." : "Learn first aid basics and keep an emergency kit accessible at home, work, and in your car."}</p>
                 </div>
               </div>
             </motion.div>
@@ -307,14 +331,14 @@ export default function Emergency() {
                   transition={{ delay: i * 0.08 }}
                   className="rounded-xl border border-[oklch(0.9_0.01_240)] bg-white p-5"
                 >
-                  <h3 className="text-base font-semibold text-[oklch(0.2_0.03_255)] mb-3">{item.title}</h3>
+                  <h3 className="text-base font-semibold text-[oklch(0.2_0.03_255)] mb-3">{language === "te" ? TELUGU_FIRST_AID[item.title]?.title || item.title : item.title}</h3>
                   <ol className="space-y-2">
                     {item.steps.map((step, j) => (
                       <li key={j} className="flex items-start gap-2 text-xs text-[oklch(0.3_0.02_250)] leading-relaxed">
                         <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-red-50 text-[10px] font-bold text-red-600">
                           {j + 1}
                         </span>
-                        {step}
+                        {language === "te" ? TELUGU_FIRST_AID[item.title]?.steps[j] || step : step}
                       </li>
                     ))}
                   </ol>
@@ -360,12 +384,12 @@ export default function Emergency() {
                 >
                   <div className="flex items-start justify-between mb-3">
                     <div>
-                      <h3 className="text-sm font-semibold text-[oklch(0.2_0.03_255)]">{facility.name}</h3>
-                      <span className="text-[10px] font-medium text-[oklch(0.32_0.08_255)] uppercase tracking-wider">{facility.type}</span>
+                      <h3 className="text-sm font-semibold text-[oklch(0.2_0.03_255)]">{language === "te" ? TELUGU_FACILITIES[facility.name] : facility.name}</h3>
+                      <span className="text-[10px] font-medium text-[oklch(0.32_0.08_255)] uppercase tracking-wider">{language === "te" ? TELUGU_FACILITIES[facility.type] : facility.type}</span>
                     </div>
                     <div className="flex items-center gap-1 px-2 py-1 rounded-full bg-blue-50">
                       <Navigation className="h-3 w-3 text-blue-600" />
-                      <span className="text-[10px] font-bold text-blue-700">{facility.distance} km</span>
+                      <span className="text-[10px] font-bold text-blue-700">{facility.distance} {language === "te" ? "కి.మీ" : "km"}</span>
                     </div>
                   </div>
                   <div className="space-y-2 mb-3">
@@ -373,13 +397,13 @@ export default function Emergency() {
                       <Phone className="h-3 w-3 shrink-0" /> {facility.phone}
                     </div>
                     <div className="flex items-center gap-2 text-xs text-[oklch(0.5_0.02_250)]">
-                      <Clock className="h-3 w-3 shrink-0" /> {facility.hours}
+                      <Clock className="h-3 w-3 shrink-0" /> {language === "te" ? TELUGU_FACILITIES[facility.hours] : facility.hours}
                     </div>
                   </div>
                   <div className="flex flex-wrap gap-1">
                     {facility.services.map((s) => (
                       <span key={s} className="px-2 py-0.5 rounded text-[10px] font-medium bg-[oklch(0.97_0.003_250)] text-[oklch(0.4_0.02_250)] border border-[oklch(0.92_0.01_240)]">
-                        {s}
+                        {language === "te" ? TELUGU_FACILITIES[s] : s}
                       </span>
                     ))}
                   </div>
@@ -415,11 +439,11 @@ export default function Emergency() {
                   className="group rounded-xl border border-[oklch(0.9_0.01_240)] bg-white p-4 hover:shadow-md transition-shadow"
                 >
                   <h3 className="text-sm font-semibold text-[oklch(0.2_0.03_255)] group-hover:text-[oklch(0.32_0.08_255)] transition-colors">
-                    {item.title}
+                    {language === "te" ? ({ "Heart Health": "హృదయ ఆరోగ్యం", Diabetes: "మధుమేహం", "Respiratory Health": "శ్వాసకోశ ఆరోగ్యం", "Child Health": "పిల్లల ఆరోగ్యం" } as Record<string, string>)[item.title] : item.title}
                   </h3>
-                  <p className="text-xs text-[oklch(0.5_0.02_250)] mt-1">{item.desc}</p>
+                  <p className="text-xs text-[oklch(0.5_0.02_250)] mt-1">{language === "te" ? ({ "Heart Health": "హృదయ హెచ్చరిక సంకేతాలు మరియు నివారణ.", Diabetes: "మధుమేహ అత్యవసర పరిస్థితులను గుర్తించడం.", "Respiratory Health": "శ్వాస సంబంధిత అత్యవసర అవగాహన.", "Child Health": "పిల్లల్లో అత్యవసర సంకేతాలు." } as Record<string, string>)[item.title] : item.desc}</p>
                   <span className="mt-2 inline-flex items-center gap-1 text-xs font-medium text-[oklch(0.32_0.08_255)]">
-                    Learn More <ArrowRight className="h-3 w-3" />
+                    {language === "te" ? "మరింత తెలుసుకోండి" : "Learn More"} <ArrowRight className="h-3 w-3" />
                   </span>
                 </Link>
               ))}
@@ -430,7 +454,7 @@ export default function Emergency() {
         <section className="py-6 border-t border-[oklch(0.92_0.01_240)]">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <p className="text-xs text-[oklch(0.5_0.02_250)] text-center leading-relaxed max-w-4xl mx-auto">
-              <strong className="text-[oklch(0.4_0.02_250)]">Disclaimer:</strong> {DISCLAIMER}
+              <strong className="text-[oklch(0.4_0.02_250)]">{language === "te" ? "నిరాకరణ:" : "Disclaimer:"}</strong> {language === "te" ? "ఈ సమాచారం సాధారణ విద్యా మరియు అవగాహన కోసం మాత్రమే. వ్యక్తిగత వైద్య సలహా కోసం ఆరోగ్య నిపుణుడిని సంప్రదించండి." : DISCLAIMER}
             </p>
           </div>
         </section>

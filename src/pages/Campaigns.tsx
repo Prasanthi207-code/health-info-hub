@@ -4,7 +4,8 @@ import { motion } from "framer-motion";
 import { Search, ArrowRight, Filter } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { CAMPAIGNS, CAMPAIGN_CATEGORIES, DISCLAIMER } from "@/data";
+import { CAMPAIGNS, CAMPAIGN_CATEGORIES, DISCLAIMER, localizeContent } from "@/data";
+import { useTranslation } from "@/i18n/LanguageContext";
 
 const SORT_OPTIONS = ["Latest", "Popular", "Upcoming"];
 
@@ -21,12 +22,14 @@ const BADGE: Record<string, string> = {
 function badgeClass(cat: string) { return BADGE[cat] || BADGE.default; }
 
 export default function Campaigns() {
+  const { t, language } = useTranslation();
+  const localizedCampaigns = localizeContent(CAMPAIGNS, language, "campaigns");
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("All");
   const [sort, setSort] = useState("Latest");
 
   const filtered = useMemo(() => {
-    let list = CAMPAIGNS;
+    let list = localizedCampaigns;
     if (category !== "All") list = list.filter((c) => c.category === category);
     if (search.trim()) {
       const q = search.toLowerCase();
@@ -37,7 +40,7 @@ export default function Campaigns() {
     if (sort === "Latest") list = [...list].sort((a, b) => b.startDate.localeCompare(a.startDate));
     else if (sort === "Upcoming") list = [...list].sort((a, b) => a.startDate.localeCompare(b.startDate));
     return list;
-  }, [search, category, sort]);
+  }, [search, category, sort, localizedCampaigns]);
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
@@ -54,18 +57,18 @@ export default function Campaigns() {
                   className="text-3xl sm:text-4xl font-bold"
                   initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
                 >
-                  Health Campaigns
+                  {t("campaigns")}
                 </motion.h1>
                 <motion.p
                   className="mt-3 text-white/70 max-w-2xl"
                   initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.1 }}
                 >
-                  Explore awareness campaigns designed to inform communities, encourage prevention and promote healthier choices.
+                  {t("featuredCampaignsDesc")}
                 </motion.p>
               </div>
               <motion.div className="hidden lg:flex justify-end" initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.3 }}>
-                <img src="https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?w=500&h=360&fit=crop" alt="Health campaigns" className="rounded-2xl shadow-2xl border-2 border-white/10 w-full max-w-md object-cover h-[280px]" />
+                <img src="https://images.pexels.com/photos/8460371/pexels-photo-8460371.jpeg?auto=compress&cs=tinysrgb&w=900&h=650&fit=crop" alt="Healthcare professionals working together on a health campaign" className="rounded-2xl shadow-2xl border-2 border-white/10 w-full max-w-md object-cover h-[280px]" />
               </motion.div>
             </div>
           </div>
@@ -76,12 +79,12 @@ export default function Campaigns() {
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-4">
             <div className="flex flex-col sm:flex-row gap-3 items-start sm:items-center justify-between">
               <div className="relative w-full sm:w-72">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-[oklch(0.5_0.02_250)]" />
+                  <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-[oklch(0.5_0.02_250)]" />
                 <input
                   type="text"
                   value={search}
                   onChange={(e) => setSearch(e.target.value)}
-                  placeholder="Search campaigns..."
+                  placeholder={t("searchPlaceholder")}
                   className="w-full rounded-lg border border-[oklch(0.88_0.01_240)] bg-[oklch(0.97_0.003_250)] py-2 pl-9 pr-3 text-sm outline-none focus:border-[oklch(0.42_0.1_210)] focus:ring-2 focus:ring-[oklch(0.42_0.1_210_/_0.1)]"
                 />
               </div>
@@ -165,7 +168,7 @@ export default function Campaigns() {
                           {campaign.shortDescription}
                         </p>
                         <div className="mt-4 flex items-center gap-1 text-sm font-medium text-[oklch(0.32_0.08_255)] group-hover:gap-2 transition-all">
-                          Learn More <ArrowRight className="h-4 w-4" />
+                          {t("learnMore")} <ArrowRight className="h-4 w-4" />
                         </div>
                       </div>
                     </Link>
