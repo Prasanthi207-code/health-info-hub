@@ -3,8 +3,10 @@ import { Link, useNavigate } from "react-router";
 import { motion } from "framer-motion";
 import { Shield, Mail, Phone, Lock, Eye, EyeOff, ArrowRight, Stethoscope, Heart, ShieldCheck } from "lucide-react";
 import { useUser } from "@/hooks/use-user";
+import { useTranslation } from "@/i18n/LanguageContext";
 
 export default function Login() {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const { login } = useUser();
   const [showPassword, setShowPassword] = useState(false);
@@ -17,8 +19,8 @@ export default function Login() {
     e.preventDefault();
     setError("");
 
-    if (!emailOrPhone.trim()) { setError("Please enter your email or phone number"); return; }
-    if (!password) { setError("Please enter your password"); return; }
+    if (!emailOrPhone.trim()) { setError(t("enterEmailOrPhone")); return; }
+    if (!password) { setError(t("enterPassword")); return; }
 
     setLoading(true);
     // Simulate network delay
@@ -105,12 +107,12 @@ export default function Login() {
             </div>
           </div>
 
-          <h1 className="text-2xl font-bold text-[oklch(0.18_0.03_255)] mb-1">Welcome back</h1>
-          <p className="text-sm text-[oklch(0.5_0.02_250)] mb-6">Sign in to access your health dashboard</p>
+          <h1 className="text-2xl font-bold text-[oklch(0.18_0.03_255)] mb-1">{t("welcomeBack")}</h1>
+          <p className="text-sm text-[oklch(0.5_0.02_250)] mb-6">{t("accessDashboard")}</p>
 
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
-              <label className="block text-sm font-medium text-[oklch(0.2_0.03_255)] mb-1.5">Email or Phone</label>
+              <label className="block text-sm font-medium text-[oklch(0.2_0.03_255)] mb-1.5">{t("loginEmailOrPhone")}</label>
               <div className="relative">
                 <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-[oklch(0.5_0.02_250)]" />
                 <input
@@ -125,7 +127,7 @@ export default function Login() {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-[oklch(0.2_0.03_255)] mb-1.5">Password</label>
+              <label className="block text-sm font-medium text-[oklch(0.2_0.03_255)] mb-1.5">{t("loginPasswordLabel")}</label>
               <div className="relative">
                 <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-[oklch(0.5_0.02_250)]" />
                 <input
@@ -153,7 +155,7 @@ export default function Login() {
                 <div className="h-4 w-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
               ) : (
                 <>
-                  Sign In
+                  {t("signIn")}
                   <ArrowRight className="h-4 w-4" />
                 </>
               )}
@@ -161,13 +163,13 @@ export default function Login() {
           </form>
 
           <p className="mt-6 text-center text-sm text-[oklch(0.5_0.02_250)]">
-            Don't have an account?{" "}
-            <Link to="/register" className="font-medium text-[oklch(0.32_0.08_255)] hover:underline">Create one free</Link>
+            {t("dontHaveAccount")}{" "}
+            <Link to="/register" className="font-medium text-[oklch(0.32_0.08_255)] hover:underline">{t("loginCreateOne")}</Link>
           </p>
 
           <div className="mt-8 p-3 rounded-lg bg-[oklch(0.97_0.003_250)] border border-[oklch(0.9_0.01_240)]">
             <p className="text-xs text-[oklch(0.5_0.02_250)] text-center">
-              New to the portal? Create an account with just your name, email/phone, and password. <strong>No OTP verification required.</strong>
+              {t("loginNewUser")} <strong>{t("noOTPRequired")}</strong>
             </p>
           </div>
         </motion.div>

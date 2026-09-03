@@ -6,6 +6,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import HealthCamera from "@/components/HealthCamera";
 import { HEALTH_TOPICS, DISCLAIMER } from "@/data";
+import { useTranslation } from "@/i18n/LanguageContext";
 
 const BODY_SYSTEMS = [
   { id: "cardiovascular", label: "Cardiovascular", icon: Heart, color: "oklch(0.55 0.15 25)" },
@@ -35,10 +36,10 @@ const COMMON_SYMPTOMS = [
   { symptom: "Slow-healing wounds", urgency: "moderate", topics: ["t2"], system: "general", description: "Wounds that take weeks to heal may indicate diabetes or circulation issues." },
 ];
 
-const URGENCY_COLORS: Record<string, { bg: string; text: string; dot: string; label: string }> = {
-  high: { bg: "bg-red-50", text: "text-red-700", dot: "bg-red-500", label: "Seek immediate help" },
-  moderate: { bg: "bg-amber-50", text: "text-amber-700", dot: "bg-amber-500", label: "See a doctor soon" },
-  low: { bg: "bg-green-50", text: "text-green-700", dot: "bg-green-500", label: "Monitor and discuss" },
+const URGENCY_COLORS: Record<string, { bg: string; text: string; dot: string; labelKey: string }> = {
+  high: { bg: "bg-red-50", text: "text-red-700", dot: "bg-red-500", labelKey: "seekImmediateHelp" },
+  moderate: { bg: "bg-amber-50", text: "text-amber-700", dot: "bg-amber-500", labelKey: "seeDoctorSoon" },
+  low: { bg: "bg-green-50", text: "text-green-700", dot: "bg-green-500", labelKey: "monitorAndDiscuss" },
 };
 
 const fadeUp = {
@@ -48,6 +49,7 @@ const fadeUp = {
 };
 
 export default function Symptoms() {
+  const { t } = useTranslation();
   const [search, setSearch] = useState("");
   const [system, setSystem] = useState<string | null>(null);
 
@@ -73,11 +75,11 @@ export default function Symptoms() {
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
               <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 backdrop-blur-sm text-xs font-medium text-white/80 mb-4">
                 <AlertTriangle className="h-3.5 w-3.5" />
-                Symptoms & Warning Signs
+                {t("symptoms")}
               </div>
-              <h1 className="text-3xl sm:text-4xl font-bold">Symptoms & Warning Signs</h1>
+              <h1 className="text-3xl sm:text-4xl font-bold">{t("symptomsTitle")}</h1>
               <p className="mt-3 text-white/70 max-w-2xl leading-relaxed">
-                Learn to recognize common symptoms and understand when they may require medical attention. Early awareness can lead to early intervention.
+                {t("symptomsDesc")}
               </p>
             </motion.div>
           </div>
@@ -97,11 +99,11 @@ export default function Symptoms() {
         <section className="border-b border-[oklch(0.92_0.01_240)] bg-white">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-4">
             <div className="flex flex-wrap items-center gap-4 text-xs">
-              <span className="font-medium text-[oklch(0.4_0.02_250)]">Urgency levels:</span>
+              <span className="font-medium text-[oklch(0.4_0.02_250)]">{t("urgencyLevels")}</span>
               {Object.entries(URGENCY_COLORS).map(([key, val]) => (
                 <span key={key} className={`inline-flex items-center gap-1.5 px-2 py-1 rounded-full ${val.bg} ${val.text} font-medium`}>
                   <span className={`h-1.5 w-1.5 rounded-full ${val.dot}`} />
-                  {val.label}
+                  {t(val.labelKey as any)}
                 </span>
               ))}
             </div>
@@ -117,7 +119,7 @@ export default function Symptoms() {
                 type="text"
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
-                placeholder="Search symptoms..."
+                placeholder={t("heroSearch")}
                 className="w-full rounded-lg border border-[oklch(0.88_0.01_240)] bg-[oklch(0.97_0.003_250)] py-2 pl-9 pr-3 text-sm outline-none focus:border-[oklch(0.42_0.1_210)] focus:ring-2 focus:ring-[oklch(0.42_0.1_210_/_0.1)]"
               />
             </div>
@@ -130,7 +132,7 @@ export default function Symptoms() {
                     : "bg-white text-[oklch(0.5_0.02_250)] border-[oklch(0.88_0.01_240)] hover:border-[oklch(0.32_0.08_255_/_0.3)]"
                 }`}
               >
-                All Systems
+                {t("allSystems")}
               </button>
               {BODY_SYSTEMS.map((sys) => (
                 <button
@@ -183,7 +185,7 @@ export default function Symptoms() {
                           <div className="flex flex-wrap items-center gap-2 mb-1">
                             <h3 className="text-sm font-semibold text-[oklch(0.2_0.03_255)]">{item.symptom}</h3>
                             <span className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-semibold ${urgency.bg} ${urgency.text}`}>
-                              {urgency.label}
+                              {(t as (k: string) => string)(urgency.labelKey)}
                             </span>
                           </div>
                           <p className="text-xs text-[oklch(0.5_0.02_250)] leading-relaxed mb-2">{item.description}</p>
@@ -222,7 +224,7 @@ export default function Symptoms() {
               <AlertTriangle className="h-10 w-10 text-red-500 mx-auto mb-4" />
               <h2 className="text-xl font-bold text-red-800 mb-2">When in Doubt, Seek Help</h2>
               <p className="text-sm text-red-700 max-w-xl mx-auto leading-relaxed mb-4">
-                If you experience severe symptoms, sudden changes, or warning signs of a medical emergency, don't wait — contact a healthcare professional or call your local emergency number immediately.
+                {t("whenInDoubtDesc")}
               </p>
               <div className="flex flex-wrap justify-center gap-3">
                 <Link

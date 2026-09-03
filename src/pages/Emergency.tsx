@@ -4,6 +4,7 @@ import { AlertTriangle, Phone, Heart, Droplet, Wind, Thermometer, Brain, Bone, E
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { DISCLAIMER } from "@/data";
+import { useTranslation } from "@/i18n/LanguageContext";
 
 const EMERGENCY_SECTIONS = [
   {
@@ -166,6 +167,8 @@ const stagger = {
 };
 
 export default function Emergency() {
+  const { t } = useTranslation();
+
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <Header />
@@ -178,13 +181,13 @@ export default function Emergency() {
                 <AlertTriangle className="h-3.5 w-3.5" />
                 Emergency Awareness
               </div>
-              <h1 className="text-3xl sm:text-4xl font-bold">Emergency Awareness</h1>
+              <h1 className="text-3xl sm:text-4xl font-bold">{t("emergencyTitle")}</h1>
               <p className="mt-3 text-white/80 max-w-2xl leading-relaxed">
-                Learn to recognize medical emergencies and understand when to seek immediate professional help. Quick action can save lives.
+                {t("emergencyDesc")}
               </p>
               <div className="mt-4 p-4 rounded-xl bg-white/15 backdrop-blur-sm inline-block">
                 <p className="text-sm font-semibold">
-                  If this is a medical emergency, call your local emergency number immediately (911 / 999 / 112)
+                  {t("emergencyCallNow")}
                 </p>
               </div>
             </motion.div>
@@ -201,10 +204,10 @@ export default function Emergency() {
               viewport={{ once: true }}
             >
               <h2 className="text-2xl sm:text-3xl font-bold text-[oklch(0.18_0.03_255)]">
-                Recognizing Emergencies
+                {t("recognizeEmergencies")}
               </h2>
               <p className="mt-2 text-[oklch(0.5_0.02_250)] max-w-lg mx-auto">
-                Know the warning signs that require immediate medical attention.
+                {t("recognizeDesc")}
               </p>
             </motion.div>
 
@@ -255,10 +258,10 @@ export default function Emergency() {
               viewport={{ once: true }}
             >
               <h2 className="text-2xl sm:text-3xl font-bold text-[oklch(0.18_0.03_255)]">
-                First Aid Basics
+                {t("firstAidBasics")}
               </h2>
               <p className="mt-2 text-[oklch(0.5_0.02_250)] max-w-lg mx-auto">
-                Essential first aid knowledge that everyone should know.
+                {t("firstAidDesc")}
               </p>
             </motion.div>
 
@@ -299,10 +302,10 @@ export default function Emergency() {
               viewport={{ once: true }}
             >
               <h2 className="text-2xl sm:text-3xl font-bold text-[oklch(0.18_0.03_255)]">
-                Find Nearest Doctors
+                {t("findDoctors")}
               </h2>
               <p className="mt-2 text-[oklch(0.5_0.02_250)] max-w-lg mx-auto">
-                Locate healthcare facilities near you for your health concern.
+                {t("findDoctorsDesc")}
               </p>
             </motion.div>
 
@@ -364,7 +367,7 @@ export default function Emergency() {
               viewport={{ once: true }}
             >
               <h2 className="text-2xl font-bold text-[oklch(0.18_0.03_255)]">
-                Learn More About Health Conditions
+                {t("learnMoreConditions")}
               </h2>
             </motion.div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">

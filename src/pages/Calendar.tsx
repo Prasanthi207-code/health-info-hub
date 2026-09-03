@@ -4,6 +4,7 @@ import { Calendar as CalendarIcon, Filter } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { AWARENESS_EVENTS, DISCLAIMER } from "@/data";
+import { useTranslation } from "@/i18n/LanguageContext";
 
 const MONTHS = [
   "January", "February", "March", "April", "May", "June",
@@ -26,6 +27,7 @@ const MONTH_COLORS = [
 ];
 
 export default function HealthCalendar() {
+  const { t } = useTranslation();
   const [selectedMonth, setSelectedMonth] = useState<number | null>(null);
 
   const events = useMemo(() => {
@@ -55,9 +57,9 @@ export default function HealthCalendar() {
                 <CalendarIcon className="h-3.5 w-3.5" />
                 Health Calendar
               </div>
-              <h1 className="text-3xl sm:text-4xl font-bold">Health Awareness Calendar</h1>
+              <h1 className="text-3xl sm:text-4xl font-bold">{t("calendarTitle")}</h1>
               <p className="mt-3 text-white/70 max-w-2xl leading-relaxed">
-                Important health days, awareness events and observances throughout the year. Stay informed about global health campaigns and participate in raising awareness.
+                {t("calendarDesc")}
               </p>
             </motion.div>
           </div>
@@ -75,7 +77,7 @@ export default function HealthCalendar() {
                     : "bg-white text-[oklch(0.5_0.02_250)] border-[oklch(0.88_0.01_240)] hover:border-[oklch(0.32_0.08_255_/_0.3)]"
                 }`}
               >
-                All Months
+                {t("allMonths")}
               </button>
               {MONTHS.map((month, i) => (
                 <button
@@ -142,7 +144,7 @@ export default function HealthCalendar() {
               </>
             ) : (
               <>
-                <h2 className="text-xl font-bold text-[oklch(0.18_0.03_255)] mb-6">All Health Awareness Events</h2>
+                <h2 className="text-xl font-bold text-[oklch(0.18_0.03_255)] mb-6">{t("calendarTitle")}</h2>
                 <div className="space-y-8">
                   {MONTHS.map((month, monthIndex) => {
                     const monthEvents = eventsByMonth[monthIndex + 1];

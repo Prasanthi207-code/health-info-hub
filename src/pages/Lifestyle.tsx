@@ -3,14 +3,15 @@ import { Apple, Dumbbell, Moon, GlassWater, Brain, Sparkles, Heart, Smile, Footp
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { HEALTH_TIPS, DISCLAIMER } from "@/data";
+import { useTranslation } from "@/i18n/LanguageContext";
 
 const LIFESTYLE_PILLARS = [
   {
-    title: "Balanced Nutrition",
+    titleKey: "lifestyleEatBetter" as const,
     icon: Apple,
     color: "oklch(0.55 0.12 150)",
     gradient: "from-green-500/10 to-emerald-500/10",
-    description: "A well-balanced diet provides essential nutrients for growth, tissue repair, and daily functioning.",
+    descKey: "lifestyleEatBetterDesc" as const,
     habits: [
       "Eat at least 5 servings of fruits and vegetables daily",
       "Choose whole grains over refined grains",
@@ -21,11 +22,11 @@ const LIFESTYLE_PILLARS = [
     ],
   },
   {
-    title: "Regular Physical Activity",
+    titleKey: "lifestyleMoveMore" as const,
     icon: Dumbbell,
     color: "oklch(0.5 0.12 100)",
     gradient: "from-orange-500/10 to-amber-500/10",
-    description: "Physical activity strengthens your body, improves mental health, and reduces the risk of chronic diseases.",
+    descKey: "lifestyleMoveMoreDesc" as const,
     habits: [
       "Aim for 150 minutes of moderate aerobic activity per week",
       "Include strength training exercises twice a week",
@@ -36,11 +37,11 @@ const LIFESTYLE_PILLARS = [
     ],
   },
   {
-    title: "Quality Sleep",
+    titleKey: "lifestyleSleepWell" as const,
     icon: Moon,
     color: "oklch(0.45 0.08 280)",
     gradient: "from-indigo-500/10 to-purple-500/10",
-    description: "Quality sleep is essential for physical recovery, cognitive function, and emotional well-being.",
+    descKey: "lifestyleSleepWellDesc" as const,
     habits: [
       "Aim for 7-9 hours of sleep per night",
       "Maintain a consistent sleep schedule, even on weekends",
@@ -51,11 +52,11 @@ const LIFESTYLE_PILLARS = [
     ],
   },
   {
-    title: "Stress Management",
+    titleKey: "lifestyleManageStress" as const,
     icon: Brain,
     color: "oklch(0.5 0.1 200)",
     gradient: "from-blue-500/10 to-sky-500/10",
-    description: "Chronic stress affects both physical and mental health. Managing stress is vital for overall well-being.",
+    descKey: "lifestyleManageStressDesc" as const,
     habits: [
       "Practice mindfulness and meditation regularly",
       "Take deep breathing breaks throughout the day",
@@ -66,11 +67,11 @@ const LIFESTYLE_PILLARS = [
     ],
   },
   {
-    title: "Hydration",
+    titleKey: "lifestyleStayHydrated" as const,
     icon: GlassWater,
     color: "oklch(0.5 0.12 210)",
     gradient: "from-cyan-500/10 to-teal-500/10",
-    description: "Proper hydration supports every system in your body, from digestion to brain function.",
+    descKey: "lifestyleStayHydratedDesc" as const,
     habits: [
       "Drink at least 8 glasses of water daily",
       "Start your day with a glass of water",
@@ -81,11 +82,11 @@ const LIFESTYLE_PILLARS = [
     ],
   },
   {
-    title: "Personal Hygiene",
+    titleKey: "lifestyleMaintainHygiene" as const,
     icon: Sparkles,
     color: "oklch(0.55 0.1 170)",
     gradient: "from-emerald-500/10 to-green-500/10",
-    description: "Good personal hygiene prevents the spread of infections and supports overall health.",
+    descKey: "lifestyleMaintainHygieneDesc" as const,
     habits: [
       "Wash hands with soap and water for at least 20 seconds",
       "Brush teeth twice daily and floss regularly",
@@ -98,10 +99,10 @@ const LIFESTYLE_PILLARS = [
 ];
 
 const DAILY_ROUTINE = [
-  { time: "Morning", icon: Sun, items: ["Drink a glass of water", "Eat a nutritious breakfast", "Take morning vitamins", "Brief morning stretching"] },
-  { time: "Afternoon", icon: Footprints, items: ["Stay hydrated", "Healthy lunch", "Short walking break", "Mindful eating"] },
-  { time: "Evening", icon: Moon, items: ["Balanced dinner", "Light exercise or walk", "Limit screen time", "Relaxation routine"] },
-  { time: "Night", icon: Smile, items: ["Prepare for sleep", "Gratitude reflection", "Consistent bedtime", "Cool, dark bedroom"] },
+  { timeKey: "morning" as const, icon: Sun, items: ["Drink a glass of water", "Eat a nutritious breakfast", "Take morning vitamins", "Brief morning stretching"] },
+  { timeKey: "afternoon" as const, icon: Footprints, items: ["Stay hydrated", "Healthy lunch", "Short walking break", "Mindful eating"] },
+  { timeKey: "evening" as const, icon: Moon, items: ["Balanced dinner", "Light exercise or walk", "Limit screen time", "Relaxation routine"] },
+  { timeKey: "night" as const, icon: Smile, items: ["Prepare for sleep", "Gratitude reflection", "Consistent bedtime", "Cool, dark bedroom"] },
 ];
 
 const fadeUp = {
@@ -115,27 +116,27 @@ const stagger = {
 };
 
 export default function Lifestyle() {
+  const { t } = useTranslation();
+
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <Header />
       <main className="flex-1">
-        {/* Hero */}
         <section className="bg-gradient-to-br from-[oklch(0.22_0.06_255)] via-[oklch(0.28_0.08_230)] to-[oklch(0.35_0.07_200)] text-white py-12 lg:py-16">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
               <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 backdrop-blur-sm text-xs font-medium text-white/80 mb-4">
                 <Heart className="h-3.5 w-3.5" />
-                Healthy Living
+                {t("lifestyle")}
               </div>
-              <h1 className="text-3xl sm:text-4xl font-bold">Healthy Lifestyle</h1>
+              <h1 className="text-3xl sm:text-4xl font-bold">{t("lifestyleTitle")}</h1>
               <p className="mt-3 text-white/70 max-w-2xl leading-relaxed">
-                Small daily habits lead to lasting health improvements. Discover the six pillars of a healthy lifestyle and practical tips to incorporate them into your daily routine.
+                {t("lifestyleDesc")}
               </p>
             </motion.div>
           </div>
         </section>
 
-        {/* Six Pillars */}
         <section className="py-12 lg:py-16">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <motion.div
@@ -145,10 +146,10 @@ export default function Lifestyle() {
               viewport={{ once: true }}
             >
               <h2 className="text-2xl sm:text-3xl font-bold text-[oklch(0.18_0.03_255)]">
-                Six Pillars of Healthy Living
+                {t("sixPillars")}
               </h2>
               <p className="mt-2 text-[oklch(0.5_0.02_250)] max-w-lg mx-auto">
-                These foundational habits work together to support your overall health.
+                {t("sixPillarsDesc")}
               </p>
             </motion.div>
 
@@ -160,7 +161,7 @@ export default function Lifestyle() {
               viewport={{ once: true }}
             >
               {LIFESTYLE_PILLARS.map((pillar) => (
-                <motion.div key={pillar.title} variants={fadeUp}>
+                <motion.div key={pillar.titleKey} variants={fadeUp}>
                   <div className={`rounded-xl border border-[oklch(0.9_0.01_240)] bg-white p-5 hover:shadow-[0_8px_30px_-8px_oklch(0.32_0.08_255_/_0.1)] transition-all duration-300 h-full bg-gradient-to-br ${pillar.gradient}`}>
                     <div className="flex items-center gap-3 mb-3">
                       <div
@@ -169,9 +170,9 @@ export default function Lifestyle() {
                       >
                         <pillar.icon className="h-5 w-5" />
                       </div>
-                      <h3 className="text-base font-semibold text-[oklch(0.2_0.03_255)]">{pillar.title}</h3>
+                      <h3 className="text-base font-semibold text-[oklch(0.2_0.03_255)]">{t(pillar.titleKey)}</h3>
                     </div>
-                    <p className="text-sm text-[oklch(0.4_0.02_250)] leading-relaxed mb-3">{pillar.description}</p>
+                    <p className="text-sm text-[oklch(0.4_0.02_250)] leading-relaxed mb-3">{t(pillar.descKey)}</p>
                     <ul className="space-y-1.5">
                       {pillar.habits.map((habit, i) => (
                         <li key={i} className="flex items-start gap-2 text-xs text-[oklch(0.35_0.02_250)] leading-relaxed">
@@ -187,7 +188,6 @@ export default function Lifestyle() {
           </div>
         </section>
 
-        {/* Daily Routine */}
         <section className="py-12 lg:py-16 bg-[oklch(0.97_0.003_250)]">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <motion.div
@@ -197,17 +197,17 @@ export default function Lifestyle() {
               viewport={{ once: true }}
             >
               <h2 className="text-2xl sm:text-3xl font-bold text-[oklch(0.18_0.03_255)]">
-                Your Healthy Daily Routine
+                {t("dailyRoutine")}
               </h2>
               <p className="mt-2 text-[oklch(0.5_0.02_250)] max-w-lg mx-auto">
-                Structure your day with healthy habits at every stage.
+                {t("dailyRoutineDesc")}
               </p>
             </motion.div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
               {DAILY_ROUTINE.map((slot, i) => (
                 <motion.div
-                  key={slot.time}
+                  key={slot.timeKey}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
@@ -216,7 +216,7 @@ export default function Lifestyle() {
                 >
                   <div className="flex items-center gap-2 mb-3">
                     <slot.icon className="h-5 w-5 text-[oklch(0.35_0.1_220)]" />
-                    <h3 className="text-sm font-semibold text-[oklch(0.2_0.03_255)]">{slot.time}</h3>
+                    <h3 className="text-sm font-semibold text-[oklch(0.2_0.03_255)]">{t(slot.timeKey)}</h3>
                   </div>
                   <ul className="space-y-2">
                     {slot.items.map((item, j) => (
@@ -232,7 +232,6 @@ export default function Lifestyle() {
           </div>
         </section>
 
-        {/* Health Tips */}
         <section className="py-12 lg:py-16">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <motion.div
@@ -242,10 +241,10 @@ export default function Lifestyle() {
               viewport={{ once: true }}
             >
               <h2 className="text-2xl sm:text-3xl font-bold text-[oklch(0.18_0.03_255)]">
-                Daily Health Tips
+                {t("dailyTips")}
               </h2>
               <p className="mt-2 text-[oklch(0.5_0.02_250)] max-w-lg mx-auto">
-                Quick, actionable tips to improve your health every day.
+                {t("dailyTipsDesc")}
               </p>
             </motion.div>
 

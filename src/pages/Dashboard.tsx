@@ -5,8 +5,10 @@ import { Bookmark, LogOut, User, Stethoscope, Megaphone, BookOpen, ArrowRight, H
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { useEffect, useState } from "react";
+import { useTranslation } from "@/i18n/LanguageContext";
 
 export default function Dashboard() {
+  const { t } = useTranslation();
   const { user, isAuthenticated, logout } = useUser();
   const navigate = useNavigate();
   const [totalBookmarks, setTotalBookmarks] = useState(0);
@@ -41,7 +43,7 @@ export default function Dashboard() {
                 className="h-20 w-20 rounded-2xl border-3 border-white/20"
               />
               <div className="flex-1">
-                <h1 className="text-2xl font-bold">Welcome, {user.name}</h1>
+                <h1 className="text-2xl font-bold">{t("dashWelcome")}, {user.name}</h1>
                 <p className="text-white/70 text-sm mt-0.5">{user.email || user.phone}</p>
                 <p className="text-white/50 text-xs mt-1">
                   Member since {new Date(user.joinedAt).toLocaleDateString("en-US", { month: "long", year: "numeric" })}
@@ -53,7 +55,7 @@ export default function Dashboard() {
                 className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white/10 border border-white/20 text-white text-sm font-medium hover:bg-white/20 transition-colors"
               >
                 <LogOut className="h-4 w-4" />
-                Sign out
+                {t("signOut")}
               </button>
             </div>
           </div>
@@ -84,7 +86,7 @@ export default function Dashboard() {
             {/* Quick Actions */}
             <Card className="border-[oklch(0.9_0.01_240)] mb-6">
               <CardContent className="p-5">
-                <h2 className="text-lg font-bold text-[oklch(0.18_0.03_255)] mb-4">Quick Actions</h2>
+                <h2 className="text-lg font-bold text-[oklch(0.18_0.03_255)] mb-4">{t("dashQuickActions")}</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
                   {[
                     { icon: Bookmark, label: "View Bookmarks", desc: "Access your saved items", href: "/bookmarks" },
@@ -121,7 +123,7 @@ export default function Dashboard() {
                     <Heart className="h-5 w-5" />
                   </div>
                   <div>
-                    <h3 className="font-semibold mb-1">Remember: Small Steps Lead to Big Changes</h3>
+                    <h3 className="font-semibold mb-1">{t("smallSteps")}</h3>
                     <p className="text-white/75 text-sm leading-relaxed">
                       Start with one healthy habit today — drink more water, take a short walk, or get to bed on time.
                       Consistency is key to building a healthier lifestyle.
