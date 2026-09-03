@@ -86,7 +86,7 @@ export default function Landing() {
               <div className="max-w-xl">
                 <motion.div {...fadeUp}>
                   <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 backdrop-blur-sm text-xs font-medium text-white/80 mb-6">
-                    <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=40&h=40&fit=crop&crop=face" alt="Doctor" className="h-5 w-5 rounded-full object-cover" />
+                    <img src="https://images.unsplash.com/photo-1537368910025-700350fe46c7?w=40&h=40&fit=crop&crop=face" alt="Doctor" className="h-5 w-5 rounded-full object-cover" />
                     {t("trustedHealthPlatform")}
                   </div>
                 </motion.div>
@@ -159,7 +159,7 @@ export default function Landing() {
                 <div className="relative">
                   <div className="absolute inset-0 bg-white/5 rounded-3xl -m-3" />
                   <img
-                    src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=600&h=500&fit=crop&crop=face"
+                    src="https://images.unsplash.com/photo-1631815588090-d4bfec5b1ccb?w=600&h=500&fit=crop"
                     alt="Healthcare professional"
                     className="relative rounded-2xl w-full h-[380px] object-cover shadow-2xl border-2 border-white/10"
                   />

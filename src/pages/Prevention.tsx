@@ -229,6 +229,25 @@ export default function Prevention() {
               ))}
             </motion.div>
 
+            {/* Health Image Banner */}
+            <motion.div
+              className="mt-10 rounded-2xl overflow-hidden"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              <img
+                src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?w=1200&h=400&fit=crop"
+                alt="Healthy food and prevention"
+                className="w-full h-48 sm:h-64 object-cover"
+              />
+              <div className="bg-gradient-to-r from-[oklch(0.22_0.06_255)] to-[oklch(0.35_0.07_200)] p-6">
+                <p className="text-white/80 text-sm leading-relaxed max-w-3xl">
+                  {t("preventionMessage")} — {t("preventionMessageDesc")}
+                </p>
+              </div>
+            </motion.div>
+
             <motion.div
               className="mt-10 rounded-xl border border-red-200 bg-red-50 p-5"
               initial={{ opacity: 0, y: 20 }}
