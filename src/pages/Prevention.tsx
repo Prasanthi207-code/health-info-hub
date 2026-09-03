@@ -156,18 +156,26 @@ export default function Prevention() {
     <div className="min-h-screen flex flex-col bg-background">
       <Header />
       <main className="flex-1">
-        <section className="bg-gradient-to-br from-[oklch(0.22_0.06_255)] via-[oklch(0.28_0.08_230)] to-[oklch(0.35_0.07_200)] text-white py-12 lg:py-16">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 backdrop-blur-sm text-xs font-medium text-white/80 mb-4">
-                <ShieldCheck className="h-3.5 w-3.5" />
-                {t("prevention")}
-              </div>
-              <h1 className="text-3xl sm:text-4xl font-bold">{t("preventionTitle")}</h1>
-              <p className="mt-3 text-white/70 max-w-2xl leading-relaxed">
-                {t("preventionDesc")}
-              </p>
-            </motion.div>
+        <section className="relative overflow-hidden bg-gradient-to-br from-[oklch(0.22_0.06_255)] via-[oklch(0.28_0.08_230)] to-[oklch(0.35_0.07_200)] text-white py-12 lg:py-20">
+          <div className="absolute inset-0 opacity-10">
+            <img src="https://images.unsplash.com/photo-1505576399279-0d0ef0e69e2e?w=1400&h=600&fit=crop" alt="" className="w-full h-full object-cover" />
+          </div>
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative">
+            <div className="grid lg:grid-cols-2 gap-10 items-center">
+              <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 backdrop-blur-sm text-xs font-medium text-white/80 mb-4">
+                  <ShieldCheck className="h-3.5 w-3.5" />
+                  {t("prevention")}
+                </div>
+                <h1 className="text-3xl sm:text-4xl font-bold">{t("preventionTitle")}</h1>
+                <p className="mt-3 text-white/70 max-w-2xl leading-relaxed">
+                  {t("preventionDesc")}
+                </p>
+              </motion.div>
+              <motion.div className="hidden lg:flex justify-end" initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.3 }}>
+                <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=500&h=360&fit=crop" alt="Prevention and healthy living" className="rounded-2xl shadow-2xl border-2 border-white/10 w-full max-w-md object-cover h-[280px]" />
+              </motion.div>
+            </div>
           </div>
         </section>
 

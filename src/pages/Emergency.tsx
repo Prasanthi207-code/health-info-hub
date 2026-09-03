@@ -174,23 +174,31 @@ export default function Emergency() {
       <Header />
       <main className="flex-1">
         {/* Hero */}
-        <section className="bg-gradient-to-r from-red-600 via-red-500 to-red-600 text-white py-12 lg:py-16">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/15 backdrop-blur-sm text-xs font-medium text-white mb-4">
-                <AlertTriangle className="h-3.5 w-3.5" />
-                Emergency Awareness
-              </div>
-              <h1 className="text-3xl sm:text-4xl font-bold">{t("emergencyTitle")}</h1>
-              <p className="mt-3 text-white/80 max-w-2xl leading-relaxed">
-                {t("emergencyDesc")}
-              </p>
-              <div className="mt-4 p-4 rounded-xl bg-white/15 backdrop-blur-sm inline-block">
-                <p className="text-sm font-semibold">
-                  {t("emergencyCallNow")}
+        <section className="relative overflow-hidden bg-gradient-to-r from-red-700 via-red-600 to-red-700 text-white py-12 lg:py-20">
+          <div className="absolute inset-0 opacity-10">
+            <img src="https://images.unsplash.com/photo-1587745416684-47953f16f02f?w=1400&h=600&fit=crop" alt="" className="w-full h-full object-cover" />
+          </div>
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative">
+            <div className="grid lg:grid-cols-2 gap-10 items-center">
+              <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/15 backdrop-blur-sm text-xs font-medium text-white mb-4">
+                  <AlertTriangle className="h-3.5 w-3.5" />
+                  Emergency Awareness
+                </div>
+                <h1 className="text-3xl sm:text-4xl font-bold">{t("emergencyTitle")}</h1>
+                <p className="mt-3 text-white/80 max-w-2xl leading-relaxed">
+                  {t("emergencyDesc")}
                 </p>
-              </div>
-            </motion.div>
+                <div className="mt-4 p-4 rounded-xl bg-white/15 backdrop-blur-sm inline-block">
+                  <p className="text-sm font-semibold">
+                    {t("emergencyCallNow")}
+                  </p>
+                </div>
+              </motion.div>
+              <motion.div className="hidden lg:flex justify-end" initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.3 }}>
+                <img src="https://images.unsplash.com/photo-1516549655169-df83a0774514?w=500&h=360&fit=crop" alt="Emergency preparedness" className="rounded-2xl shadow-2xl border-2 border-white/10 w-full max-w-md object-cover h-[280px]" />
+              </motion.div>
+            </div>
           </div>
         </section>
 
@@ -244,6 +252,30 @@ export default function Emergency() {
                   </div>
                 </motion.div>
               ))}
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Emergency Image Banner */}
+        <section className="py-6">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <motion.div
+              className="rounded-2xl overflow-hidden relative"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              <img
+                src="https://images.unsplash.com/photo-1587745416684-47953f16f02f?w=1200&h=400&fit=crop"
+                alt="First aid kit and emergency supplies"
+                className="w-full h-48 sm:h-64 object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-red-700/80 to-transparent flex items-center p-8">
+                <div className="max-w-md">
+                  <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">Be Prepared</h3>
+                  <p className="text-white/80 text-sm leading-relaxed">Learn first aid basics and keep an emergency kit accessible at home, work, and in your car.</p>
+                </div>
+              </div>
             </motion.div>
           </div>
         </section>
