@@ -1,6 +1,7 @@
 import { Link } from "react-router";
 import { Heart, Shield } from "lucide-react";
 import { DISCLAIMER } from "@/data";
+import { useTranslation } from "@/i18n/LanguageContext";
 
 const FOOTER_LINKS = {
   explore: [
@@ -24,6 +25,8 @@ const FOOTER_LINKS = {
 };
 
 export default function Footer() {
+  const { t } = useTranslation();
+
   return (
     <footer className="bg-[oklch(0.16_0.03_255)] text-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
@@ -44,7 +47,7 @@ export default function Footer() {
               </div>
             </Link>
             <p className="text-sm text-white/60 leading-relaxed max-w-xs">
-              Empowering communities with reliable health awareness information, prevention guidance, and healthy lifestyle resources.
+              {t("footerAboutDesc")}
             </p>
             <div className="flex gap-3 mt-4">
               {["Facebook", "Twitter", "Instagram", "LinkedIn"].map((name) => (
@@ -63,7 +66,7 @@ export default function Footer() {
           {Object.entries(FOOTER_LINKS).map(([category, links]) => (
             <div key={category}>
               <h3 className="text-sm font-semibold text-white/90 uppercase tracking-wider mb-4">
-                {category}
+                {category === "explore" ? t("footerResources") : category === "health" ? t("prevention") : t("footerSupport")}
               </h3>
               <ul className="space-y-2.5">
                 {links.map((link) => (
@@ -91,7 +94,7 @@ export default function Footer() {
         {/* Copyright */}
         <div className="mt-6 pt-4 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-2">
           <p className="text-xs text-white/40">
-            © 2026 Digital Health Awareness Portal. All rights reserved.
+            © 2026 Digital Health Awareness Portal. {t("footerRights")}
           </p>
           <p className="text-xs text-white/30 flex items-center gap-1">
             Built with <Heart className="h-3 w-3 text-red-400" fill="currentColor" /> for global health awareness

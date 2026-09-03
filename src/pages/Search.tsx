@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Search as SearchIcon, ArrowRight, Stethoscope, Megaphone, BookOpen, X } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { useTranslation } from "@/i18n/LanguageContext";
 import { CAMPAIGNS, HEALTH_TOPICS, ARTICLES, DISCLAIMER } from "@/data";
 
 interface SearchResult {
@@ -16,6 +17,7 @@ interface SearchResult {
 }
 
 export default function SearchPage() {
+  const { t } = useTranslation();
   const [searchParams, setSearchParams] = useSearchParams();
   const initialQuery = searchParams.get("q") || "";
   const [query, setQuery] = useState(initialQuery);

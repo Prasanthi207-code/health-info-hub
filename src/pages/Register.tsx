@@ -3,8 +3,10 @@ import { Link, useNavigate } from "react-router";
 import { motion } from "framer-motion";
 import { Shield, User, Mail, Phone, Lock, Eye, EyeOff, ArrowRight, CheckCircle, Heart, Stethoscope, Activity } from "lucide-react";
 import { useUser } from "@/hooks/use-user";
+import { useTranslation } from "@/i18n/LanguageContext";
 
 export default function Register() {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const { register } = useUser();
   const [showPassword, setShowPassword] = useState(false);
